@@ -2,6 +2,7 @@
 [1]
 [Appendix section]
 {
-  \section*{#1}
-  \addcontentsline{toc}{section}{#1}
+  \renewcommand{\thesection}{\Roman{section}} 
+  \renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+  \section{#1}
 }
