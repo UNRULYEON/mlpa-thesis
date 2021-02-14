@@ -1,0 +1,114 @@
+\documentclass[11pt, a4paper, twoside]{report}
+
+% Change language to Dutch
+\usepackage[dutch]{babel}
+
+% Set default font to Open Sans
+\usepackage[default]{opensans}
+
+% References
+\usepackage{csquotes}
+\usepackage{biblatex}
+\addbibresource{bibliography/bibliography.bib}
+\defbibheading{bib_heading}{\newpage\addcontentsline{toc}{chapter}{Bibliografie}\begin{flushleft}\Huge{\textbf{\bibname}}\vspace{0.20in}}
+
+% Adjust margins
+\usepackage[includeheadfoot,nomarginpar,margin=2.54cm]{geometry}
+
+% Turn references in hyperlinks
+\usepackage[hidelinks=true]{hyperref}
+
+% Fancy headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{}
+\fancyhead[RE,LO]{}
+\fancyfoot[RE,LO]{}
+\fancyfoot[CE,CO]{\thepage}
+
+\renewcommand{\headrulewidth}{.5pt}
+\renewcommand{\footrulewidth}{.5pt}
+
+% Define path for images
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+% Glossary list
+\usepackage[toc, acronym, nopostdot, style=index]{glossaries}
+\makeglossaries
+\input{glossary/acronyms.tex}
+\input{glossary/terms.tex}
+
+% TOC
+\usepackage{tocloft}
+
+% Appendix
+\usepackage[toc, title]{appendix}
+
+% Custom components
+\input{components/styledchapter.tex}
+\input{components/styledunmarkedchapter.tex}
+\input{components/appendixsection.tex}
+
+% Debugging
+% \usepackage{showframe}
+
+\title{Machine Learning Pipeline Automation}
+\author{Amar Kisoensingh}
+
+\begin{document}
+
+% Title page
+\maketitle\thispagestyle{empty}\cleardoublepage
+
+\input{chapters/0.voorwoord/voorwoord.tex}
+
+% Glossary
+\renewcommand{\glossarysection}[2][\theglstoctitle]{
+  \def\theglstoctitle{#2}
+  \vspace{\cftbeforelottitleskip}
+  \par\noindent
+  {\cftlottitlefont #2}{\cftafterlottitle}
+  \vskip\cftafterlottitleskip\vspace{-0.25in}
+}
+\addcontentsline{toc}{chapter}{Afkortingen}
+\printglossary[type=\acronymtype,title=Afkortingen,toctitle=Afkortingen]\thispagestyle{fancy}\newpage
+\addcontentsline{toc}{chapter}{Woordenlijst}
+\printglossary[title=Woordenlijst]\thispagestyle{fancy}\newpage
+
+% List of figures
+\renewcommand{\cftbeforeloftitleskip}{-0.15in}
+\renewcommand{\cftafterloftitleskip}{0.20in}
+\addcontentsline{toc}{chapter}{Lijst van figuren}
+\listoffigures{}\thispagestyle{fancy}\newpage
+
+% Table of Contents
+\renewcommand{\cftbeforetoctitleskip}{-0.15in}
+\renewcommand{\cftaftertoctitleskip}{0.20in}
+\tableofcontents{}\thispagestyle{fancy}\newpage
+
+% Chapters
+\input{chapters/1.inleiding/inleiding.tex}
+\input{chapters/2.probleemanalyse/probleemanalyse.tex}
+\input{chapters/3.methode-van-onderzoek/methode-van-onderzoek.tex}
+\input{chapters/4.theoretisch-kader/theoretisch-kader.tex}
+\input{chapters/5.requirementanalyse/requirementanalyse.tex}
+\input{chapters/6.advies/advies.tex}
+\input{chapters/7.ontwerp/ontwerp.tex}
+\input{chapters/8.realisatie/realisatie.tex}
+\input{chapters/9.conclusie/conclusie.tex}
+\input{chapters/10.aanbeveling/aanbeveling.tex}
+\input{chapters/11.discussie/discussie.tex}
+\input{chapters/12.persoonlijke-reflectie/persoonlijke-reflectie.tex}
+
+% Bibliography
+\printbibliography[heading=bib_heading, title={\bibname}]
+
+% Appendix input
+\renewcommand{\appendixname}{Bijlagen}
+\renewcommand{\appendixtocname}{Bijlagen}
+\renewcommand{\appendixpagename}{Bijlagen}
+\input{appendix/appendix.tex}
+
+\end{document}

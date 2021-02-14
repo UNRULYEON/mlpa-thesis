@@ -1,0 +1,17 @@
+\usepackage{titlesec}
+\usepackage{afterpage}
+\usepackage{xcolor}
+
+\newcommand{\styledchapter}
+[1]
+[Title]
+{
+  \newpage
+  \pagecolor{yellow}
+
+  \titleformat{\chapter}{\normalfont\Huge}{\thechapter}{20pt}{\Huge}
+  \chapter{#1}
+
+  \afterpage{\nopagecolor}
+  \newpage
+}

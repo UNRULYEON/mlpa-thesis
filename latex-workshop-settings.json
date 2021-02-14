@@ -1,0 +1,55 @@
+{
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex",
+      "tools": ["pdflatex"]
+    },
+    {
+      "name": "pdflatex - Draft",
+      "tools": ["pdflatex-draft"]
+    },
+    {
+      "name": "biber",
+      "tools": ["pdflatex", "biber", "pdflatex"]
+    },
+    {
+      "name": "makeglossaries",
+      "tools": ["pdflatex", "makeglossaries", "pdflatex"]
+    },
+    {
+      "name": "publish",
+      "tools": ["pdflatex", "biber", "pdflatex", "makeglossaries", "pdflatex"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": ["-output-directory=%OUTDIR%", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOCFILE%"]
+    },
+    {
+      "name": "biber",
+      "command": "biber",
+      "args": ["--input-directory=%OUTDIR%", "--output-directory=%OUTDIR%", "%DOCFILE%"]
+    },
+    {
+      "name": "pdflatex-draft",
+      "command": "pdflatex",
+      "args": [
+        "-draftmode",
+        "-output-directory=%OUTDIR%",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOCFILE%"
+      ]
+    },
+    {
+      "name": "makeglossaries",
+      "command": "makeglossaries",
+      "args": ["-d%OUTDIR%", "%DOCFILE%"]
+    }
+  ],
+  "latex-workshop.latex.outDir": "build"
+}
