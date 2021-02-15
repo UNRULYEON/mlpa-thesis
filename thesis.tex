@@ -21,11 +21,21 @@
 % Fancy headers and footers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhf{}
 \fancyhead[LE,RO]{}
 \fancyhead[RE,LO]{}
 \fancyfoot[RE,LO]{}
 \fancyfoot[CE,CO]{\thepage}
+\fancypagestyle{plain}{%
+  \pagestyle{fancy}%
+}
+\fancypagestyle{styledchapter}{%
+  \fancyhead[LE,RO]{}
+  \fancyhead[RE,LO]{}
+  \fancyfoot[RE,LO]{}
+  \fancyfoot[CE,CO]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 
 \renewcommand{\headrulewidth}{.5pt}
 \renewcommand{\footrulewidth}{.5pt}
@@ -86,7 +96,7 @@
 % Table of Contents
 \renewcommand{\cftbeforetoctitleskip}{-0.15in}
 \renewcommand{\cftaftertoctitleskip}{0.20in}
-\tableofcontents{}\thispagestyle{fancy}\newpage
+\tableofcontents{}\thispagestyle{fancy}
 
 % Chapters
 \input{chapters/1.inleiding/inleiding.tex}
