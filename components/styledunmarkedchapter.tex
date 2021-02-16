@@ -3,7 +3,7 @@
 \usepackage{xcolor}
 
 \newcommand{\styledunmarkedchapter}
-[1]
+[2]
 [Title]
 {
   \newpage
@@ -12,6 +12,7 @@
   \titleformat{\chapter}{\normalfont\Huge}{\thechapter}{20pt}{\Huge}
   \chapter*{#1}\thispagestyle{styledchapter}
   \addcontentsline{toc}{chapter}{Bijlagen}
+  \label{chap:#2}
 
   \afterpage{\nopagecolor}
   \newpage

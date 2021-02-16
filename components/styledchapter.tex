@@ -3,7 +3,7 @@
 \usepackage{xcolor}
 
 \newcommand{\styledchapter}
-[1]
+[2]
 [Title]
 {
   \newpage
@@ -11,6 +11,7 @@
 
   \titleformat{\chapter}{\normalfont\Huge}{\thechapter}{20pt}{\Huge}
   \chapter{#1}\thispagestyle{styledchapter}
+  \label{chap:#2}
 
   \afterpage{\nopagecolor}
   \newpage
