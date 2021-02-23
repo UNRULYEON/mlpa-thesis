@@ -1,4 +1,5 @@
 \documentclass[11pt, a4paper, twoside]{report}
+\usepackage[utf8]{inputenc}
 
 % Change language to Dutch
 \usepackage[dutch]{babel}
@@ -67,8 +68,17 @@
 % Highlighting text
 \usepackage{soul}
 
+% Package for tables
+\usepackage{multirow}
+
 % Debugging
 % \usepackage{showframe}
+
+% Hyphenation fix
+% \tolerance=9999
+% \emergencystretch=10pt
+% \hyphenpenalty=10000
+% \hbadness=10
 
 \title{Machine Learning Pipeline Automation}
 \author{Amar Kisoensingh}
@@ -100,6 +110,8 @@
 \listoffigures{}\thispagestyle{fancy}\newpage
 
 % List of tables
+\renewcommand{\cftbeforelottitleskip}{-0.15in}
+\renewcommand{\cftafterlottitleskip}{0.20in}
 \listoftables\thispagestyle{fancy}\newpage
 \addcontentsline{toc}{chapter}{Lijst van tabellen}
 
