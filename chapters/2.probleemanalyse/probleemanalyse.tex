@@ -1,9 +1,100 @@
 \styledchapter[Probleemanalyse]{probleemanalyse}
 
-\section{Probleemdefinitie}
+\section{Probleemdefinitie}\label{sec:probleemdefinitie}
+Zoals beschreven in \autoref{sec:opdracht} is NGTI genoodzaakt om \gls{machine-learning} in te zetten om haar applicaties 'slimmer' te maken. Hier zijn een aantal redenen voor, namelijk:
+\begin{enumerate}
+  \item gebruikerservaring verbeteren
+  \item voorsprong hebben op concurrenten
+\end{enumerate}
 
-\section{Bestaand oplossingen}
+Het 'slimmer' maken van applicaties kan op verschillende manieren, maar met \gls{machine-learning} kan een platform gebouwd worden waar naar elke richting op gegaan kan worden. Om \gls{machine-learning} te implementeren in haar applicaties loopt NGTI tegen een aantal opstakels.
 
-\section{Doelstelling}
+\subsection{Expertise ML}\label{sec:expertise-vereist}
+\Gls{machine-learning} is geen triviaal onderwerp. Om een model te trainen is kennis nodig van verschillende domeinen: \gls{data-mining}, software engineering en statistieken. In een multidisciplinair is het voor een teamlid niet nodig om alle domeinen te beheersen.
 
-\section{Hoofd- en deelvragen}
+Doordat er voorkennis nodig is om een model te trainen, is het vaak te hoog-drempelig om te beginnen voor developers. De expertise is daar bovenop niet in een korte tijd te vergaren.
+
+\subsection{Opzetting pipeline}\label{sec:opzetten-pipeline}
+Er bestaan verschillende manieren om een model te trainen. een \gls{machine-learning-pipeline} opzetten is daar een van. In een pipeline wordt voor het trainen van het model de data voorbereid. Het opzetten van een pipeline kost tijd. Op zichzelf niet zo zeer veel tijd, maar als er veel wordt geëxperimenteerd met het trainen van modellen kan de tijd opstapelen. Ook zijn de stappen in een pipeline over het algemeen hetzelfde, ongeacht wat voor model je traint. Hierdoor worden vaak taken herhaalt tussen het opzetten van verschillende pipelines.
+
+\subsection{Vendor lock-in}\label{sec:vendor-lock-in}
+Er bestaan een aantal diensten, zogenoemde \acrfull{paas}, waarbij je een pipeline kan opzetten. Een van de problemen met een \acrshort{paas} is \gls{vendor-lock-in}. Dit betekent dat, als er eenmaal een pipeline is opgezet, de overdraagbaarheid van de pipeline naar een andere \acrshort{paas} vrijwel onmogelijk is. Ook zijn de opties en mogelijkheden om uit te breiden in de toekomst gelimiteerd.
+
+\section{Doelstelling}\label{sec:doelstelling}
+De doelstelling is om een systeem te ontwikkelen waarbij developers met weinig tot geen kennis een model kunnen trainen, onderdelen van de pipeline geautomatiseerd zijn en platform agnostisch is.
+
+Het trainen van een model is een iteratief proces omdat de data waarmee het model getrained is verouderd waardoor het model niet meer optimaal presteerd. Om een nieuw model te trainen en consistent te blijven met hoe een model getrained wordt kan een pipeline opgezet worden. Een pipeline is dus herbruikbaar.
+
+\section{Bestaand oplossingen}\label{sec:bestaande-oplossingen}
+Er bestaan een aantal oplossingen voor vrijwel alle problemen dat NGTI ondervindt. Elk oplossing is een \acrshort{paas} van een derde partij waarbij \gls{vendor-lock-in} inherent is. Dit maakt ze ongeschikt maar betekent niet dat ze nutteloos zijn. Er kan namelijk gekeken worden hoe een pipeline wordt opgezet en daar vervolgens (gedeeltelijk) het systeem op baseren.
+
+De oplossingen kunnen gecategoriseerd worden in twee groepen:
+\begin{enumerate}
+  \item \Gls{machine-learning-pipeline} specifieke services
+  \item \Glspl{cloud-computing-platform}
+\end{enumerate}
+
+\subsection{Machine learning pipeline specifieke service}\label{subsec:machine-learning-pipeline-specifieke-service}
+Bedrijven zoals Algorithmia \cite{algorithmia-website} en Valohai \cite{valohai-website} bieden alleen diensten om pipelines op te zetten. Ze zorgen voor het databehoud dat door de gebruiker wordt geuploaded en het trainen van het model. Verder kan er toezicht gehouden worden op de kosten, beschikbaarheid en prestatie van het model.
+
+Valohai heeft documentatie een aantal blog posts die bij het ontwerpen van het systeem relevant zouden kunnen zijn.
+
+\subsection{Cloud computing platformen}\label{subsec:cloud-computing-platformen}
+De drie grote \glspl{cloud-computing-platform} Amazon, Azure en Google hebben meer te bieden dan alleen een pipeline opzetten, zoals het hosten van een website, database of virtuele server. De \glspl{cloud-computing-platform} hebben hetzelfde probleem als de \gls{machine-learning-pipeline} specifieke services; \gls{vendor-lock-in} is onvermijdelijk. Wat wel een mogelijkheid zou kunnen zijn is dat de andere services van de \glspl{cloud-computing-platform} gebruikt kunnen worden als onderdeel van het systeem.
+
+% \subsection{Algorithmia}\label{subsec:algorithmia}
+% \subsection{Valohai}\label{subsec:valohai}
+% \subsection{Azure Machine Learning Pipelines (Azure)}\label{subsec:azure-machine-learning-pipelines}
+% \subsection{AI Platform Pipelines}\label{subsec:ai-platform-pipelines}
+% \subsection{Amazon SageMaker Pipelines}\label{subsec:amazon-sagemaker-pipelines}
+
+\section{Hoofd- en deelvragen}\label{sec:hoofd-en-deelvragen}
+Uitgaand van de drie focuspunten in \autoref{sec:probleemdefinitie} kan de hoofdvraag als volgt worden geformuleerd:\smallskip
+
+\begin{center}
+  \textbf{
+    \textit{
+      Hoe kan een machine learning pipeline worden geautomatiseerd onafhankelijk van de onderliggende cloud computing platform of lokale framework?
+    }
+  }
+\end{center}\smallskip
+
+De hoofdvraag kan worden onderbouwd met vier deelvragen. Om te beginnen is het verstanding om te onderzoeken hoe een \gls{machine-learning} model wordt getrained:\smallskip
+
+\begin{center}
+  \textbf{
+    \textit{
+      Welke stappen moeten worden ondernomen om een machine learning-model te trainen?
+    }
+  }
+\end{center}\smallskip
+
+Vervolgens kan er op de deelvraag voortborduurt worden om het opzetten van een pipeline in kaart te brengen:\smallskip
+
+\begin{center}
+  \textbf{
+    \textit{
+      Hoe wordt een machine learning-pipeline opgezet?
+    }
+  }
+\end{center}\smallskip
+
+Verder zijn er verschillende \glspl{cloud-computing-platform} en lokale frameworks waarmee \gls{machine-learning} modellen getrained kunnen worden. Doordat het systeem platform agnostisch moet zijn is het van belang om verschillende platformen en frameworks te onderzoeken:
+
+\begin{center}
+  \textbf{
+    \textit{
+      Wat zijn de verschillende en overeenkomsten tussen cloud computing platforms en lokale frameworks waarmee machine learning-modellen kunnen worden getrained?
+    }
+  }
+\end{center}\smallskip
+
+Ten slotte wordt een PoC gemaakt om te laten zien of het probleem oplosbaar is. Hiervoor is een doordachte voorbereiden onmisbaar:\smallskip
+
+\begin{center}
+  \textbf{
+    \textit{
+      Hoe ziet de architecturale blauwdruk van een applicatie, waarin een machine learning pipeline kan worden opgezet en die platformonafhankelijk is, eruit?
+    }
+  }
+\end{center}
