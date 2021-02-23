@@ -7,12 +7,15 @@
 [Title]
 {
   \newpage
-  \pagecolor{yellow}
+  \pagecolor{pink}
 
   \titleformat{\chapter}{\normalfont\Huge}{\thechapter}{20pt}{\Huge}
   \chapter*{#1}\thispagestyle{styledchapter}
   \addcontentsline{toc}{chapter}{Bijlagen}
   \label{chap:#2}
+  \newpage\thispagestyle{styledchapter}
+
+  \hfill\break
 
   \afterpage{\nopagecolor}
   \newpage
