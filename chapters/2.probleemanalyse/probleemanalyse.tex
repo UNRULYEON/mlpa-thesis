@@ -9,7 +9,7 @@ Zoals beschreven in \autoref{sec:opdracht} is NGTI genoodzaakt om \gls{machine-l
 
 Het 'slimmer' maken van applicaties kan op verschillende manieren, maar met \gls{machine-learning} kan een platform gebouwd worden waar naar elke richting op gegaan kan worden. Om \gls{machine-learning} te implementeren in haar applicaties loopt NGTI tegen een aantal obstakels op, namelijk: expertise vereist in het \gls{machine-learning-pipeline} domein, tijd om een pipeline op te zetten en \gls{vendor-lock-in}.
 
-\subsection{Expertise ML}\label{sec:expertise-vereist}
+\subsection{Expertise Machine Learning}\label{sec:expertise-machine-learning}
 \Gls{machine-learning} is geen triviaal onderwerp. Om een model te trainen is kennis nodig van verschillende domeinen: \gls{data-mining}, software engineering en statistieken. In een multidisciplinair team is het voor één teamlid niet nodig om alle domeinen te beheersen.
 
 Doordat er voorkennis nodig is om een model te trainen, is het vaak te hoogdrempelig om te beginnen voor developers. De expertise is daar bovenop niet in een korte tijd te vergaren.
@@ -35,7 +35,7 @@ De oplossingen kunnen gecategoriseerd worden in twee groepen:
 \end{enumerate}
 
 \subsection{Machine learning pipeline specifieke service}\label{subsec:machine-learning-pipeline-specifieke-service}
-Bedrijven zoals Algorithmia \cite{algorithmia-website} en Valohai \cite{valohai-website} bieden alleen diensten om pipelines op te zetten. Ze zorgen voor het databehoud dat door de gebruiker wordt geupload en het trainen van het model. Verder kan er toezicht gehouden worden op de kosten, beschikbaarheid en prestatie van het model.
+Bedrijven zoals Algorithmia \cite{algorithmia-website} en Valohai \cite{valohai-website} bieden alleen diensten om pipelines op te zetten. Ze zorgen voor het databehoud dat door de gebruiker wordt geüpload en het trainen van het model. Verder kan er toezicht gehouden worden op de kosten, beschikbaarheid en prestatie van het model.
 
 Valohai heeft documentatie een aantal blog posts die bij het ontwerpen van het systeem relevant zouden kunnen zijn.
 
@@ -51,50 +51,56 @@ De drie grote \glspl{cloud-computing-platform} Amazon, Azure en Google hebben me
 \section{Hoofd- en deelvragen}\label{sec:hoofd-en-deelvragen}
 Uitgaand van de drie focuspunten in \autoref{sec:probleemdefinitie} kan de hoofdvraag als volgt worden geformuleerd:\smallskip
 
-\begin{center}
-  \textbf{
-    \textit{
-      Hoe kan een machine learning pipeline worden geautomatiseerd onafhankelijk van de onderliggende cloud computing platform of lokale framework?
+\begin{quoting}
+  \begin{center}
+    \textbf{
+      \textit{
+        Hoe kan een machine learning pipeline worden geautomatiseerd onafhankelijk van de onderliggende cloud computing platform of lokale framework?
+      }
     }
-  }
-\end{center}\smallskip
+  \end{center}
+\end{quoting}\smallskip
 
 De hoofdvraag kan worden onderbouwd met vier deelvragen. Om te beginnen is het verstanding om te onderzoeken hoe een \gls{machine-learning} model wordt getraind:\smallskip
 
-\begin{center}
-  \textbf{
+\begin{quoting}
+  \begin{center}
     \textit{
       Welke stappen moeten worden ondernomen om een machine learning-model te trainen?
     }
-  }
-\end{center}\smallskip
+  \end{center}
+\end{quoting}\smallskip
 
 Vervolgens kan er op de deelvraag voortborduurt worden om het opzetten van een pipeline in kaart te brengen:\smallskip
 
-\begin{center}
-  \textbf{
+\begin{quoting}
+  \begin{center}
     \textit{
       Hoe wordt een machine learning-pipeline opgezet?
     }
-  }
-\end{center}\smallskip
+  \end{center}
+\end{quoting}\smallskip
 
 Verder zijn er verschillende \glspl{cloud-computing-platform} en lokale frameworks waarmee \gls{machine-learning} modellen getraind kunnen worden. Doordat het systeem platform agnostisch moet zijn is het van belang om verschillende platformen en frameworks te onderzoeken:
 
-\begin{center}
-  \textbf{
+\begin{quoting}
+  \begin{center}
     \textit{
       Wat zijn de verschillende en overeenkomsten tussen cloud computing platforms en lokale frameworks waarmee machine learning-modellen kunnen worden getraind?
     }
-  }
-\end{center}\smallskip
+  \end{center}
+\end{quoting}\smallskip
 
 Ten slotte wordt een PoC gemaakt om te laten zien of het probleem oplosbaar is. Hiervoor is een doordachte voorbereiden onmisbaar:\smallskip
 
-\begin{center}
-  \textbf{
+\begin{quoting}
+  \begin{center}
     \textit{
       Hoe ziet de architecturale blauwdruk van een applicatie, waarin een machine learning pipeline kan worden opgezet en die platform-onafhankelijk is, eruit?
     }
-  }
-\end{center}
+  \end{center}
+\end{quoting}
+
+\cleardoublepage
+
+\mbox{~}

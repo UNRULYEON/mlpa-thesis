@@ -9,7 +9,7 @@
 
 % References
 \usepackage{csquotes}
-\usepackage{biblatex}
+\usepackage[sorting=none]{biblatex}
 \addbibresource{bibliography/bibliography.bib}
 \defbibheading{bib_heading}{\newpage\addcontentsline{toc}{chapter}{Bibliografie}\begin{flushleft}\Huge{\textbf{\bibname}}\vspace{0.20in}}
 
@@ -98,26 +98,27 @@
   {\cftlottitlefont #2}{\cftafterlottitle}
   \vskip\cftafterlottitleskip\vspace{-0.25in}
 }
-\addcontentsline{toc}{chapter}{Afkortingen}
+% \addcontentsline{toc}{chapter}{Afkortingen}
 \printglossary[type=\acronymtype,title=Afkortingen,toctitle=Afkortingen]\thispagestyle{fancy}\newpage
-\addcontentsline{toc}{chapter}{Woordenlijst}
-\printglossary[title=Woordenlijst]\thispagestyle{fancy}\newpage
+% \addcontentsline{toc}{chapter}{Begrippenlijst}
+\printglossary[title=Begrippenlijst]\thispagestyle{fancy}\newpage
 
 % List of figures
 \renewcommand{\cftbeforeloftitleskip}{-0.15in}
 \renewcommand{\cftafterloftitleskip}{0.20in}
-\addcontentsline{toc}{chapter}{Lijst van figuren}
+% \addcontentsline{toc}{chapter}{Lijst van figuren}
 \listoffigures{}\thispagestyle{fancy}\newpage
 
 % List of tables
 \renewcommand{\cftbeforelottitleskip}{-0.15in}
 \renewcommand{\cftafterlottitleskip}{0.20in}
 \listoftables\thispagestyle{fancy}\newpage
-\addcontentsline{toc}{chapter}{Lijst van tabellen}
+% \addcontentsline{toc}{chapter}{Lijst van tabellen}
 
 % Table of Contents
 \renewcommand{\cftbeforetoctitleskip}{-0.15in}
 \renewcommand{\cftaftertoctitleskip}{0.20in}
+\setcounter{tocdepth}{1}
 \tableofcontents{}\thispagestyle{fancy}
 
 % Chapters
@@ -136,7 +137,8 @@
 \input{chapters/13.reflectie/reflectie.tex}
 
 % Bibliography
-\printbibliography[heading=bib_heading, title={\bibname}]
+\styledunmarkedchapter[\bibname]{bibliografie}
+\printbibliography[heading=none]
 
 % Appendix input
 \renewcommand{\appendixname}{Bijlagen}
