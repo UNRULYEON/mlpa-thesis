@@ -1,11 +1,13 @@
 \styledchapter[Hoe werkt Machine Learning?]{hoe-werkt-machine-learning}
 
-\Gls{machine-learning} is onderdeel van het domein \gls{computer-science}. Binnen \gls{machine-learning} worden algoritmische modellen gebouwd om statistische problemen op te lossen. Dit wordt gedaan met behulp van een dataset dat verzameld is uit de echt wereld of gefabriceerd door mensen. Het model kan met behulp van de dataset een redelijk nauwkeurige voorspelling maken \cite[p.~7]{the-hundred-page-machine-learning-book}.
+\Gls{machine-learning} (ML) is onderdeel van het domein \gls{computer-science}. Binnen \gls{machine-learning} worden algoritmische modellen gebouwd om statistische problemen op te lossen. Dit wordt gedaan met behulp van een dataset dat verzameld is uit de echt wereld of gefabriceerd door mensen. Het model kan met behulp van de dataset een redelijk nauwkeurige voorspelling maken \cite[p.~7]{the-hundred-page-machine-learning-book}.
 
-Hoe het niet AI is -> https://machinelearningmastery.com/think-machine-learning/
+De termen deep learning (DL) en artificial intelligence (AI) komt vaak voor als het over ML gaat. DL is een uitbreiding van neural networks, wat weer bestaat uit een set algoritmes en is grotendeels gemodelleerd naar de hersenen \cite{ml-neural-network-nicholson}. Niet alle termen en concepten van ML zijn relevant binnen DL maar valt wel onder dezelfde paraplu.
+
+ML is onderdeel van het AI domein. Bij AI wordt niet alleen ML toegepast, maar ook concepten zoals beredeneren, plannen en vooruitdenken en het onthouden en terug refereren. Een voorbeeld hiervan is dat een ML model kan voorspellen wat het volgende woord in een zin kan zijn, maar een AI kan beredeneren waarom de zin gebouwd is zoals het is en hoe het past binnen de context van de alinea past \cite{ml-think-about-ml-brownlee}.
 
 \section{Hoe leert een machine learning model?}\label{sec:hoe-leert-een-machine-learning-model}
-Een \gls{machine-learning} model leert met behulp van een dataset om een voorspelling te maken. Een dataset kan duizenden \glspl{machine-learning-feature-vector} (voorbeelden) bevatten, waarbij elke vector een of meerdere \glspl{machine-learning-feature} (attribuut) heeft. In een voorbeeld waarbij een model moet kunnen voorspellen of een persoon kanker heeft kan een \gls{machine-learning-feature-vector} één persoon zijn en de \glspl{machine-learning-feature} het gewicht, leeftijd, lengte en of de persoon kanker heeft \cite{google-ml-terminology}.
+Een \gls{machine-learning} model leert met behulp van een dataset om een voorspelling te maken. Een dataset kan duizenden \glspl{machine-learning-feature-vector} (voorbeelden) bevatten, waarbij elke vector een of meerdere \gls{machine-learning-feature} (attribuut) heeft. In een voorbeeld waarbij een model moet kunnen voorspellen of een persoon kanker heeft kan een \gls{machine-learning-feature-vector} één persoon zijn en de \glspl{machine-learning-feature} het gewicht, leeftijd, lengte en of de persoon kanker heeft \cite{google-ml-terminology}.
 
 Het model gaat langs alle \glspl{machine-learning-feature-vector} en probeert correlaties te vinden tussen de features. Op basis hiervan kan het model vervolgens een voorspelling doet met een \gls{machine-learning-feature-vector} dat het model nooit heeft gezien.
 
@@ -25,7 +27,7 @@ Met \gls{supervised-learning} wordt een model getraind door middel van een \text
   \label{table:voorbeeld-gelabeld-dataset}
 \end{table}
 
-Het model kan leren dat woorden zoals 'gratis' in e-mails die tussen 01:00 en 03:00 worden verstuurd vaak als spam gelabeld zijn. Het model kan concluderen dat als een e-mail met dezelfde features als input word gegeven, dat het een spam e-mail is \cite{google-ml-terminology}.
+Het model kan leren dat woorden zoals 'gratis' in e-mails die tussen 01:00 en 03:00 worden verstuurd vaak als spam gelabeld zijn. Er kan dan geconcludeerd worden dat als een e-mail met soortgelijke features als input word gegeven, dat het een spam e-mail is \cite{google-ml-terminology}.
 
 \subsection{Unsupervised learning}\label{subsec:unsupervised-learning}
 \Gls{unsupervised-learning} lijkt grotendeels op \gls{supervised-learning}. Het verschil is dat de \glspl{machine-learning-feature-vector} in de dataset niet gepaard zijn met een label. 
@@ -66,66 +68,77 @@ Het doel bij \gls{unsupervised-learning} is om de data op een bepaalde manier te
 \Gls{reinforcement-learning} wordt ook wel 'survival learning' genoemd. Een analogie hiervoor is een organisme dat moet overleven in verschillende situaties door de juiste actie te verrichten. Acties kunnen een positief of een negatief effect hebben. Acties dat langdurig een positieve effect hebben moeten versterkt worden zodat het model zo veel mogelijk positieve acties verricht \cite{bayesian-reasoning-and-machine-learning-book}.
 
 \section{Stappenplan voor het trainen van een model}\label{sec:stappenplan-voor-het-trainen-van-een-model}
-Het trainen van een model neemt een klein gedeelte in beslag van het hele proces. Vooraf moet het probleem worden gedefinieerd waarna vervolgens de data wordt verzameld. Het is belangrijk om de data grondig te verkennen want als het model traint met onbruikbare data, is het model ook onbruikbaar. Dit heet ook wel garbage in = garbage out. Na het verkennen kan de data opgeschoond worden. Dit wordt gedaan met de garbage in = garbage out regel in gedachte; hoe beter de data, hoe beter het model zal presteren. \Gls{feature-engineering} is het tegenovergestelde van het opschonen van de dataset. Waarbij data wordt weggehaald, wordt er nieuwe data geïntroduceerd. Dit wordt gedaan met de bestaande data en zorgt ervoor dat belangrijke elementen van de dataset worden aangestipt voor het model. Voor het trainen van het model moet de dataset gesplitst worden in een training dataset en test dataset. Daarna kan het model getraind worden met behulp van het afstemmen van model- en hyperparameters en \gls{cross-validation}. Model- en hyperparameters zijn 'instellingen'
-voor het model en met \gls{cross-validation} kunnen verschillende instellingen worden getest met alleen de training dataset. Als laatste kan een model gekozen worden dat het beste presteert \cite{data-science-primer}.
+Er zijn een aantal stappen die altijd uitgevoerd moeten worden om een model te trainen, zoals: data opschonen, model trainen en een voorspelling maken met het model. Om deze stappen kunnen extra stappen geplaatst worden om de accuraatheid van de voorspelling te maximaliseren. Brownlee \cite{ml-applied-ml-process-brownlee} beschrijft een proces dat hij "Applied Machine Learning Process"\space noemt. Hierbij wordt vooraf het probleem in kaart gebracht, tussentijds gekeken welk algoritme de beste kans heeft op een hoge accuraatheid en na de selectie van het beste algoritme wordt het resultaat verbeterd als dit mogelijk is.
 
-Deze stappen kunnen verschillen.
-Kan voorkomen dat je meer stappen moet doen of andere.
-Sommige modellen vereisen specifieke handelingen, deze stappen zijn voor de meest gebruikte.
+Het proces van Brownlee is misschien niet de beste en zeker niet de enige stappenplan. Zijn kwalificaties en toegankelijkheid van de bronnen heeft echter wel een rol gespeeld in de keuze van het leidende stappenplan en mijn eigen ervaring ondersteund de keuze.
 
-\subsection{Data verkennen}\label{subsec:data-verkennen}
-Bij het verkennen wordt gekeken welke \glspl{machine-learning-feature} kunnen worden gebruikt. Het kan handig zijn om de data te plotten in bijvoorbeeld een histogram, een staafdiagram of een boxplot. \cite{data-science-primer} Het plotten kan handig zijn voor het vinden van:
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=16cm]{./chapter-5/ml-guide.png}
+  \caption{Stappenplan om een model te trainen}
+  \label{fig:ml-guide}
+\end{figure}
 
-\begin{itemize}
-  \item uitschieters
-  \item meetfouten
-  \item features die gescheiden het model negatief kunnen beïnvloeden, maar samen positief
-\end{itemize}
-
-Vervolgens kunnen er correlaties tussen variabelen gevonden worden. Variabelen in een dataset kunnen gerelateerd aan elkaar zijn op een aantal manieren. Brownlee \cite{ml-correlation-brownlee} geeft een aantal voorbeelden:
-
-\begin{itemize}
-  \item Een variabele kan de waarde van een andere variabele veroorzaken of hiervan afhankelijk zijn
-  \item Een variabele kan lichtelijk geassocieerd zijn met een ander variabele
-  \item Twee variabele kan afhankelijk zijn van een derde onbekende variabele
-\end{itemize}
-
-Een correlatie kan positief wat betekent dat de variabelen in dezelfde richting bewegen, bijvoorbeeld het gewicht en de lengte van een persoon. Het kan ook negatief zijn. Dit betekent dat als één variabele de ene kant op gaat, de andere variabele de tegengestelde richting op gaat. Een voorbeeld hiervan is het aantal tentamens en recreative tijd. Bij een neutrale correlatie betekent het dat de variabelen niks met elkaar te maken hebben \cite{ml-correlation-brownlee}.
-
-De relatie tussen twee variabelen heet de \gls{covariantie}. Met een formule kan de \gls{covariantie} worden berekent:
-
-\[cov(X, Y) = (sum (x - mean(X)) * (y - mean(Y)) ) * 1/(n-1)\]
-
-Waarbij het resultaat het volgende kan zijn:
-
-\[[[385.33297729, 389.7545618] [389.7545618, 500.38006058]]\]
-
-Omdat dit moeilijk te interpreteren kan zijn, werden er coëfficiënten bedacht. Twee daarvan zijn de \textit{Pearson correlation coefficient} en de \textit{Spearman correlation coefficient}. De achterliggende formule verschillen, maar het resultaat moet de \gls{covariantie} in context brengen. Het resultaat uit een coëfficiënt formule is een getal tussen de \(1\) en \(-1\), waarbij \(1\) een positieve correlatie is en een \(-1\) een negatieve correlatie. Er is geen correlatie als het resultaat een \(0\) is. Vaak is er een correlatie als er een waarde boven \(0,5\) en onder \(-0,5\) voorkomt.
-
-\subsection{Data opschonen}\label{subsec:data-opschonen}
-Voor het opschonen van data is er geen beste manier omdat elk dataset verschilt van elkaar. Toch kunnen een aantal vuistregels aangehouden worden om na deze stap een betere dataset te hebben. Als eerst kan er gekeken worden welke data weg kan. Dit kan duplicaten zijn of data dat niet relevant is. Na het weggooien moet structurele fouten worden gecorrigeerd als ze voorkomen. Dit zijn fouten zoals typefouten, woorden die de ene keer wel hoofdletter zijn maar de andere keer niet, fout gelabelde data, enz.
-
-Een optionele stap is om uitschieters weg te gooien. Het kan voorkomen dat uitschieters het model negatief beïnvloeden. Als dat het geval is, kan de uitschieter uit de dataset weggehaald worden.  
-
-Als laatste stap is het belangrijk om te kijken of er data mist. Hiervoor zijn er twee manieren op dit te verhelpen: het weglaten van data of infereren. Helaas zijn beide manieren sub-optimaal omdat er bij het weglaten kostbare data wordt weggegooid en het infereren is natuurlijk niet accuraat \cite{data-science-primer}.
-
-\subsection{Feature engineering}\label{subsec:feature-engineering}
-Bij \gls{feature-engineering} worden er nieuwe input features gemaakt die bestaan uit bestaande features. Het nut hiervan is dat er informatie aangestipt kan worden voor het model wat relevant is. Een manier hiervan is om 'interactie features' te maken. Hierbij worden twee features samengevoegd tot een derde feature. Een voorbeeld van het maken van een interactie feature:
+\subsection{Het probleem definiëren}\label{subsec:het-probleem-definieren}
+Om een ML model te trainen en het gebruik te verantwoorden, moet er gekeken worden naar \textbf{wat} het probleem is, \textbf{waarom} het een probleem is en de \textbf{hoe} het opgelost kan worden \textit{zonder} het gebruik van ML. Als eerst kan het probleem informeel geformuleerd worden, bijvoorbeeld:
 
 \begin{quoting}
-  Een model moet kunnen voorspellen of een huis op de huizenmarkt het goed gaat doen. De dataset bevat een aantal features waaronder \textit{num\_schools} en \textit{median\_school}. \textit{num\_schools} is het aantal scholen binnen een radius van 5km van het huis en \textit{median\_school} het gemiddelde van alle scholen in de radius.
-  
-  Er kan beargumenteerd worden dat een huis beter verkoopt als er \textbf{veel scholen in de buurt zijn} die ook \textbf{een hoge score hebben}. Er kan een nieuwe feature gemaakt worden genaamd \textit{school\_score} dat wordt berekent door \textit{num\_schools} \(*\) \textit{median\_school} te doen. \textit{school\_score} is de interactie feature.
+  \centering
+  Ik wil het temperatuur voor de komende week voorspellen.
 \end{quoting}
 
-Een tweede manier om features te maken is om bestaande features samen te voegen. Dit is handig om te doen als de features los van elkaar niet vaak voorkomen in de dataset én samenhang hebben met elkaar. 
+Informeel formuleren is wat makkelijker om mee te beginnen maar is optioneel. Nu kan het probleem formeel geformuleerd worden met behulp van Mitchells sjabloon \cite{machine-learning-mitchell}:
 
-\subsection{Een model trainen}\label{subsec:model-trainen}
-Voordat het model getraind kan worden, moet de dataset gesplitst worden in een training dataset en een test dataset. Het is gebruikelijk om de dataset te splitsen in 80\% training en 20\% test of 50\% training en 50\% test; hiervoor is er geen vaste regel en hangt af van de dataset en het model. De dataset wordt gesplitst om \gls{overfitting} te voorkomen. Een model dat overfit is presteert met een hoge accuraatheid op de training dataset, maar laag op een dataset dat het model nog nooit heeft gezien. Door een test dataset apart te houden kan er gevalideerd worden of het model goed presteert met data dat het model nog nooit heeft gezien \cite{data-science-primer}.
+\begin{quoting}
+  A computer program is said to learn from experience \textbf{E} with respect to some class of tasks \textbf{T} and performance measure \textbf{P}, if its performance at tasks in \textbf{T}, as measured by \textbf{P}, improves with experience \textbf{E}. 
+\end{quoting}
 
-Tijdens het trainen en voorspellen werkt het model met \glspl{model-parameter} en \glspl{model-hyperparameter}. \Glspl{model-parameter} zijn interne variabelen van het model die niet expliciet gespecificeerd zijn. \Glspl{model-hyperparameter} worden daarin tegen wel handmatig gespecificeerd en kan bijvoorbeeld het aantal leersessies zijn \cite{ml-model-hyper-parameter-brownlee}. Het vinden van de juiste waarde van \glspl{model-hyperparameter} kan alleen met experimenteren worden achterhaald \cite{data-science-primer}.
+Door de letters \textbf{E}, \textbf{T} en \textbf{P} in de zin in te vullen, kunnen we identificeren welke data er verzameld moet worden (\textbf{E}), wat het model moet kunnen doen/voorspellen (\textbf{T}) en hoe de accuraatheid gemeten kan worden (\textbf{P}).
 
-Omdat de test dataset niet kan worden gebruikt tijdens het experimenteren moet er gebruik worden gemaakt van \gls{cross-validation}. Er zijn een aantal manieren om \gls{cross-validation} uit te voeren waarbij \textbf{10-fold cross-validation} een van de meest gebruikte is. Bij deze methode wordt de training dataset opgesplitst in 10 delen, ook wel \glspl{fold} genoemd, waarvan 1 een \textit{holdout} \gls{fold} is. Het model zal met de 9 \glspl{fold} trainen en wordt getest met de holdout \gls{fold}. Dit zal 10 keer gedaan worden met elke keer een andere holdout fold zoals weergegeven in \autoref{fig:10-k-cross-validation}. Na elke train sessie wordt een score berekent dat wordt opgeteld bij de andere sessies. Hiervan wordt het gemiddelde berekend en het resultaat is de \textit{cross-validated score}. Hoe hoger dit resultaat, hoe beter het model presteert \cite{data-science-primer}.
+Het informele probleem hierboven kan met behulp van Mitchells sjabloon formeel geformuleerd worden op de volgende manier:
+
+\begin{itemize}
+  \item \textbf{T}: De temperatuur voor de komende 7 dagen voorspellen
+  \item \textbf{E}: De gemeten temperatuur op dagen van voorgaande jaren
+  \item \textbf{P}: Hoe dicht het voorspelde temperatuur bij de gemeten temperatuur lag
+\end{itemize}
+
+Vervolgens moet er gekeken worden waarom het probleem opgelost moet worden. De motivatie achter het gebruiken van ML kan het experimenteren zijn of omdat het van je werkgever moet. De voordelen van het gebruik van ML kan ook een reden zijn. ML toepassen kan bijvoorbeeld meer tijd vrijmaken voor andere taken.
+
+Als laatste moet een plan geformuleerd worden waarin staat hoe het probleem opgelost kan worden. In het plan kan staan wat voor data er wordt verzameld en hoe technische tekeningen er uit zien. Hierbij kunnen prototypes en experimenten bij zitten. Het is belangrijk om dit \textit{zonder} ML te doen om 'domain knowledge'\space, zoals Brownlee het noemt \cite{ml-define-ml-problem-brownlee}, naar boven te halen. Dit zijn praktische feiten zoals waar data is opgeslagen en wat voor kenmerken waardevol kunnen zijn.
+
+\subsection{Data prepareren}\label{subsec:data-prepareren}
+Bij het selecteren van de dataset is het niet verstandig alle beschikbare data te gebruiken. Meer is \textbf{niet} beter bij het trainen van een ML model. Een bekende gezegde binnen ML luid 'garbage in = garbage out'\space wat betekent dat de prestatie van het model afhangt van de kwaliteit van de dataset. Het is daarom goed om op papier te zetten wat voor data er beschikbaar is, wat er potentieel mist (en eventueel wat wel in de toekomst kan worden verzameld) en wat er niet gebruikt gaat worden.
+
+Na de selectie moet er gekeken worden naar hoe de data gebruikt gaat worden. In deze stap wordt de data voorbewerkt. Hierbij wordt onder andere gekeken naar de formattering zoals typefouten of bestandstypes, het weghalen of repareren van missende data en het sampelen om te experimenten met een kleinere dataset zodat het snel gaat. 
+
+Als laatste stap kan de data getransformeerd worden. Het kan zijn dat deze stap weer bezocht wordt in een later stadium om de resultaten te verbeteren. Voor veel algoritmes is het handiger om met kleine waardes te werken, zoals tussen \(0\) en \(1\). Dit heet \textit{data scaling}, of het schalen van data. Het normaliseren van data transformeert de waarde tussen \(0\) en \(1\). De formule hiervoor is:
+
+\[y = \frac{(x - min)}{(max - min)}\]
+
+De \(min\) is het kleinste getal in de dataset en \(max\) het grootste getal. De \(x\) is het getal wat genormaliseerd moet worden en \(y\) is het resultaat.
+
+Een andere methode om te schalen is het standaardiseren. Hierbij wordt de verdeling van waardes herschaald zodat het gemiddelde \(0\) is en de standaardafwijking \(1\). De formule hiervoor is:
+
+\[y = \frac{x - mean}{standard\_deviation}\]
+
+Waarbij \(mean\) en \(standard\_deviation\) zijn:
+
+\noindent\begin{minipage}{.4\linewidth}
+    \[mean = \frac{sum(x)}{count(x)}\]
+  \end{minipage}%
+  \begin{minipage}{.6\linewidth}
+    \[standard\_deviation = sqrt\left(\frac{sum((x - mean)^2)}{count(x)}\right)\]
+\end{minipage}
+
+Het kan voorkomen dat features te complex zijn of los niet veel betekenen, maar samen meer betekenen. Deze features kunnen \textbf{ontleed} of \textbf{geaggregeerd} worden. Een voorbeeld van ontleden is dat de datum en tijd beschikbaar zijn, maar alleen de tijd relevant is. Een voorbeeld van aggregatie is vaak voorkomend data dat in één getal dezelfde waarde heeft, zoals de aantal logins van een gebruiker \cite{ml-prepare-data-brownlee}.
+
+\subsection{Spot check algoritmes}\label{subsec:spot-check-algoritmes}
+Er zijn ontzettend veel soorten algoritmes die elke effectief kunnen zijn voor een specifiek probleem. Een algoritme heeft daar bovenop nog een aantal parameters die aangepast kunnen worden. Het is daarom niet verstandig om één algoritme te kiezen en de prestatie daarvan te verbeteren. Een effectievere manier is om een 'test harness'\space op te zetten \cite{ml-evaluate-ml-algorithm-brownlee}.
+
+Het doel van de test harness is om snel en consistent algoritmes te testen tegen een representatie van het probleem. Met het resultaat uit de tests is het duidelijk met welke algoritme(s) het waard is om verder te gaan. Ook geeft het een idee hoe goed de dataset is en kan een algoritme accurater zijn dan eerst gedacht.
+
+In de test harness wordt gebruik gemaakt van \gls{cross-validation}. Bij cross-validation wordt de dataset verdeeld in delen, ook wel \glspl{fold} genoemd, waarvan 1 fold een \textit{holdout} fold is. Het model wordt getraind met de folds en getest tegen de holdout fold. Dit proces wordt herhaald totdat elke fold een holdout fold is geweest. Aan het einde wordt de gemiddelde genomen van de prestatiewaarde van elke test. Het is gebruikelijk om een fold te nemen van 3, 5, 6 of 10. Een 10-k cross-validation methode is in \autoref{fig:10-k-cross-validation} gevisualiseerd \cite{ml-evaluate-ml-algorithm-brownlee}.
 
 \begin{figure}[hbt!]
   \centering
@@ -134,20 +147,39 @@ Omdat de test dataset niet kan worden gebruikt tijdens het experimenteren moet e
   \label{fig:10-k-cross-validation}
 \end{figure}
 
-Om de beste set van parameters te achterhalen kan 10-k cross-validation  toegepast worden op elke set. De cross-validated scores kunnen met elkaar worden vergeleken om de beste \gls{model-hyperparameter} voor het model te achterhalen. Een voorbeeld van de tests op een set is te zien in \autoref{fig:10-k-cross-validation-on-each-model-hyperparameter-set}.
+Nu het duidelijk is wat de test harness gaat doen, kan de focus gelegd worden op welke algoritmes er wordt getest. Het is valide om één algoritme te testen, maar het is conventioneel om meerdere te testen. Algoritmes dat op dezelfde manier werken kunnen gegroepeerd worden, zoals regressie, classificatie bayesian, clustering, enz. Om te weten welke groep(en) relevant is, kan terug gerefereerd worden naar het probleem de eerste stap 1 (\autoref{subsec:het-probleem-definieren}).
+
+\subsection{Resultaten verbeteren}\label{subsec:resultaten verbeteren}
+Als laatste stap moet het model geoptimaliseerd worden. Dit kan op drie manieren. Als eerste kan het model 'getuned'\space worden wat ook wel \gls{hyperparameter-optimization} genoemd wordt. Een hyperparameter is een parameter dat wordt gebruikt om het leerproces van een model een bepaalde richting op te sturen. Er zijn een aantal manieren om de optimale waarde van een hyperparameter te achterhalen. Een aantal simpele methodes zijn grid search, random search en bayesian optimization. Met bijvoorbeeld de grid search methode wordt de minimale en maximale waarde van de parameter op een x- en y-as geplot. Deze grenzen moeten vaak zelf worden gespecificeerd. Vervolgens wordt er langs elke set gegaan en wordt doorgaans met \gls{cross-validation} de prestatie berekend. In \autoref{fig:hyperparameter-optimization-grid-search} is te zien dat de hyperparameters binnen de donkerblauwe lijnen het beste presteren. Het model presteert minder goed naarmate de lijnen rood worden.
 
 \begin{figure}[hbt!]
   \centering
-  \includegraphics[width=9cm]{./chapter-5/10-k-cross-validation-on-each-model-hyperparameter-set.png}
-  \caption{Test matrix op elke model hyperparameter set}
-  \label{fig:10-k-cross-validation-on-each-model-hyperparameter-set}
+  \begin{minipage}{0.47\textwidth}
+      \centering
+      \includegraphics[width=8cm]{./chapter-5/hyperparameter-optimization-grid-search.png}
+      \caption{Hyperparameter optimalisatie met de grid search methode}
+      \label{fig:hyperparameter-optimization-grid-search}
+  \end{minipage}\hfill
+  \begin{minipage}{0.47\textwidth}
+      \centering
+      \includegraphics[width=8cm]{./chapter-5/hyperparameter-optimization-bayesian-optimization.png}
+      \caption{Hyperparameter optimalisatie met de bayesian optimization methode}
+      \label{fig:hyperparameter-optimization-bayesian-optimization}
+  \end{minipage}
 \end{figure}
 
-\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
-Nu de 'beste' model hyperparameters zijn gevonden, kan het model getest worden tegen de test dataset. Er zijn een aantal prestatiestatistieken waarmee gekeken kan worden hoe goed het model presteert. Voor regressie modellen is \textbf{Mean Squared Error (MSE)} of \textbf{Mean Absolute Error (MAE)} aanbevolen waarbij het model beter presteert als het getal lager is \cite{data-science-primer}. Voor classificatie modellen is de \textbf{Area Under ROC Curve (AUROC)} aanbevolen waar het model juist beter presteert als het getal hoger is \cite{data-science-primer}.
+Bij random search wordt hetzelfde proces doorlopen waarbij het enige verschil is dat de waardes willekeurig zijn gekozen. De bayesian optimization methode begint willekeurig, maar houd rekening met de vorige steekproeven om een keuze te maken om dichterbij of verder weg van de vorige waarde(s) te experimenteren (\autoref{fig:hyperparameter-optimization-bayesian-optimization}).
+
+De tweede manier is met \textit{ensembles}. Bij het gebruik van ensembles wordt het resultaat van verschillende methodes bijeengevoegd om tot een beter resultaat te komen. Er zijn een aantal strategieën om dit te doen. Een daarvan is \textbf{boosting}. Hierbij worden meerdere algoritmes van dezelfde groep getraind.
+
+Als laatste manier kan \gls{feature-engineering} gebruikt worden op de prestatie te verbeteren. De data heeft een bepaalde structuur dat het model exploiteert om een besluit of voorspelling te maken. Met \gls{feature-engineering} worden bepaalde delen van de structuur 'benadrukt'\space zodat het model de focus hierop zal leggen. Er wordt als het ware tegen het model gezegd: \say{Deze features zijn belangrijk in de keuze/voorspelling dat wordt gedaan}. Dit kan vervolgens resulteren in een accurater model.
+
+\subsection{Validatie en productie}\label{subsec:validatie-en-productie}
+Na het trainen en verbeteren van het model kan er validatie plaatst vinden. Gebruik hierbij de formulering uit stap 1 (\autoref{subsec:het-probleem-definieren}). Als het model niet of niet goed genoeg voldoet, kunnen de voorgaande stappen opnieuw bezocht worden. Als het model wel voldoet, kan het door naar productie.
 
 \section{Kennis vereist om een model te trainen}\label{sec:kennis-vereist-om-een-model-te-trainen}
-
+Waarom je niet alles kan voorkauwen.
+Wat is de middle ground?
 
 \section{Wachttijden voorspellen}\label{sec:wachttijden-voorspellen}
 
