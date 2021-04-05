@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, twoside]{report}
+\documentclass[11pt, a4paper]{report}
 \usepackage[utf8]{inputenc}
 
 % Change language to Dutch
@@ -22,18 +22,18 @@
 % Fancy headers and footers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhead[LE,RO]{}
-\fancyhead[RE,LO]{}
-\fancyfoot[RE,LO]{}
-\fancyfoot[CE,CO]{\thepage}
+\fancyhead[L,R]{}
+\fancyhead[R,L]{}
+\fancyfoot[R,L]{}
+\fancyfoot[C,C]{\thepage}
 \fancypagestyle{plain}{%
   \pagestyle{fancy}%
 }
 \fancypagestyle{styledchapter}{%
-  \fancyhead[LE,RO]{}
-  \fancyhead[RE,LO]{}
-  \fancyfoot[RE,LO]{}
-  \fancyfoot[CE,CO]{\thepage}
+  \fancyhead[L,R]{}
+  \fancyhead[R,L]{}
+  \fancyfoot[E,L]{}
+  \fancyfoot[C,C]{\thepage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
@@ -50,6 +50,39 @@
 \makeglossaries
 \input{glossary/acronyms.tex}
 \input{glossary/terms.tex}
+
+\usepackage{wrapfig}
+
+\usepackage{xcolor}
+
+% Display code
+\usepackage{listings}
+
+% \definecolor{codegreen}{rgb}{0,0.6,0}
+% \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+% \definecolor{codepurple}{rgb}{0.58,0,0.82}
+% \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% \lstdefinestyle{mystyle}{
+%     backgroundcolor=\color{backcolour},   
+%     commentstyle=\color{codegreen},
+%     keywordstyle=\color{magenta},
+%     numberstyle=\tiny\color{codegray},
+%     stringstyle=\color{codepurple},
+%     basicstyle=\ttfamily\footnotesize,
+%     breakatwhitespace=false,         
+%     breaklines=true,                 
+%     captionpos=b,                    
+%     keepspaces=true,                 
+%     numbers=left,                    
+%     numbersep=5pt,                  
+%     showspaces=false,                
+%     showstringspaces=false,
+%     showtabs=false,                  
+%     tabsize=2
+% }
+
+% \lstset{style=mystyle}
 
 % TOC
 \usepackage{tocloft}
@@ -131,16 +164,15 @@
 \input{chapters/1.inleiding/inleiding.tex}
 \input{chapters/2.probleemanalyse/probleemanalyse.tex}
 \input{chapters/3.methode-van-onderzoek/methode-van-onderzoek.tex}
-\input{chapters/4.requirementsanalyse/requirementsanalyse.tex}
-\input{chapters/5.hoe-werkt-machine-learning/hoe-werkt-machine-learning.tex}
-\input{chapters/6.machine-learning-pipeline/machine-learning-pipeline.tex}
-\input{chapters/7.cloud-computing-platformen-en-lokale-frameworks/cloud-computing-platformen-en-lokale-frameworks.tex}
-\input{chapters/8.architecturale-ontwerp/architecturale-ontwerp.tex}
-\input{chapters/9.oplossing/oplossing.tex}
-\input{chapters/10.conclusie/conclusie.tex}
-\input{chapters/11.aanbeveling/aanbeveling.tex}
-\input{chapters/12.discussie/discussie.tex}
-\input{chapters/13.reflectie/reflectie.tex}
+\input{chapters/4.stappen-in-een-machine-learning-pipeline/stappen-in-een-machine-learning-pipeline.tex}
+\input{chapters/5.cloud-computing-platformen/cloud-computing-platformen.tex}
+\input{chapters/6.frameworks-beheren-platformen/frameworks-beheren-platformen.tex}
+\input{chapters/7.architecturale-ontwerp/architecturale-ontwerp.tex}
+\input{chapters/8.oplossing/oplossing.tex}
+\input{chapters/9.conclusie/conclusie.tex}
+\input{chapters/10.aanbeveling/aanbeveling.tex}
+\input{chapters/11.discussie/discussie.tex}
+\input{chapters/12.reflectie/reflectie.tex}
 
 % Bibliography
 \styledunmarkedchapter[\bibname]{bibliografie}

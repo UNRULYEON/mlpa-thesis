@@ -1,17 +1,41 @@
 \styledchapter[Hoe werkt Machine Learning?]{hoe-werkt-machine-learning}
 
-\Gls{machine-learning} (ML) is onderdeel van het domein \gls{computer-science}. Binnen \gls{machine-learning} worden algoritmische modellen gebouwd om statistische problemen op te lossen. Dit wordt gedaan met behulp van een dataset dat verzameld is uit de echt wereld of gefabriceerd door mensen. Het model kan met behulp van de dataset een redelijk nauwkeurige voorspelling maken \cite[p.~7]{the-hundred-page-machine-learning-book}.
+Machine learning houdt in dat een computer een taak kan uitvoeren zonder ervoor expliciet geprogrammeerd te zijn. Dit wordt gedaan door het leren van een gegeven dataset. Vervolgens kan er een voorspelling worden gemaakt \cite[p.~1-3]{introduction-to-machine-learning}. In het volgend hoofdstuk (\autoref{sec:hoe-leert-een-machine-learning-model}) wordt dit in groter detail uitgelegd.
 
-De termen deep learning (DL) en artificial intelligence (AI) komt vaak voor als het over ML gaat. DL is een uitbreiding van neural networks, wat weer bestaat uit een set algoritmes en is grotendeels gemodelleerd naar de hersenen \cite{ml-neural-network-nicholson}. Niet alle termen en concepten van ML zijn relevant binnen DL maar valt wel onder dezelfde paraplu.
+% \begin{wrapfigure}{r}{0.4\textwidth}
+%   \begin{center}
+%     \includegraphics[width=0.48\textwidth]{chapter-5/AI-ML-NN-DL.png}
+%   \end{center}
+%   \caption{Machine learning in de context van andere domeinen}
+%   \label{fig:ai-ml-nn-dl}
+% \end{wrapfigure}
 
-ML is onderdeel van het AI domein. Bij AI wordt niet alleen ML toegepast, maar ook concepten zoals beredeneren, plannen en vooruitdenken en het onthouden en terug refereren. Een voorbeeld hiervan is dat een ML model kan voorspellen wat het volgende woord in een zin kan zijn, maar een AI kan beredeneren waarom de zin gebouwd is zoals het is en hoe het past binnen de context van de alinea past \cite{ml-think-about-ml-brownlee}.
+De domeinen deep learning (DL), neural networks (NN) en artificial intelligence (AI) komen vaak voor als het over ML gaat. Zoals weergegeven in \autoref{fig:ai-ml-nn-dl} is te zien dat ML een subset is van AI, NN een subset van ML en als laatste DL dat een subset is van NN.
+
+Bij AI wordt niet alleen ML toegepast, maar ook concepten zoals beredeneren, plannen, vooruitdenken en het onthouden en terug refereren. Een voorbeeld hiervan is dat een ML model kan voorspellen wat het volgende woord in een zin kan zijn, maar een AI kan beredeneren waarom de zin gebouwd is zoals het is en hoe het past binnen de context van de alinea past \cite{ml-think-about-ml-brownlee}.
+
+Een NN bestaat uit een collectie van nodes dat gemodelleerd is naar de hersenen. Een NN heeft minimaal 3 lagen: een input laag, een verborgen laag en een output laag. Elke laag bevat neuronen dat data als input kan krijgen en data als output verstuurd. Zo gaat data langs alle lagen door middel van neuronen. Dl is een NN dat meerdere verborgen lagen bevat \cite{ml-neural-network-nicholson}.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=0.48\textwidth]{chapter-5/AI-ML-NN-DL.png}
+  \caption{Machine learning in de context van andere domeinen}
+  \label{fig:ai-ml-nn-dl}
+\end{figure}
+
+
+% \Gls{machine-learning} (ML) is onderdeel van het domein \gls{computer-science}. Binnen \gls{machine-learning} worden algoritmische modellen gebouwd om statistische problemen op te lossen. Dit wordt gedaan met behulp van een dataset dat verzameld is uit de echt wereld of gefabriceerd door mensen. Het model kan met behulp van de dataset een redelijk nauwkeurige voorspelling maken \cite[p.~7]{the-hundred-page-machine-learning-book}.
+
+% De termen deep learning (DL) en artificial intelligence (AI) komen vaak voor als het over ML gaat. DL is een uitbreiding van neural networks, wat weer bestaat uit een set algoritmes en is grotendeels gemodelleerd naar de hersenen \cite{ml-neural-network-nicholson}. Niet alle termen en concepten van ML zijn relevant binnen DL maar valt wel onder dezelfde paraplu.
+
+% ML is onderdeel van het AI domein. Bij AI wordt niet alleen ML toegepast, maar ook concepten zoals beredeneren, plannen en vooruitdenken en het onthouden en terug refereren. Een voorbeeld hiervan is dat een ML model kan voorspellen wat het volgende woord in een zin kan zijn, maar een AI kan beredeneren waarom de zin gebouwd is zoals het is en hoe het past binnen de context van de alinea past \cite{ml-think-about-ml-brownlee}.
 
 \section{Hoe leert een machine learning model?}\label{sec:hoe-leert-een-machine-learning-model}
 Een \gls{machine-learning} model leert met behulp van een dataset om een voorspelling te maken. Een dataset kan duizenden \glspl{machine-learning-feature-vector} (voorbeelden) bevatten, waarbij elke vector een of meerdere \gls{machine-learning-feature} (attribuut) heeft. In een voorbeeld waarbij een model moet kunnen voorspellen of een persoon kanker heeft kan een \gls{machine-learning-feature-vector} één persoon zijn en de \glspl{machine-learning-feature} het gewicht, leeftijd, lengte en of de persoon kanker heeft \cite{google-ml-terminology}.
 
-Het model gaat langs alle \glspl{machine-learning-feature-vector} en probeert correlaties te vinden tussen de features. Op basis hiervan kan het model vervolgens een voorspelling doet met een \gls{machine-learning-feature-vector} dat het model nooit heeft gezien.
+Het model gaat langs alle \glspl{machine-learning-feature-vector} en probeert correlaties te vinden tussen de features. Op basis hiervan kan het model vervolgens voorspellen of een persoon kanker heeft met een \gls{machine-learning-feature-vector} dat het model nooit geeft gezien.
 
-Er zijn een aantal manieren om een algoritme te laten trainen, gegroepeerd in vier vormen.
+Er zijn een aantal manieren om een algoritme te laten trainen, gegroepeerd in vier vormen: supervised learning, unsupervised learning, semi-supervised learning en reinforcement learning.
 
 \subsection{Supervised learning}\label{subsec:supervised-learning}
 Met \gls{supervised-learning} wordt een model getraind door middel van een \textbf{gelabeld} dataset. Dit betekent dat een \gls{machine-learning-feature-vector} gepaard gaat met de gewenste label.
@@ -27,7 +51,7 @@ Met \gls{supervised-learning} wordt een model getraind door middel van een \text
   \label{table:voorbeeld-gelabeld-dataset}
 \end{table}
 
-Het model kan leren dat woorden zoals 'gratis' in e-mails die tussen 01:00 en 03:00 worden verstuurd vaak als spam gelabeld zijn. Er kan dan geconcludeerd worden dat als een e-mail met soortgelijke features als input word gegeven, dat het een spam e-mail is \cite{google-ml-terminology}.
+Het model kan leren dat woorden zoals 'gratis' in e-mails die tussen 01:00 uur en 03:00 uur worden verstuurd vaak als spam gelabeld zijn. Er kan dan geconcludeerd worden dat als een e-mail met soortgelijke features als input word gegeven, dat het een spam e-mail is \cite{google-ml-terminology}.
 
 \subsection{Unsupervised learning}\label{subsec:unsupervised-learning}
 \Gls{unsupervised-learning} lijkt grotendeels op \gls{supervised-learning}. Het verschil is dat de \glspl{machine-learning-feature-vector} in de dataset niet gepaard zijn met een label. 
@@ -67,6 +91,8 @@ Het doel bij \gls{unsupervised-learning} is om de data op een bepaalde manier te
 \subsection{Reinforcement learning}\label{subsec:reinforcement-learning}
 \Gls{reinforcement-learning} wordt ook wel 'survival learning' genoemd. Een analogie hiervoor is een organisme dat moet overleven in verschillende situaties door de juiste actie te verrichten. Acties kunnen een positief of een negatief effect hebben. Acties dat langdurig een positieve effect hebben moeten versterkt worden zodat het model zo veel mogelijk positieve acties verricht \cite{bayesian-reasoning-and-machine-learning-book}.
 
+
+
 \section{Stappenplan voor het trainen van een model}\label{sec:stappenplan-voor-het-trainen-van-een-model}
 Er zijn een aantal stappen die altijd uitgevoerd moeten worden om een model te trainen, zoals: data opschonen, model trainen en een voorspelling maken met het model. Om deze stappen kunnen extra stappen geplaatst worden om de accuraatheid van de voorspelling te maximaliseren. Brownlee \cite{ml-applied-ml-process-brownlee} beschrijft een proces dat hij "Applied Machine Learning Process"\space noemt. Hierbij wordt vooraf het probleem in kaart gebracht, tussentijds gekeken welk algoritme de beste kans heeft op een hoge accuraatheid en na de selectie van het beste algoritme wordt het resultaat verbeterd als dit mogelijk is.
 
@@ -100,7 +126,7 @@ Het informele probleem hierboven kan met behulp van Mitchells sjabloon formeel g
 \begin{itemize}
   \item \textbf{T}: De temperatuur voor de komende 7 dagen voorspellen
   \item \textbf{E}: De gemeten temperatuur op dagen van voorgaande jaren
-  \item \textbf{P}: Hoe dicht het voorspelde temperatuur bij de gemeten temperatuur lag
+  \item \textbf{P}: Hoe dicht de voorspelde temperatuur bij de gemeten temperatuur lag
 \end{itemize}
 
 Vervolgens moet er gekeken worden waarom het probleem opgelost moet worden. De motivatie achter het gebruiken van ML kan het experimenteren zijn of omdat het van je werkgever moet. De voordelen van het gebruik van ML kan ook een reden zijn. ML toepassen kan bijvoorbeeld meer tijd vrijmaken voor andere taken.
@@ -177,14 +203,89 @@ Als laatste manier kan \gls{feature-engineering} gebruikt worden op de prestatie
 \subsection{Validatie en productie}\label{subsec:validatie-en-productie}
 Na het trainen en verbeteren van het model kan er validatie plaatst vinden. Gebruik hierbij de formulering uit stap 1 (\autoref{subsec:het-probleem-definieren}). Als het model niet of niet goed genoeg voldoet, kunnen de voorgaande stappen opnieuw bezocht worden. Als het model wel voldoet, kan het door naar productie.
 
-\section{Kennis vereist om een model te trainen}\label{sec:kennis-vereist-om-een-model-te-trainen}
-Waarom je niet alles kan voorkauwen.
-Wat is de middle ground?
+\section{Getallen herkennen}\label{sec:getallen-herkennen}
+Nu de theorie van een manier om een model te trainen is vastgelegd, kan de theorie op de proef genomen worden. Dit kan gedaan worden door een model te trainen met een dataset waarvan is bewezen dat een accuraat model getraind kan worden. Een dataset hiervan is de MNIST dataset. De dataset bestaan uit 70.000 afbeeldingen waarvan een getal van 0 tot 9 op staat. Ook zijn alle afbeeldingen gelabeld. Het doel is om een model te trainen dat een afbeelding met een getal krijgt dat het model nog nooit heeft gezien en met behulp van ML het getal herkend.
 
-\section{Wachttijden voorspellen}\label{sec:wachttijden-voorspellen}
+\subsection{Stap 1: Probleemdefinitie}\label{subsec:stap-1-probleemdefinitie}
+Als eerste stap moet het probleem gedefinieerd worden. Het probleem is al informeel in \autoref{sec:getallen-herkennen} beschreven. De formelere formulering kan met Mitchells sjabloon als volgt worden opgeschreven:
 
+\begin{itemize}
+  \item \textbf{T}: Voorspel welk getal (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) is getekend.
+  \item \textbf{E}: Dataset met 60.000 train voorbeelden en 10.000 test voorbeelden. De voorbeelden zijn gelabeld en zijn afbeeldingen van 28x28 pixels.
+  \item \textbf{P}: Het model is in staat om het getal (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) in een afbeelding te identificeren.
+\end{itemize}
+
+Als laatste moet het duidelijk zijn waarom het een probleem is en hoe het zonder ML opgelost zou kunnen worden. Bij een fictief probleem zoals deze is het niet echt relevant.
+
+\subsection{Stap 2: De data prepareren}\label{subsec:de-data-prepareren}
+Nu het probleem en de gewenste oplossing duidelijk is, moet het nu duidelijk zijn met wat voor data er gewerkt wordt. In \autoref{fig:mnist-data-visualisation} is te zien hoe de afbeeldingen eruit zien. Een afbeelding is zwart met een handgetekende cijfer in het wit.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=5cm]{./chapter-5/mnist-data-visualisation.png}
+  \caption{Visualisatie van de MNIST dataset}
+  \label{fig:mnist-data-visualisation}
+\end{figure}
+
+Omdat de dataset al opgeschoond is, hoeft de data alleen getransformeerd te worden. En afbeelding kan een getal zijn tussen 0 en 9, wat betekent dat een techniek genaamd \gls{hot-encoding} toegepast kan worden. Dit betekent de label van een afbeelding getransformeerd wordt van bijvoorbeeld '7'\space naar een binary vector. Een vector is in principe een collectie en de waardes zijn binary, dus 0 of 1. De label ziet er dan als volgt uit:
+
+\[[0, 0, 0, 0, 0, 0, 1, 0, 0]\]
+
+Een afbeelding is zwart-wit en bestaat uit pixels van 28 bij 28. Dit betekent dat elke pixel een waarde gegeven kan worden wat indiceert hoe wit of hoe zwart de pixel is, \(0\) zijnde zwart en \(255\) zijnde wit. Deze waarde kan geschaald worden naar een waarde tussen \(0\) en \(1\).
+
+De volgende stuk code kan uitgevoerd worden om de waardes te schalen:
+
+\begin{lstlisting}[language=Python]
+trainX = trainX.reshape((trainX.shape[0], 28, 28, 1))
+testX = testX.reshape((testX.shape[0], 28, 28, 1))
+\end{lstlisting}
+
+Vervolgens is dit het resultaat van een afbeelding:
+
+\[[[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  0]
+[  3]
+[ 18]
+[ 18]
+[ 18]
+[126]
+[136]
+[175]
+[ 26]
+[166]
+[255]
+[247]
+[127]
+[  0]
+[  0]
+[  0]
+[  0]]\]
+
+\subsection{Stap 3: Spot checking algoritmes}\label{subsec:spot-checking-algortimes}
+
+
+\subsection{Stap 4: Resultaten verbeteren}\label{subsec:resultaten-verbeteren}
+
+
+% \section{Wachttijden voorspellen}\label{sec:wachttijden-voorspellen}
+% De voorgaande theorie en stappenplan (\autoref{fig:ml-guide}) kan op de proef gesteld worden door het trainen van een model. 
 
 \section{Conclusie}\label{sec:conclusie}
 
 
 \section{Advies}\label{sec:advies}
+
+
+\subsection{Kennis vereist om een model te trainen}\label{subsec:kennis-vereist-om-een-model-te-trainen}
+Een van de focuspunten is om de vereiste kennis zo laag mogelijk te maken of de drempel zelfs helemaal weg te halen. Dit is echter niet realistisch aangezien termen en concepten zoals features, hyperparameters, cross-validation, enz. integraal zijn bij het trainen van een model. Het systeem zou echter wel de developer zo veel mogelijk helpen door te kunnen benadrukken welke termen en concepten belangrijk zijn om het systeem optimaal te gebruiken en resources zoals websites, tutorials en interne documenten te linken.
+

@@ -1,39 +1,75 @@
-\styledchapter[Onderzoeksmethoden]{methode-van-onderzoek}
+\styledchapter[Onderzoeksmethoden en scope]{methode-van-onderzoek}
 
 {\renewcommand{\arraystretch}{1.35}% for the vertical padding
 
+Om elke hoofd- en deelvraag te beantwoorden, maak ik bij elk gebruik van een onderzoeksmethode. Volgens Scribbr \cite{research-methods} zijn er twee onderzoeksmethoden: kwantitatief en kwalitatief. Bij een kwantitatief onderzoeksmethode wordt data verzameld waarmee grafieken of tabellen gemaakt kunnen worden. De focus bij een kwalitatief onderzoeksmethode ligt bij het verzamelen van verschillende interpertaties en opvattingen. Hierop kan optioneel een eigen interpertatie op gemaakt worden. \cite{quantitative-vs-qualitative}.
+
+Onder kwantitatief en kwalitatief vallen verschillende dataverzamelingsmethoden. Deze beschrijft simpelweg de manier hoe data wordt verzameld. Dit kan bijvoorbeeld met een enquête, literatuuronderzoek op websites en in boeken of een onderzoek over een lange periode \cite{quantitative-vs-qualitative}.
+
+Elke hoofd- en deelvraag is gekoppeld aan een onderzoeksmethoden. Vervolgens is beschreven welk(e) dataverzamelingsmethode(n) wordt gebruikt met een korte toelichting. Daarnaast wordt op een hoog niveau de scope bepaald en de requirements vanuit NGTI mocht die er zijn.
+
 \begin{table}[hbt!]
 \centering
-\begin{tabular}{|l|p{.83\linewidth}|}
+\begin{tabular}{|p{.215\linewidth}|p{.72\linewidth}|}
 \hline
-\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D1: Welke stappen moeten worden ondernomen om een machine learning-model te trainen?}} \\ \hline
-  \textbf{Doel}&
-    Onderzoek naar wat machine learning is en hoe een model getraind kan worden. Een visualisatie van hoe een model getraind wordt, een PoC waarbij een model getraind wordt en een conclusie en advies met vooral waarop gelet moet worden bij het trainen.
-  \\ \hline
-  \textbf{Methode}&
+\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D1: Uit welke stappen bestaat een machine learning pipeline?}} \\ \hline
+  \textbf{Methode(s)}&
     Kwalitatief
   \\ \hline
-  \textbf{Validatie}&
-    Er is uitleg gegeven wat machine learning is en hoe een model getraind kan worden op een simpele manier waarbij de visualisatie de uitleg compleet maakt. Met het conclusie en advies kan iemand die vrijwel geen kennis heeft aan de slag met het trainen van een model.
+  \textbf{Dataverzamelings methode(n)}&
+    Literatuuronderzoek, fundamenteel onderzoek, toegepast onderzoek
+  \\ \hline
+  \textbf{Scope}&
+    Binnen de scope:
+    \begin{itemize}
+      \item In kaart brengen uit welke stappen een pipeline bestaat
+      \item Acties die in een stap worden uitgevoerd
+      \item Of het mogelijk is om stappen te versimpelen / abstraheren voor developers
+      \item Of het mogelijk is om stappen en acties te automatiseren
+    \end{itemize}
+    Buiten de scope:
+    \begin{itemize}
+      \item Automatisering van stappen en acties
+      \item Een versimpeling van machine learning
+    \end{itemize}
+  \\ \hline
+  \textbf{Toelichting}&
+    Er wordt gekeken naar welke stappen er in een pipeline zitten. De theorie wordt vervolgens toegepast in een experiment. De nadruk ligt vooral of de mogelijkheid er is om stappen en acties te automatiseren en of machine learning versimpeld kan worden, niet dat er een uitwerking is.
   \\ \hline
 \end{tabular}
 \caption{Deelvraag 1}
 \label{table:sq1}
 \end{table}
 
+\space
+\newpage
+
 \begin{table}[hbt!]
 \centering
-\begin{tabular}{|l|p{.83\linewidth}|}
+\begin{tabular}{|p{.215\linewidth}|p{.72\linewidth}|}
 \hline
-\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D2: Hoe wordt een machine learning pipeline opgezet?}} \\ \hline
-  \textbf{Doel}&
-    Onderzoek naar wat een machine learning pipeline is, waarom het gebruikt wordt en welke onderdelen van de pipeline geautomatiseerd kunnen worden. PoC waarbij een pipeline met het model van de vorige deelvraag wordt opgezet. Conclusie en advies.
-  \\ \hline
+\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D2: Wat zijn de verschillen en overeenkomsten tussen cloud computing platformen waarmee een machine learning pipeline kan worden opgezet?}} \\ \hline
   \textbf{Methode}&
     Kwalitatief
   \\ \hline
-  \textbf{Validatie}&
-    Het is duidelijk wat een pipeline is en waarom het handig/noodzakelijk is om te gebruiken. In de conclusie en advies is het onder andere duidelijk of onderdelen geautomatiseerd kunnen worden.
+  \textbf{Dataverzamelings methode(n)}&
+    Literatuuronderzoek, vergelijkend onderzoek
+  \\ \hline
+  \textbf{Scope}&
+    Binnen de scope:
+    \begin{itemize}
+      \item Inventarisatie met de "long list short list"\space methode
+      \item Welke functionaliteit bieden de platformen op een machine learning pipeline op te zetten
+      \item Ervaring opdoen doormiddel van een pipeline te maken binnen twee cloud computing platformen
+      \item Basale inventarisatie en vergelijking van alternatieve manieren om met een cloud computing platform te communiceren
+    \end{itemize}
+    Buiten de scope:
+    \begin{itemize}
+      \item Prijs, performance en snelheid
+    \end{itemize}
+  \\ \hline
+  \textbf{Toelichting}&
+    Cloud computing platformen worden in kaart gebracht. Vervolgens wordt met criteria bepaald in een later stadium de lijst verkort tot twee kandidaten. Alternatieve manieren om met een cloud computing platform te communiceren is afgebakend tot first-party tools en frameworks dat een of meerdere platformen tegelijk kan aanspreken.
   \\ \hline
 \end{tabular}
 \caption{Deelvraag 2}
@@ -42,17 +78,25 @@
 
 \begin{table}[hbt!]
 \centering
-\begin{tabular}{|l|p{.83\linewidth}|}
+\begin{tabular}{|p{.215\linewidth}|p{.72\linewidth}|}
 \hline
-\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D3: Wat zijn de verschillen en overeenkomsten tussen cloud computing platforms en lokale frameworks waarmee machine learning-modellen kunnen worden getraind?}} \\ \hline
-  \textbf{Doel}&
-    De grote cloud computing platformen en lokale frameworks in kaart brengen. De features, voor- en nadelen worden met elkaar vergeleken. Waar van toepassing wordt een kosten berekening gedaan. Conclusie en advies bevat onder andere welke platform en/of framework het beste is om mee te beginnen.
-  \\ \hline
+\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D3: Wat zijn de verschillen en overeenkomsten tussen frameworks waarmee cloud computing platformen beheerd kunnen worden?}} \\ \hline
   \textbf{Methode}&
     Kwalitatief
   \\ \hline
-  \textbf{Validatie}&
-    Een overzichtelijke vergelijking tussen de cloud computing platformen en lokale frameworks is gemaakt. Uit de conclusie en advies moet blijken welke platform en/of framework het beste is om mee te beginnen.
+  \textbf{Dataverzamelings methode(n)}&
+    Literatuuronderzoek, vergelijkend onderzoek
+  \\ \hline
+  \textbf{Scope}&
+    Binnen de scope:
+    \begin{itemize}
+      \item Inventarisatie naar wat er aangemaakt, gewijzigd en verwijderd kan worden binnen een cloud computing platform
+      \item Hoe een machine learning pipeline op papier gemaakt zou worden met een framework
+      \item Experiment met het opzetten van een pipeline via het framework op een cloud computing platform
+    \end{itemize}
+  \\ \hline
+  \textbf{Toelichting}&
+  Er wordt gekeken naar welke frameworks er beschikbaar zijn en wat de verschillen/overeenkomsten zijn. Om de applicatie future proof te maken is het belangrijk om een framework te kiezen wat in de praktijk beproefd is en ondersteuning van een community heeft.
   \\ \hline
 \end{tabular}
 \caption{Deelvraag 3}
@@ -64,36 +108,50 @@
 
 \begin{table}[hbt!]
 \centering
-\begin{tabular}{|l|p{.83\linewidth}|}
+\begin{tabular}{|p{.215\linewidth}|p{.72\linewidth}|}
 \hline
-\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D4: Hoe ziet de architecturale blauwdruk van een applicatie, waarin een machine learning pipeline kan worden opgezet en die platform-onafhankelijk is, eruit?}} \\ \hline
-  \textbf{Doel}&
-    Er wordt research gedaan naar hoe een pipeline geautomatiseerd opgezet kan worden en naar verschillende tools/frameworks. Technische designs worden gemaakt ter validatie en als blauwdruk.
-  \\ \hline
+\multicolumn{2}{|p{.97\linewidth}|}{\textbf{D4: Hoe ziet de architecturale blauwdruk van een applicatie, waarin een machine learning pipeline kan worden opgezet, die acties voorgeprogrammeerd zijn, en die platform-onafhankelijk is, eruit?}} \\ \hline
   \textbf{Methode}&
     Kwalitatief
   \\ \hline
-  \textbf{Validatie}&
-    Uit de research en designs is het duidelijk hoe een systeem gebouwd kan worden.
+  \textbf{Dataverzamelings methode(n)}&
+    Literatuuronderzoek
+  \\ \hline
+  \textbf{Scope}&
+    Binnen de scope:
+    \begin{itemize}
+      \item Technische tekeningen
+    \end{itemize}
+    Buiten de scope:
+    -
+  \\ \hline
+  \textbf{Toelichting}&
+    De literatuuronderzoek slaat op of de technische tekeningen gemaakt zijn volgens een standaard zoals UML. Dit komt niet terug als theorie maar de bronnen worden wel vermeld.
   \\ \hline
 \end{tabular}
 \caption{Deelvraag 4}
 \label{table:sq4}
 \end{table}
 
+\space
+\newpage
+
 \begin{table}[hbt!]
 \centering
-\begin{tabular}{|l|p{.83\linewidth}|}
+\begin{tabular}{|p{.215\linewidth}|p{.72\linewidth}|}
 \hline
-\multicolumn{2}{|p{.97\linewidth}|}{\textbf{H: Hoe kan een machine learning pipeline worden geautomatiseerd onafhankelijk van de onderliggende cloud computing platform of lokale framework?}} \\ \hline
-  \textbf{Doel}&
-    Uit de requirements wordt de scope bepaald. Er worden designs gemaakt om de interface te testen. Een PoC wordt gebouwd.
-  \\ \hline
+\multicolumn{2}{|p{.97\linewidth}|}{\textbf{H: In welke mate kan een machine learning pipeline worden geautomatiseerd onafhankelijk van de onderliggende cloud computing platform?}} \\ \hline
   \textbf{Methode}&
     Kwalitatief
   \\ \hline
-  \textbf{Validatie}&
-    De PoC is werkzaam en voldoet aan de requirements.
+  \textbf{Dataverzamelings methode(n)}&
+    Literatuuronderzoek
+  \\ \hline
+  \textbf{Scope}&
+    De scope wordt bepaald na de requirement analyse.
+  \\ \hline
+  \textbf{Toelichting}&
+    Onderzoek naar documentatie van gebruikte framework(s).
   \\ \hline
 \end{tabular}
 \caption{Hoofdvraag}
