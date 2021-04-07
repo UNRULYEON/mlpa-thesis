@@ -1,45 +1,45 @@
 \styledchapter[Probleemanalyse]{probleemanalyse}
 
-Zoals beschreven in \autoref{sec:aanleiding-opdracht} is NGTI genoodzaakt om \gls{machine-learning} in te zetten om haar applicaties 'slimmer' te maken. Hier zijn een aantal redenen voor, onder andere:
+Zoals beschreven in \autoref{sec:aanleiding-opdracht} is NGTI genoodzaakt om machine-learning in te zetten om haar applicaties 'slimmer' te maken. Hier zijn een aantal redenen voor, onder andere:
 \begin{enumerate}
   \item gebruikerservaring verbeteren
   \item voorsprong hebben op concurrenten
 \end{enumerate}
 
-Het 'slimmer' maken van applicaties kan op verschillende manieren, maar met \gls{machine-learning} kan een platform gebouwd worden waarmee elke richting op gegaan kan worden. Om \gls{machine-learning} te implementeren in haar applicaties loopt NGTI tegen een aantal obstakels op, namelijk: expertise vereist in het \gls{machine-learning-pipeline} domein, tijd om een pipeline op te zetten en \gls{vendor-lock-in}.
+Het 'slimmer' maken van applicaties kan op verschillende manieren, maar met machine-learning kan een platform gebouwd worden waarmee elke richting op gegaan kan worden. Om machine-learning te implementeren in haar applicaties loopt NGTI tegen een aantal obstakels op, namelijk: expertise vereist in het machine learning domein, tijd om een pipeline op te zetten en vendor lock-in
 
 \section{Expertise Machine Learning}\label{sec:expertise-machine-learning}
-\Gls{machine-learning} is geen triviaal onderwerp. Om een model te trainen is kennis nodig van verschillende domeinen: \gls{data-mining}, software engineering en statistieken. In een multidisciplinair team is het voor één teamlid niet nodig om alle domeinen te beheersen.
+Machine learning is geen triviaal onderwerp. Om een model te trainen is kennis nodig van verschillende domeinen: data mining, software engineering en statistieken. In een multidisciplinair team is het voor één teamlid niet nodig om alle domeinen te beheersen.
 
-Doordat er voorkennis nodig is om een model te trainen en een pipeline goed op te zetten, is het vaak te hoogdrempelig voor developers. De expertise is daar bovenop niet in een korte tijd te vergaren.
+Doordat er voorkennis nodig is om een model te trainen en een pipeline goed op te zetten, is het vaak te hoogdrempelig voor developers. De expertise is daar daarnaast niet in een korte tijd te vergaren.
 
 \section{Opzetten pipeline}\label{sec:opzetten-pipeline}
-Bovenop de complexiteit van machine learning zelf bestaan er verschillende manieren om een model te trainen. Een \gls{machine-learning-pipeline} opzetten is daar een van. Een pipeline is een workflow dat bestaat uit een aantal stappen die doorgelopen kan worden om een model te trainen. In elke stap worden acties uitgevoerd, zoals het verwijderen van onbruikbare data of de prestatie van modellen vergelijken en een rapport met uitslagen genereren. Het opzetten van zo een pipeline én de actie(s) in de stappen definiëren kost tijd en kennis. Daarnaast zijn de stappen en acties vaak hetzelfde voor verschillende pipelines. Het automatiseren en hergebruiken van stappen en acties tussen pipelines zou tot tijdwinst leiden.
+Bovenop de complexiteit van machine learning zelf bestaan er verschillende manieren om een model te trainen. Een machine learning pipeline opzetten is daar een van. Een pipeline is een workflow dat bestaat uit een aantal stappen die doorgelopen kan worden om een model te trainen. In elke stap worden acties uitgevoerd, zoals het verwijderen van onbruikbare data of de prestatie van modellen vergelijken en een rapport met uitslagen genereren. Het opzetten van zo een pipeline én de actie(s) in de stappen definiëren kost tijd en vereist specifieke kennis. Daarnaast zijn de stappen en acties vaak hetzelfde voor verschillende pipelines. Het automatiseren en hergebruiken van stappen en acties tussen pipelines zou tot onder andere tijdwinst leiden.
 
 \section{Vendor lock-in}\label{sec:vendor-lock-in}
-Er bestaan een aantal diensten, zogenoemde \acrfull{paas}, waarbij je een pipeline kan opzetten en acties kan definiëren. Een van de problemen met een \acrshort{paas} is \gls{vendor-lock-in}. Dit betekent dat, als er eenmaal een pipeline is opgezet, de overdraagbaarheid van de pipeline naar een andere \acrshort{paas} vrijwel onmogelijk is. Ook zijn de opties en mogelijkheden om uit te breiden in de toekomst gelimiteerd.
+Er bestaan een aantal diensten, zogenoemde \acrfull{paas}, waarbij je een pipeline kan opzetten en acties kan definiëren. Een van de problemen met een PaaS is vendor lock-in. Dit betekent dat, als er eenmaal een pipeline is opgezet, de overdraagbaarheid van de pipeline naar een andere PaaS vrijwel onmogelijk is. Ook zijn de opties en mogelijkheden om uit te breiden in de toekomst gelimiteerd.
 
 \section{Doelstelling}\label{sec:doelstelling}
-Om het probleem op te lossen is onderzoek en experimentatie nodig op verschillende vlakken. De gewenste oplossing is het ontwikkelen van een systeem waarbij developers met weinig tot geen kennis een model kunnen trainen. Het systeem moet de infrastructurele taken voor zich nemen, zoals het opzetten van een pipeline, de stappen en acties automatiseren. Daarnaast moet het systeem ook platform agnostisch zijn.
+Om het probleem op te lossen is onderzoek en experimentatie nodig op verschillende vlakken. De gewenste oplossing is het ontwikkelen van een systeem waarbij developers met weinig tot geen kennis een model kunnen trainen. Het systeem moet de infrastructurele taken voor zich nemen, zoals het opzetten van een pipeline, de stappen en acties automatiseren. Daarnaast moet het systeem ook platform agnostisch zijn zodat het systeem niet aan één platform gebonden is.
 
 \section{Bestaande oplossingen om pipelines op te zetten}\label{sec:bestaande-oplossingen-om-pipelines-op-te-zetten}
-Er bestaan een aantal oplossingen voor vrijwel alle problemen die NGTI ondervindt. Elke oplossing is een \acrshort{paas} van een derde partij waarbij \gls{vendor-lock-in} inherent is. Dit maakt ze ongeschikt maar betekent echter niet dat ze nutteloos zijn. Er kan namelijk gekeken worden hoe een pipeline wordt opgezet, welke acties de stappen verricht en daar vervolgens (gedeeltelijk) het systeem op baseren. Daarnaast wordt bij alle oplossingen een expertise van ML op een bepaalde niveau verwacht.
+Er bestaan een aantal oplossingen die deels aan de eisen in de doelstelling voldoen. Elke oplossing is een PaaS van een derde partij waarbij vendor lock-in inherent is. Dit maakt ze ongeschikt maar betekent echter niet dat ze nutteloos zijn. Er kan namelijk gekeken worden hoe een pipeline wordt opgezet, welke acties de stappen verricht en daar vervolgens (gedeeltelijk) het systeem op baseren. Daarnaast wordt bij alle oplossingen een expertise van ML op een bepaalde niveau verwacht.
 
 De oplossingen kunnen gecategoriseerd worden in twee groepen:
 \begin{enumerate}
-  \item \Gls{machine-learning-pipeline} specifieke services
-  \item \Glspl{cloud-computing-platform}
+  \item Machine learning pipeline specifieke services
+  \item Cloud computing platform
 \end{enumerate}
 
 \subsection{Machine learning pipeline specifieke service}\label{subsec:machine-learning-pipeline-specifieke-service}
 Bedrijven zoals Algorithmia \cite{algorithmia-website} en Valohai \cite{valohai-website} bieden alleen diensten om pipelines op te zetten. Ze zorgen voor het databehoud dat door de gebruiker wordt geüpload en het trainen van het model. Verder kan er toezicht gehouden worden op de kosten, beschikbaarheid en prestatie van het model.
 
-Valohai heeft documentatie een aantal blog posts die bij het ontwerpen van het systeem relevant zouden kunnen zijn.
+Valohai heeft documentatie een aantal blog posts die bij het ontwerpen van het systeem relevant zouden kunnen zijn. 
 
 \subsection{Cloud computing platformen}\label{subsec:cloud-computing-platformen}
-De drie grote \glspl{cloud-computing-platform} Amazon, Azure en Google hebben meer te bieden dan alleen een pipeline opzetten, zoals het hosten van een website, database of virtuele server. De \glspl{cloud-computing-platform} hebben hetzelfde probleem als de \gls{machine-learning-pipeline} specifieke services; \gls{vendor-lock-in} is onvermijdelijk. Wat wel een mogelijkheid zou kunnen zijn is dat de andere services van de \glspl{cloud-computing-platform} gebruikt kunnen worden als onderdeel van het systeem.
+De drie grote cloud computing platformen Amazon, Azure en Google hebben meer te bieden dan alleen een pipeline opzetten, zoals het hosten van een website, database of virtuele server. De cloud computing platformen hebben hetzelfde probleem als de machine learning pipeline specifieke services; vendor lock-in is onvermijdelijk. Wat wel een mogelijkheid zou kunnen zijn is dat de andere services van de cloud computing platformen gebruikt kunnen worden als onderdeel van het systeem.
 
-Het systeem zou bijvoorbeeld een server kunnen aanmaken, een model trainen, het resultaat downloaden en vervolgens de server verwijderen.
+Het systeem zou bijvoorbeeld een server kunnen aanmaken, een model trainen, het resultaat downloaden en vervolgens de server verwijderen. Om dit zonder de grafisch interface te doen kan er gebruik worden gemaakt van frameworks dat interacteert met het platform.
 
 % \subsection{Lokale frameworks}\label{subsec:lokale-frameworks}
 % Naast de \glspl{cloud-computing-platform} en machine learning pipeline specifieke services bestaan er ook lokale frameworks om een model te trainen, zoals TensorFlow, Keras en PyTorch \cite{ml-libraries}. 
@@ -50,10 +50,10 @@ Het systeem zou bijvoorbeeld een server kunnen aanmaken, een model trainen, het 
 % \subsection{AI Platform Pipelines}\label{subsec:ai-platform-pipelines}
 % \subsection{Amazon SageMaker Pipelines}\label{subsec:amazon-sagemaker-pipelines}
 
-\section{Frameworks om cloud computing platformen te beheren}\label{sec:frameworks-om-cloud-computing-platformen-te-beheren}
+\subsection{Frameworks om cloud computing platformen te beheren}\label{subsec:frameworks-om-cloud-computing-platformen-te-beheren}
 Gedurende de vooronderzoek zijn frameworks dat cloud computing platformen beheert en frameworks waarmee een pipeline uitgerold kan worden naar boven gekomen. Deze frameworks kunnen deel uitmaken van de oplossing. Een framework dat cloud computing platformen kan beheren is Terraform \cite{terraform}. Met Terraform is het mogelijk om een plan te schrijven waarin bijvoorbeeld staat welke type server nodig is. Bij het uitvoeren van het plan spreekt Terraform een cloud computing platform naar keuze aan om de server op te starten. Terraform kan vervolgens controleren of de server draait en de server afsluiten wanneer het niet meer nodig is.
 
-Kubeflow \cite{kubeflow} is een ander framework waarmee een pipeline kan worden opgezet. Het verschil met Terraform is dat Terraform flexibeler is met wat er aangemaakt kan worden op een cloud computing platform. Kubeflow kan alleen een pipeline uitrollen.
+Kubeflow \cite{kubeflow} is een ander framework waarmee een pipeline kan worden opgezet. Het verschil met Terraform is dat Terraform flexibeler is met wat er aangemaakt kan worden op een cloud computing platform. Kubeflow kan alleen een pipeline uitrollen. Een andere framework zoals Kubeflow is Apache Beam \cite{apache-beam}.
 
 \section{Hoofd- en deelvragen}\label{sec:hoofd-en-deelvragen}
 Uitgaand van de drie obstakels kan de hoofdvraag als volgt worden geformuleerd:

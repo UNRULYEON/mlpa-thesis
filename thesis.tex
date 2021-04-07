@@ -51,6 +51,8 @@
 \input{glossary/acronyms.tex}
 \input{glossary/terms.tex}
 
+\usepackage[toc,page]{appendix}
+
 \usepackage{wrapfig}
 
 \usepackage{xcolor}
@@ -87,9 +89,6 @@
 % TOC
 \usepackage{tocloft}
 
-% Appendix
-\usepackage[toc, title]{appendix}
-
 % Use new lines instead of indents in paragraphs
 \usepackage[parfill]{parskip}
 
@@ -105,13 +104,19 @@
 \usepackage{multirow}
 
 % Qoutes
-
 \usepackage[]{quoting}
 % Qoutes inline
 \usepackage{dirtytalk}
 
+% Rotate page to landscape
+\usepackage{rotating}
+
+% Adjust spacing
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
 % Debugging
 % \usepackage{showframe}
+
 
 % Hyphenation fix
 % \tolerance=9999
@@ -124,64 +129,64 @@
 
 \begin{document}
 
-% Title page
-\maketitle\thispagestyle{empty}\cleardoublepage
+  % Title page
+  \maketitle\thispagestyle{empty}\cleardoublepage
 
-\input{chapters/0.voorwoord/voorwoord.tex}
+  \input{chapters/0.voorwoord/voorwoord.tex}
 
-% Glossary
-\renewcommand{\glossarysection}[2][\theglstoctitle]{
-  \def\theglstoctitle{#2}
-  \vspace{\cftbeforelottitleskip}
-  \par\noindent
-  {\cftlottitlefont #2}{\cftafterlottitle}
-  \vskip\cftafterlottitleskip\vspace{-0.25in}
-}
-% \addcontentsline{toc}{chapter}{Afkortingen}
-\printglossary[type=\acronymtype,title=Afkortingen,toctitle=Afkortingen]\thispagestyle{fancy}\newpage
-% \addcontentsline{toc}{chapter}{Begrippenlijst}
-\printglossary[title=Begrippenlijst]\thispagestyle{fancy}\newpage
+  % Glossary
+  \renewcommand{\glossarysection}[2][\theglstoctitle]{
+    \def\theglstoctitle{#2}
+    \vspace{\cftbeforelottitleskip}
+    \par\noindent
+    {\cftlottitlefont #2}{\cftafterlottitle}
+    \vskip\cftafterlottitleskip\vspace{-0.25in}
+  }
+  % \addcontentsline{toc}{chapter}{Afkortingen}
+  \printglossary[type=\acronymtype,title=Afkortingen,toctitle=Afkortingen]\thispagestyle{fancy}\newpage
+  % \addcontentsline{toc}{chapter}{Begrippenlijst}
+  \printglossary[title=Begrippenlijst]\thispagestyle{fancy}\newpage
 
-% List of figures
-\renewcommand{\cftbeforeloftitleskip}{-0.15in}
-\renewcommand{\cftafterloftitleskip}{0.20in}
-% \addcontentsline{toc}{chapter}{Lijst van figuren}
-\listoffigures{}\thispagestyle{fancy}\newpage
+  % List of figures
+  \renewcommand{\cftbeforeloftitleskip}{-0.15in}
+  \renewcommand{\cftafterloftitleskip}{0.20in}
+  % \addcontentsline{toc}{chapter}{Lijst van figuren}
+  \listoffigures{}\thispagestyle{fancy}\newpage
 
-% List of tables
-\renewcommand{\cftbeforelottitleskip}{-0.15in}
-\renewcommand{\cftafterlottitleskip}{0.20in}
-\listoftables\thispagestyle{fancy}\newpage
-% \addcontentsline{toc}{chapter}{Lijst van tabellen}
+  % List of tables
+  \renewcommand{\cftbeforelottitleskip}{-0.15in}
+  \renewcommand{\cftafterlottitleskip}{0.20in}
+  \listoftables\thispagestyle{fancy}\newpage
+  % \addcontentsline{toc}{chapter}{Lijst van tabellen}
 
-% Table of Contents
-\renewcommand{\cftbeforetoctitleskip}{-0.15in}
-\renewcommand{\cftaftertoctitleskip}{0.20in}
-\setcounter{tocdepth}{1}
-\tableofcontents{}\thispagestyle{fancy}
+  % Table of Contents
+  \renewcommand{\cftbeforetoctitleskip}{-0.15in}
+  \renewcommand{\cftaftertoctitleskip}{0.20in}
+  \setcounter{tocdepth}{1}
+  \tableofcontents{}\thispagestyle{fancy}
 
-% Chapters
-\input{chapters/1.inleiding/inleiding.tex}
-\input{chapters/2.probleemanalyse/probleemanalyse.tex}
-\input{chapters/3.onderzoeksmethode-en-scope/onderzoeksmethode-en-scope.tex}
-\input{chapters/4.stappen-in-een-machine-learning-pipeline/stappen-in-een-machine-learning-pipeline.tex}
-\input{chapters/5.cloud-computing-platformen/cloud-computing-platformen.tex}
-\input{chapters/6.frameworks-beheren-platformen/frameworks-beheren-platformen.tex}
-\input{chapters/7.architecturale-ontwerp/architecturale-ontwerp.tex}
-\input{chapters/8.oplossing/oplossing.tex}
-\input{chapters/9.conclusie/conclusie.tex}
-\input{chapters/10.aanbeveling/aanbeveling.tex}
-\input{chapters/11.discussie/discussie.tex}
-\input{chapters/12.reflectie/reflectie.tex}
+  % Chapters
+  \input{chapters/1.inleiding/inleiding.tex}
+  \input{chapters/2.probleemanalyse/probleemanalyse.tex}
+  \input{chapters/3.onderzoeksmethode-en-scope/onderzoeksmethode-en-scope.tex}
+  \input{chapters/4.stappen-in-een-machine-learning-pipeline/stappen-in-een-machine-learning-pipeline.tex}
+  \input{chapters/5.cloud-computing-platformen/cloud-computing-platformen.tex}
+  \input{chapters/6.frameworks-beheren-platformen/frameworks-beheren-platformen.tex}
+  \input{chapters/7.architecturale-ontwerp/architecturale-ontwerp.tex}
+  \input{chapters/8.oplossing/oplossing.tex}
+  \input{chapters/9.conclusie/conclusie.tex}
+  \input{chapters/10.aanbeveling/aanbeveling.tex}
+  \input{chapters/11.discussie/discussie.tex}
+  \input{chapters/12.reflectie/reflectie.tex}
 
-% Bibliography
-\styledunmarkedchapter[\bibname]{bibliografie}
-\printbibliography[heading=none]
+  % Bibliography
+  \styledunmarkedchapter[\bibname]{bibliografie}
+  \printbibliography[heading=none]
 
-% Appendix input
-\renewcommand{\appendixname}{Bijlagen}
-\renewcommand{\appendixtocname}{Bijlagen}
-\renewcommand{\appendixpagename}{Bijlagen}
-\input{appendix/appendix.tex}
+  % Appendix input
+  \renewcommand{\appendixname}{Bijlagen}
+  \renewcommand{\appendixtocname}{Bijlagen}
+  \renewcommand{\appendixpagename}{Bijlagen}
+  \input{appendix/appendix.tex}
 
 \end{document}
