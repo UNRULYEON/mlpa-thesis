@@ -1,6 +1,41 @@
 \styledchapter[Stappen in een Machine Learning pipeline]{stappen-in-een-machine-learning-pipeline}
 
-Een machine learning (ML) pipeline is zoals beknopt beschreven in \autoref{sec:opzetten-pipeline} een collectie van stappen dat wordt doorlopen om een model te trainen. Elke stap bevat een aantal acties dat wordt uitgevoerd. Hapke en Nelson \cite{building-machine-learning-pipelines-oreilly} benoemen een aantal voordelen bij het gebruik van een pipeline voor het trainen van modellen:
+Een ML pipeline is zoals beknopt beschreven in \autoref{subsec:opzetten-pipeline} een collectie van stappen dat wordt doorlopen om een model te trainen. Elke stap bevat een aantal acties dat wordt uitgevoerd, zoals onbruikbare data weghalen of de prestatie analyseren. De stappen en acties wordt in \autoref{sec:stappen-in-een-pipeline} uitgelegd. Een van de stappen in een pipeline is het trainen van het model. Om een idee te krijgen van ML wordt dit kort uitgelegd.
+
+\section{Wat is machine learning?}\label{sec:wat-is-machine-learning}
+ML houdt in dat een computer een taak kan uitvoeren zonder ervoor expliciet geprogrammeerd te zijn. Dit wordt gedaan door een ML model te laten leren van een gegeven dataset. Vervolgens kan er een voorspelling worden gemaakt \cite[p.~1-3]{introduction-to-machine-learning}.
+
+De domeinen deep learning (DL), neural networks (NN) en artificial intelligence (AI) komen vaak voor als het over ML gaat. Zoals weergegeven in \autoref{fig:ai-ml-nn-dl} is te zien dat ML een subset is van AI, NN een subset van ML en als laatste DL dat een subset is van NN.
+
+Bij AI wordt niet alleen ML toegepast, maar ook concepten zoals beredeneren, plannen, vooruitdenken en het onthouden en terug refereren. Een voorbeeld hiervan is dat een ML model kan voorspellen wat het volgende woord in een zin kan zijn, maar een AI kan beredeneren waarom de zin gebouwd is zoals het is en hoe het past binnen de context van de alinea past \cite{ml-think-about-ml-brownlee}.
+
+Een NN bestaat uit een collectie van nodes dat gemodelleerd is naar de hersenen. Een NN heeft minimaal 3 lagen: een input laag, een verborgen laag en een output laag. Elke laag bevat neuronen dat data als input kan krijgen en data als output verstuurd. Zo gaat data langs alle lagen. DL is een NN dat meerdere verborgen lagen bevat \cite{ml-neural-network-nicholson}.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=0.48\textwidth]{chapter-4/AI-ML-NN-DL.png}
+  \caption{Machine learning in de context van andere domeinen}
+  \label{fig:ai-ml-nn-dl}
+\end{figure}
+
+In ML bestaan talloze algoritmes om voorspellingen te maken. In de [BIJLAGE LINK] is een mind-map te vinden van de algoritmes die gedurende de scriptie naar voren zijn gekomen. Het grotendeels kan gegroepeerd worden in vier stylen: supervised, unsupervised, semi-supervised en reinforcement learning. In de [BIJLAGE LINK] is meer informatie over de stylen te vinden.
+
+Door een klein onderdeel of variabel aan te passen in het train proces kan de prestatie van een model sterk beïnvloed worden. Om het proces te waarborgen kan gebruik worden gemaakt van een pipeline. In \autoref{subsec:voordelen-van-een-machine-learning-pipeline} worden de voordelen van een pipeline beschreven.
+
+In het ML domein bestaat geen consensus over wat de juiste stappen in een pipeline zijn. Voor de scriptie is gekozen voor een pipeline van Hapke en Nelson uit het boek "Building Machine Learning Pipelines". Het boek is gemaakt en gepubliceerd door O'Reilly; een bekend en gecrediteerd bedrijf dat boeken maakt binnen de software engineering domein.
+
+\section{De stappen in een pipeline}\label{sec:stappen-in-een-pipeline}
+Een machine learning pipeline begint met het opnemen van data en eindigt met het ontvangen van feedback om de prestatie van het model te verbeteren. De pipeline bevat een aantal stappen zoals data voorbereiden, het model trainen en het uitrollen van het model (\autoref{fig:model-lifecycle-oreilly}). In totaal zijn er, zonder de feedback loop stap, acht stappen dat elke keer doorlopen moeten worden om een model te trainen. Het proces is tijdrovend en gevoelig voor fouten als het handmatig wordt uitgevoerd en herhaalt.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.8\textwidth]{chapter-4/ml-pipeline-lifecycle-oreilly.png}
+  \caption{Lifecycle van een model volgens Hapke en Nelson \cite[p.~4]{building-machine-learning-pipelines-oreilly}.}
+  \label{fig:model-lifecycle-oreilly}
+\end{figure}
+
+\subsection{Voordelen van een machine learning pipeline}\label{subsec:voordelen-van-een-machine-learning-pipeline}
+Hapke en Nelson \cite{building-machine-learning-pipelines-oreilly} benoemen een aantal voordelen bij het gebruik van een pipeline voor het trainen van modellen:
 
 \begin{itemize}
   \item Voorkomen van bugs
@@ -11,16 +46,7 @@ Een machine learning (ML) pipeline is zoals beknopt beschreven in \autoref{sec:o
   \item[] Binnen een team zal er één correcte manier zijn om een model te trainen; met de stappen in een pipeline. Dit zorgt ervoor dat er consistentie is tussen teamleden als een model wordt getraind en is het makkelijker voor nieuwe teamleden om te starten.
 \end{itemize}
 
-\section{De stappen in een pipeline}\label{sec:stappen-in-een-pipeline}
-Een machine learning pipeline begint met het opnemen van data en eindigt met het ontvangen van feedback om de prestatie van het model te verbeteren. De pipeline bevat een aantal stappen zoals data voorbereiden, het model trainen en het uitrollen van het model (\autoref{fig:model-lifecycle-oreilly}). In totaal zijn er, zonder de feedback loop stap, acht stappen dat elke keer doorlopen moeten worden om een model te trainen. Om dit proces handmatig te herhalen is tijdrovend en kan gevoelig voor fouten zijn. 
-
-\begin{figure}[hbt!]
-  \centering
-  \includegraphics[width=.8\textwidth]{chapter-4/ml-pipeline-lifecycle-oreilly.png}
-  \caption{Lifecycle van een model volgens Hapke en Nelson \cite[p.~4]{building-machine-learning-pipelines-oreilly}.}
-  \label{fig:model-lifecycle-oreilly}
-\end{figure}
-
+\subsection{Praktisch voorbeeld}\label{subsec:praktisch-voorbeeld}
 Om een greep te krijgen van een machine learning pipeline zullen de stappen uit \autoref{fig:model-lifecycle-oreilly} als leidraad genomen worden. Bij elke stap in de komende subkoppen wordt code snippets gegeven. Het doel is om bij de laatste stap een werkend pipeline te maken. Een pipeline wordt doorgaans uitgevoerd in een cloud omgeving zoals Azure of Amazon Web Services (AWS). In dit hoofdstuk wordt de pipeline lokaal gemaakt en zal in \autoref{chap:cloud-computing-platformen} een pipeline in een cloud omgeving opgezet worden. 
 
 De dataset waarmee het model wordt getraind bestaat uit 150 voorbeelden van drie iris soorten: Setosa, Virginica en Versicolor. Elk voorbeeld heeft de lengte en breedte van de kelk- en bloemblad met de bijbehorende soort iris. In \autoref{table:example-iris-dataset} is een voorbeeld van de dataset te zien. Het model zal een van de drie soorten kunnen herkennen op basis van de lengte en breedte van een gegeven kelk- en bloemblad. 
@@ -39,7 +65,7 @@ De dataset waarmee het model wordt getraind bestaat uit 150 voorbeelden van drie
 
 De gekozen dataset is een bekend ML voorbeeld welk meerdere malen is opgelost. Het doel is dus om de stappen te beproeven en niet om te experimenteren met een onopgelost probleem.
 
-\subsection{Data opname en versiebeheer}\label{subsec:data-opname-en-versiebeheer}
+\subsection{Data opname en versiebeheer (Data ingestion/versioning)}\label{subsec:data-opname-en-versiebeheer}
 De eerste stap in de pipeline is het opnemen van data. Met deze data zal het model getraind, gevalideerd en getest worden. De dataset kan van een of meerdere bronnen komen, zoals lokaal, een storage bucket of van een database. Zodra de data is ingeladen, moet het verdeeld worden tussen een train, validatie en test dataset. Normaal gebeurt dit met een split ratio van 6:2:2. De train dataset is 60\% en de validatie en test dataset zijn allebei 20\% van de originele dataset \cite[p.~27-37]{building-machine-learning-pipelines-oreilly}.
 
 Een usecase van een pipeline is dat een nieuw model getraind kan worden door een geüpdatet dataset te gebruiken. Dit wordt gedaan door de voorgaande dataset te gebruiken waarbij nieuwe data is toegevoegd. Door het gebruik van verschillende datasets is het handig om versiebeheer toe te passen. Zo is goed te zien welke dataset welk model produceert. Een versie geven aan een dataset gebeurt voordat de dataset wordt ingeladen \cite[p.~39-40]{building-machine-learning-pipelines-oreilly}. Versiebeheer voor datasets kan bijvoorbeeld met DVC \cite{dvc} of Pachyderm \cite{pachyderm}.
