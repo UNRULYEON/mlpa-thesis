@@ -1,56 +1,95 @@
 \styledchapter[Frameworks dat platformen beheert]{frameworks-dat-platformen-beheert}
 
-Een cloud computing platform stelt een dienst beschikbaar waarmee gebruikers onder andere rekenkracht of opslag kan huren. De gebruiker is niet verantwoordelijk voor de details zoals onderhoud of uptime. Daarnaast kan er gemakkelijk geschaald worden mocht een gebruiker behoefte hebben aan meer rekenkracht of opslag \cite{cloud-computing-wikipedia}.
-
-\section{Inventarisatie van platformen}\label{sec:inventarisatie-van-platformen}
-De PoC moet minimaal twee platformen ondersteunen om te voldoen aan de platform agnostische vereiste. Om de lijst van potentiële kandidaten te verkleinen wordt er gekeken naar een aantal criteria waaraan de platform moet voldoen. De criteria is opgelegd door NGTI en de volgorde van de lijst heeft geen belang. Een kort overzicht van de criteria is in de onderstaande lijst te vinden. Een uitgebreid overzicht met toelichting bij elk criteria is te vinden in de bijlage (\autoref{appendix:criteria-with-elaboration-for-cloud-computing-platforms}).
-
-\begin{itemize}
-  \item ML Pipeline aanmaken
-  \item Serverbeheer
-  \item Database beheer
-  \item Storage bucket beheer
-  \item Uptime 99.9\%
-  \item Regionale beschikbaarheid
-  \item Toegankelijkheid documentatie ML pipeline
-  \item APIs
-  \item Inhoud ML
-\end{itemize}
-
-Er bestaat geen lijst met waar alle platformen te vinden zijn. De platformen in \autoref{table:overview-cloud-computing-platforms-with-criteria} zijn gevonden op verschillende websites dat een handvol platformen noemt. De websites sorteert de platformen op basis van een bepaalde kenmerk (goedkoopst, veiligst, het beste voor beginners) en benoemt de lijst het beste van bijvoorbeeld 2019 of 2020. Omdat er al criteria (\ref{appendix:criteria-with-elaboration-for-cloud-computing-platforms}) is gedefinieerd, is het niet nodig om verder te kijken dan de naam van het platform.
-
-In \autoref{table:overview-cloud-computing-platforms-with-criteria} zijn de platformen met de criteria te vinden en of het platform wel of niet voldoet. Een uitgebreide analyse met links naar eventuele documentatie van een requirement is te vinden in de bijlage. In elke regel is te vinden welke specifieke bijlage het is.
-
-\newpage
-
 \begin{table}[hbt!]
-  \footnotesize
   \centering
-  \begin{sideways}
-  \begin{tabular}{|p{.14\linewidth}|p{.12\linewidth}|p{.065\linewidth}|p{.09\linewidth}|p{.075\linewidth}|p{.07\linewidth}|p{.1\linewidth}|p{.165\linewidth}|p{.05\linewidth}|p{.07\linewidth}|p{.07\linewidth}|}
+  \begin{tabular}{|p{.2\linewidth}|p{.69\linewidth}|}
   \hline
-  \textbf{Platform} & \textbf{ML pipeline aanmaken} & \textbf{Server beheer} & \textbf{Database beheer} & \textbf{Storage bucket beheer} & \textbf{Uptime 99.9\%} & \textbf{Regionale beschikbaarheid} & \textbf{Toegankelijkheid documentatie ML pipeline} & \textbf{APIs} & \textbf{Inhoud ML} & \textbf{Bijlage} \\ \hline
-  AWS&&&&&&&&&&\autoref{table:aws-against-criteria}\\ \hline
-  Azure&&&&&&&&&&\autoref{table:azure-against-criteria}\\ \hline
-  Google Cloud&&&&&&&&&&\autoref{table:google-cloud-against-criteria}\\ \hline
-  DigitalOcean&&&&&&&&&&\autoref{table:digitalocean-against-criteria}\\ \hline
-  IBM Cloud&&&&&&&&&&\autoref{table:ibm-cloud-against-criteria}\\ \hline
-  Alibaba&&&&&&&&&&\autoref{table:alibaba-against-criteria}\\ \hline
-  Oracle Cloud Infrastructure&&&&&&&&&&\autoref{table:oracle-cloud-infrastructure-against-criteria}\\ \hline
-  Kamatera Cloud&&&&&&&&&&\autoref{table:kamatera-cloud-against-criteria}\\ \hline
-  Cloudways&&&&&&&&&&\autoref{table:cloudways-against-criteria}\\ \hline
-  Vultr&&&&&&&&&&\autoref{table:vultr-against-criteria}\\ \hline
-  BigML Inc.&&&&&&&&&&\autoref{table:bigml-inc-against-criteria}\\ \hline
-  H2O.ai Inc.&&&&&&&&&&\autoref{table:h2o.ai-inc-against-criteria}\\ \hline
+  \textbf{Criteria} & \textbf{Toelichting} \\ \hline
+    Programmatisch servers beheren
+    &
+    Het framework moet via een CLI of code een server kunnen opzetten om code uit te voeren. 
+    \\ \hline
+
+    Ondersteuning voor cloud \newline computing \newline platformen
+    &
+    Om platform-agnostisch te zijn moet het framework minstens twee cloud computing platformen ondersteunen waarop een ML model getraind kan worden.
+    \\ \hline
+
+    Uitgebreide documentatie
+    &
+    
+    \\ \hline
   \end{tabular}
-  \end{sideways}
-  \caption{Overzicht van cloud computing platformen met criteria}
-  \label{table:overview-cloud-computing-platforms-with-criteria}
+  \caption{Knock-out criteria voor frameworks dat cloud computing platformen beheerd.}
+  \label{table:knock-out-criteria-framworks-that-manage-cloud-computing-platformen}
 \end{table}
 
-\newpage
+\begin{table}[hbt!]
+  \centering
+  \begin{tabular}{|p{.2\linewidth}|p{.69\linewidth}|}
+  \hline
+  \textbf{Criteria} & \textbf{Toelichting} \\ \hline
+    Ondersteuning voor lokale \newline oplossingen
+    &
+    Naast het ondersteunen van cloud computing platformen moet het framework ook lokale oplossingen zoals Kubernetes of Docker ondersteunen zodat een developer lokaal het model kan trainen [https://www.npmjs.com/package/node-docker-api].
+    \\ \hline
+  \end{tabular}
+  \caption{Criteria voor frameworks dat cloud computing platformen beheerd.}
+  \label{table:criteria-framworks-that-manage-cloud-computing-platformen}
+\end{table}
 
-\space
+
+% Een cloud computing platform stelt een dienst beschikbaar waarmee gebruikers onder andere rekenkracht of opslag kan huren. De gebruiker is niet verantwoordelijk voor de details zoals onderhoud of uptime. Daarnaast kan er gemakkelijk geschaald worden mocht een gebruiker behoefte hebben aan meer rekenkracht of opslag \cite{cloud-computing-wikipedia}.
+
+% \section{Inventarisatie van platformen}\label{sec:inventarisatie-van-platformen}
+% De PoC moet minimaal twee platformen ondersteunen om te voldoen aan de platform agnostische vereiste. Om de lijst van potentiële kandidaten te verkleinen wordt er gekeken naar een aantal criteria waaraan de platform moet voldoen. De criteria is opgelegd door NGTI en de volgorde van de lijst heeft geen belang. Een kort overzicht van de criteria is in de onderstaande lijst te vinden. Een uitgebreid overzicht met toelichting bij elk criteria is te vinden in de bijlage (\autoref{appendix:criteria-with-elaboration-for-cloud-computing-platforms}).
+
+% \begin{itemize}
+%   \item ML Pipeline aanmaken
+%   \item Serverbeheer
+%   \item Database beheer
+%   \item Storage bucket beheer
+%   \item Uptime 99.9\%
+%   \item Regionale beschikbaarheid
+%   \item Toegankelijkheid documentatie ML pipeline
+%   \item APIs
+%   \item Inhoud ML
+% \end{itemize}
+
+% Er bestaat geen lijst met waar alle platformen te vinden zijn. De platformen in \autoref{table:overview-cloud-computing-platforms-with-criteria} zijn gevonden op verschillende websites dat een handvol platformen noemt. De websites sorteert de platformen op basis van een bepaalde kenmerk (goedkoopst, veiligst, het beste voor beginners) en benoemt de lijst het beste van bijvoorbeeld 2019 of 2020. Omdat er al criteria (\ref{appendix:criteria-with-elaboration-for-cloud-computing-platforms}) is gedefinieerd, is het niet nodig om verder te kijken dan de naam van het platform.
+
+% In \autoref{table:overview-cloud-computing-platforms-with-criteria} zijn de platformen met de criteria te vinden en of het platform wel of niet voldoet. Een uitgebreide analyse met links naar eventuele documentatie van een requirement is te vinden in de bijlage. In elke regel is te vinden welke specifieke bijlage het is.
+
+% \newpage
+
+% \begin{table}[hbt!]
+%   \footnotesize
+%   \centering
+%   \begin{sideways}
+%   \begin{tabular}{|p{.14\linewidth}|p{.12\linewidth}|p{.065\linewidth}|p{.09\linewidth}|p{.075\linewidth}|p{.07\linewidth}|p{.1\linewidth}|p{.165\linewidth}|p{.05\linewidth}|p{.07\linewidth}|p{.07\linewidth}|}
+%   \hline
+%   \textbf{Platform} & \textbf{ML pipeline aanmaken} & \textbf{Server beheer} & \textbf{Database beheer} & \textbf{Storage bucket beheer} & \textbf{Uptime 99.9\%} & \textbf{Regionale beschikbaarheid} & \textbf{Toegankelijkheid documentatie ML pipeline} & \textbf{APIs} & \textbf{Inhoud ML} & \textbf{Bijlage} \\ \hline
+%   AWS&&&&&&&&&&\autoref{table:aws-against-criteria}\\ \hline
+%   Azure&&&&&&&&&&\autoref{table:azure-against-criteria}\\ \hline
+%   Google Cloud&&&&&&&&&&\autoref{table:google-cloud-against-criteria}\\ \hline
+%   DigitalOcean&&&&&&&&&&\autoref{table:digitalocean-against-criteria}\\ \hline
+%   IBM Cloud&&&&&&&&&&\autoref{table:ibm-cloud-against-criteria}\\ \hline
+%   Alibaba&&&&&&&&&&\autoref{table:alibaba-against-criteria}\\ \hline
+%   Oracle Cloud Infrastructure&&&&&&&&&&\autoref{table:oracle-cloud-infrastructure-against-criteria}\\ \hline
+%   Kamatera Cloud&&&&&&&&&&\autoref{table:kamatera-cloud-against-criteria}\\ \hline
+%   Cloudways&&&&&&&&&&\autoref{table:cloudways-against-criteria}\\ \hline
+%   Vultr&&&&&&&&&&\autoref{table:vultr-against-criteria}\\ \hline
+%   BigML Inc.&&&&&&&&&&\autoref{table:bigml-inc-against-criteria}\\ \hline
+%   H2O.ai Inc.&&&&&&&&&&\autoref{table:h2o.ai-inc-against-criteria}\\ \hline
+%   \end{tabular}
+%   \end{sideways}
+%   \caption{Overzicht van cloud computing platformen met criteria}
+%   \label{table:overview-cloud-computing-platforms-with-criteria}
+% \end{table}
+
+% \newpage
+
+% \space
 
 % \newpage
 
