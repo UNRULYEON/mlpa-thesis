@@ -6,3 +6,18 @@
 % Ik loop achter volgens de planning doordat ik de focus te veel op het verslag heb gelegd. Er is veel research gedaan en weinig programmeren. De deelvraag over de cloud computing platformen is weggehaald en de deelvraag over de frameworks is versimpeld. 
 
 % W9 - W15
+
+% 12-05-2021
+% Tickets in Trello waren niet goed geprioriteerd. High priority tickets werden gedaan na tickets met medium prioriteiten omdat de tickets met high prioriteiten een dependency hadden op medium tickets. Dit is aangepast zodat de tickets met high als eerst worden gedaan, vervolgens de tickets met medium en als laatst de tickets met low.
+
+% Ook waren de taken niet goed verdeeld over de sprints.
+
+% Hoofdvraag
+
+% Al snel bleek dat de IaC framework Pulumi niet aan de eisen voldeed als er met meer dan een cloud platform gewerkt werd. Het aanmaken van componenten in een cloud platform was niet consistent tussen de twee cloud platformen. Bij Google Cloud werden componenten vrijwel gelijk beschikbaar na het versturen van de opdracht om het aan te maken. In vergelijking met Azure was dit niet het geval. Het framework Pulumi gaf wel aan dat het bij Azure gelukt was, maar de componenten waren niet gelijk na het aanmaken beschikbaar. Door deze verschil in gedrag kan de terugkoppeling van Pulumi niet vertrouwd worden. Daarnaast waren er problemen met het aanmaken van componenten binnen Azure. Vaak kwamen verschillende errors naar boven zonder dat er iets gewijzigd was. 
+
+% Omdat de stuk code van Pulumi in de PoC een klein onderdeel was, werd er gekeken naar alternatieven. Doordat andere IaC frameworks dezelfde of ander onverwacht gedrag kan vertonen, is er voor gekozen om de frameworks van cloud platformen zelf te gebruiken. De documentatie van de frameworks is uitgebreid en, volgens de documentatie, is het mogelijk om alle acties te verrichtten die de PoC moet doen. Het vervangen van Pulumi was simpel omdat de keuze in het begin was gemaakt en de hoeveelheid code dat vervangen moest worden vrij weinig was.
+
+% Waarom niet andere frameworks?
+% Voor elke platform hadden we platform specifiek code en het werkte niet lekker
+% Door pulumi het generiek idee tegen het licht gehouden. Waarom dit want het werkt niet en andere werken ook niet. Daarom specifieke platform package. Terraform is ook niet geschikt. Wat lost pulumi op en waarom lost het niet mijn probleem op? Het is de verkeerde tool.
