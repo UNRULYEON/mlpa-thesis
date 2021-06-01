@@ -1,6 +1,6 @@
-\styledchapter[Stappen in een Machine Learning pipeline]{stappen-in-een-machine-learning-pipeline}
+\styledchapter[Stappen in een machine learning pipeline]{stappen-in-een-machine-learning-pipeline}
 
-Een ML pipeline is zoals beknopt beschreven in \autoref{subsec:opzetten-pipeline} een collectie van stappen dat wordt doorlopen om een model te trainen. Elke stap bevat een aantal acties dat wordt uitgevoerd, zoals onbruikbare data weghalen of de prestatie analyseren. De stappen en acties wordt in \autoref{sec:de-stappen-met-een-praktisch-voorbeeld} uitgelegd. Een van de stappen in een pipeline is het trainen van het model. Om een idee te krijgen van ML en modellen trainen wordt dit kort uitgelegd.
+Een ML pipeline is zoals beknopt beschreven in \autoref{subsec:opzetten-pipeline} een collectie van stappen dat wordt doorlopen om een model te trainen. Elke stap bevat een aantal acties dat wordt uitgevoerd, zoals onbruikbare data weghalen of de prestatie analyseren. De stappen en acties worden in \autoref{sec:de-stappen-in-een-machine-learning-pipeline} uitgelegd. Een van de stappen in een pipeline is het trainen van het model. Om een idee te krijgen van ML en modellen trainen wordt dit kort uitgelegd.
 
 \section{Wat is machine learning?}\label{sec:wat-is-machine-learning}
 ML houdt in dat een computer een taak kan uitvoeren zonder ervoor expliciet geprogrammeerd te zijn. Dit wordt gedaan door een ML model te laten leren van een gegeven dataset. Vervolgens kan er een voorspelling worden gemaakt \cite[p.~1-3]{introduction-to-machine-learning}.
@@ -23,7 +23,7 @@ In het ML domein bestaan talloze algoritmes om voorspellingen te maken. In de [B
 Het trainen van een model is een proces waarbij vooraf data wordt opgeschoond en achteraf de prestatie van het model wordt gevalideerd. Normaliter wordt dit gedaan door specifieke code te schrijven voor deze taken. Een valkuil is dat de code niet bij elke developer werkt en schaalt niet in alle gevallen naar een productie omgeving. Een manier om dit wel te behalen is om te werken met ML pipelines. Zoals kort uitgelegd in \autoref{subsec:opzetten-pipeline} bestaat een ML pipeline uit stappen en acties. Er is echter geen consensus binnen het ML domein over wat de juiste stappen en acties in een pipeline zijn. Voor de scriptie is gekozen voor een pipeline van Hapke en Nelson uit het boek "Building Machine Learning Pipelines". Het boek is gemaakt en gepubliceerd door O'Reilly; een bekend en gecrediteerd bedrijf dat boeken maakt binnen het software engineering domein.
 
 \section{De stappen in een machine learning pipeline}\label{sec:de-stappen-in-een-machine-learning-pipeline}
-Een ML pipeline begint met het opnemen van data en eindigt met het ontvangen van feedback om de prestatie van het model te verbeteren. De pipeline bevat een aantal stappen zoals data voorbereiden, het model trainen en het uitrollen van het model (\autoref{fig:model-lifecycle-oreilly}). In totaal zijn er, zonder de feedback loop stap, acht stappen dat elke keer doorlopen moeten worden om een model te trainen.
+Een ML pipeline begint met het opnemen van data en eindigt met het ontvangen van feedback om de prestatie van het model te verbeteren. De pipeline bevat een aantal stappen zoals data voorbereiden, het model trainen en het uitrollen van het model (\autoref{fig:model-lifecycle-oreilly}).
 
 \begin{figure}[hbt!]
   \centering
@@ -32,7 +32,7 @@ Een ML pipeline begint met het opnemen van data en eindigt met het ontvangen van
   \label{fig:model-lifecycle-oreilly}
 \end{figure}
 
-In de volgende subkoppen zullen de stappen worden doorlopen met een korte uitleg over wat er gebeurd in een stap. Om een praktisch beeld te schetsen wordt na de uitleg een ML probleem opgelost. Dit wordt gedaan met behulp van de iris dataset in [REFERENCE].
+In totaal zijn er, zonder de feedback loop stap, acht stappen dat elke keer doorlopen moeten worden om een model te trainen. In de volgende subkoppen zullen de stappen worden doorlopen met een korte uitleg over wat er gebeurd in een stap. 
 
 \subsection{Stap 1: Data opname en versiebeheer (Data ingestion/versioning)}\label{subsec:data-opname-en-versiebeheer}
 De eerste stap in de pipeline is het opnemen van data. Met deze data zal het model getraind, gevalideerd en getest worden. De dataset kan van een of meerdere bronnen komen, zoals lokaal, een online opslag locatie of van een database. Zodra de data is ingeladen, moet het verdeeld worden tussen een train, validatie en test dataset. Normaal gebeurt dit met een split ratio van 6:2:2. De train dataset is 60\% en de validatie en test datasets zijn allebei 20\% van de originele dataset \cite[p.~27-37]{building-machine-learning-pipelines-oreilly}.
@@ -59,7 +59,7 @@ Nu de dataset verdeeld is, een versie heeft en op een bereikbare plek is, kan de
 
 Bij het controleren van afwijkingen in de dataset wordt gekeken naar waardes die opmerkelijk zijn. Afwijkende waardes liggen te ver van het gemiddelde en kan een verkeerd beeld schetsen bij het trainen van het model. Deze uitschieters kunnen simpelweg uit de dataset gefilterd worden.
 
-Het kan voorkomen dat bij een nieuw dataset de type van waardes zijn gewijzigd. Een \(int\) kan bijvoorbeeld veranderd zijn in een \(string\) of \(boolean\). Er is dan sprake van een wijziging in de structuur van het dataset. Dit is problematisch omdat er een vertaalstap gemaakt moet worden naar iets bruikbaars. Als dit niet mogelijk is moeten de waardes uitgefilterd worden wat de prestatie van het model negatief kan beïnvloeden.
+Het kan voorkomen dat bij een nieuw dataset de type van waardes zijn gewijzigd. Een \(int\) kan bijvoorbeeld veranderd zijn in een \(string\) of \(boolean\). Er is dan sprake van een wijziging in de structuur van de dataset. Dit is problematisch omdat er een vertaalstap gemaakt moet worden naar iets bruikbaars. Als dit niet mogelijk is moeten de waardes uitgefilterd worden wat de prestatie van het model negatief kan beïnvloeden.
 
 De algemene statistieken is een hulpmiddel om te controleren op afwijkingen en wijzigingen. Vaak kan de controle in een oogopslag gedaan worden. 
 
@@ -94,119 +94,123 @@ De algemene statistieken is een hulpmiddel om te controleren op afwijkingen en w
 % \end{figure}
 
 \subsection{Stap 3: Data voorbereiden (Data preprocessing)}\label{subsec:data-voorbereiden}
-Het voorbereiden van het dataset is een stap dat de prestatie van het model verbetert en het proces van het trainen versneld. Deze stap kan verdeeld worden in twee sub-stappen: het opschonen en het optimaliseren van het dataset.
+Het voorbereiden van de dataset is een stap dat de prestatie van het model verbetert en het proces van het trainen versneld. Deze stap kan verdeeld worden in twee sub-stappen: het opschonen en het optimaliseren van de dataset.
 
-Bij het opschonen worden bijvoorbeeld duplicaten of waardes die onbruikbaar zijn uit het dataset weggehaald. Onbruikbare waardes zijn waardes die simpelweg niet kloppen of verkeerd zijn ingevoerd. Hierbij kan bijvoorbeeld gedacht worden aan een medewerken die de interactietijd met een klant moet bijhouden, maar is vergeten om de eindtijd te noteren. Voor het algoritme zal het dan lijken alsof de medewerker een klant tot sluitingstijd heeft geholpen.
+Bij het opschonen worden bijvoorbeeld duplicaten of waardes die onbruikbaar zijn uit de dataset weggehaald. Onbruikbare waardes zijn waardes die simpelweg niet kloppen of verkeerd zijn ingevoerd. Hierbij kan bijvoorbeeld gedacht worden aan een medewerken die de interactietijd met een klant moet bijhouden, maar is vergeten om de eindtijd te noteren. Voor het algoritme zal het dan lijken alsof de medewerker een klant tot sluitingstijd heeft geholpen.
 
-Datasets kunnen geoptimaliseerd worden om twee redenen: algoritmes werken sneller met waardes die dichter bij \(0\) liggen en algoritmes kunnen niet met elke waarde in het dataset omgaan. Om de efficiëntie van het algoritme te verbeteren kunnen een aantal technieken gebruikt worden:
+Datasets kunnen geoptimaliseerd worden om twee redenen: algoritmes werken sneller met waardes die dichter bij \(0\) liggen en algoritmes kunnen niet met elke waarde in de dataset omgaan. Om de efficiëntie van het algoritme te verbeteren kunnen een aantal technieken gebruikt worden:
 
 \begin{itemize}
   \item Schalen
   \item[] Bij het schalen van data worden de waardes getransformeerd waardes dat ligt tussen een schaal, zoals tussen \(0\) en \(100\) of \(0\) en \(1\). Bij het schalen wordt het \textbf{bereik} getransformeerd \cite{scale-and-normalize-data}. 
   \item Normaliseren
-  \item[] Als een dataset wordt gestandaardiseerd, worden de waarden getransformeerd in een standaard normale verdeling waarbij het gemiddelde \(0\) en de afwijking \(1\) is. Hierbij wordt de \textbf{vorm} van het dataset getransformeerd \cite{scale-and-normalize-data}. Het normaliseren is belangrijk als het algoritme waardes vergelijkt met verschillende eenheden \cite{feature-scaling-standardization}. In sommige gevallen is normalisering een vereiste bij een aantal algoritmes \cite{data-transformation-standardization-vs-normalization}.
+  \item[] Als een dataset wordt gestandaardiseerd, worden de waarden getransformeerd in een standaard normale verdeling waarbij het gemiddelde \(0\) en de afwijking \(1\) is. Hierbij wordt de \textbf{vorm} van de dataset getransformeerd \cite{scale-and-normalize-data}. Het normaliseren is belangrijk als het algoritme waardes vergelijkt met verschillende eenheden \cite{feature-scaling-standardization}. In sommige gevallen is normalisering een vereiste bij een aantal algoritmes \cite{data-transformation-standardization-vs-normalization}.
   \item Categorisch codering
-  \item[] Een groot aantal algoritmes kan alleen omgaan met numerieke waardes. Het kan voorkomen data datasets categorische waardes bevatten. Dit zijn waardes dat een label voorstellen, zoals \(cat\) of \(dog\). Om deze waardes te gebruiken moeten ze worden gecodeerd als een numerieke waarde. De label kan als de waarde \(1\) of \(2\) gecodeerd worden. Deze techniek heet integer encoding. Een andere techniek om waardes te coderen heet hot encoding. Deze techniek maakt gebruikt van meerdere waardes om een label te beschrijven.
+  \item[] Een groot aantal algoritmes kan alleen omgaan met numerieke waardes. Het kan voorkomen data datasets categorische waardes bevatten. Dit zijn waardes dat een label voorstellen, zoals \(first\), \(second\) of \(third\). Om deze waardes te gebruiken moeten ze worden gecodeerd als een numerieke waarde. De label kan als de waarde \(1\) of \(2\) gecodeerd worden. Deze techniek heet integer encoding en kan gebruikt worden als de volgorde van de codering klopt. Een andere techniek om waardes te coderen heet hot encoding. Deze techniek wordt gebruikt waarbij de labels geen relatie met elkaar hebben en maakt gebruik van meerdere waardes om een label te beschrijven:
+  \begin{center}
+    $$\begin{bmatrix}
+      \textbf{Animal} & \textbf{C1} & \textbf{C2} & \textbf{C3}\\
+      cat & 1 & 0 & 0 \\
+      dog & 0 & 1 & 0 \\
+      mouse & 0 & 0 & 1 \\
+    \end{bmatrix}$$
+  \end{center}
+
+
 \end{itemize}
 
-%\begin{matrix}
-%  cat & dog & mouse\\
-%  1 & 0 & 0
-%  0 & 1 & 0
-%  0 & 0 & 1
-%\end{matrix} 
-
-Na het opschonen en optimaliseren kan het dataset gebruikt worden om een model te trainen. Dit is een goed moment om het getransformeerde dataset op te slaan als "tussen-dataset" zodat deze stap niet herhaalt hoeft te worden. Het voorbereiden van grote datasets kan een grote hoeveelheid tijd in beslag nemen.
+Dit is een goed moment om het getransformeerde dataset op te slaan als "tussen-dataset"\space zodat deze stap niet herhaalt hoeft te worden. Het voorbereiden van grote datasets kan een grote hoeveelheid tijd in beslag nemen.
 
 \subsection{Stap 4 en 5: Model trainen en tunen (Model training and Model tuning)}\label{subsec:model-trainen-en-tunen}
+Na het valideren en voorbereiden van de dataset kan het model getraind worden. Het trainen gaat door middel van een ML algoritme. Een algoritme is vergelijkbaar met een conventionele algoritme in software engineering zoals bijvoorbeeld binary search, merge sort en depth first search. Het algoritme slaat na het trainen met de dataset regels, nummers en algoritme specifieke data structuren op in de vorm van een model. Het algoritme kan worden gezien als een specifiek programma waarmee, gegeven een input, voorspellingen mee gedaan kan worden \cite{ml-algorithm-model-difference}.
 
+Elk algoritme heeft variabelen om er voor te zorgen dat het algoritme beter aansluit op de dataset. Deze variabelen heten \textit{hyperparameters}. Het algoritme heeft standaard hyperparameters die niet altijd de optimale prestatie behalen. Op een heuristische wijze kunnen de optimale hyperparameters gevonden worden \cite{ml-model-hyper-parameter-brownlee}. Dit proces heet \textit{tunen}.
 
-Een ML algoritme is vergelijkbaar met een conventionele algoritme in software engineering. Het algoritme slaat na het trainen met een dataset de regels, nummers en algoritme specifieke data structuren op in de vorm van een model. Het model is als het ware een programma waarmee, gegeven een input, voorspellingen mee gedaan kan worden [https://machinelearningmastery.com/difference-between-algorithm-and-model-in-machine-learning/].
+In \autoref{fig:hyperparameter-example-0.1} en \autoref{fig:hyperparameter-example-100} is te zien hoe de \(gamma\) hyperparameter van een SVC algoritme invloed heeft op het model. Dit algoritme classificeert op basis van gegeven waardes. De waardes worden geplot en zal binnen een van de drie kleuren vallen. Het model met als hyperparameter waarde \(100\) zal vaker de classificatie met de bruine kleur als voorspelling geven dan als de waarde \(0.1\) zou zijn.
 
-
-
-Een algoritme is geoptimaliseerd om een specifieke taak te doen, zoals het voorspellen van woorden of voorwerpen in een afbeelding herkennen. Een mindmap met algoritmes is te vinden in [BIJLAGE]. Zo is goed te zien hoeveel algoritmes hetzelfde bereiken. Hierom is het verstandig om vooraf te testen welke het beste werkt voor het gegeven ML probleem.
-
-Over het algemeen gebeurt er hetzelfde, ongeacht welk algoritme is gebruikt [p84]:
-
-\begin{itemize}
-  \item Laad de train en validatie dataset
-  \item Definieer het model
-  \item Train het model
-  \item Sla het model op
-\end{itemize}
-
-[Hyperparameters uitleg]
-
-[Uitleg hyperparameters SVC] [https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html]
+\begin{figure}[hbt!]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=1\textwidth]{./chapter-4/hyperparameter-0.1.png}
+      \caption{Gamma hyperparameter van een SVC algoritme met waarde 0.1}
+      \label{fig:hyperparameter-example-0.1}
+  \end{minipage}\hfill
+  \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[width=1\textwidth]{./chapter-4/hyperparameter-100.png}
+      \caption{Gamma hyperparameter van een SVG algoritme met waarde 100}
+      \label{fig:hyperparameter-example-100}
+  \end{minipage}
+\end{figure}
 
 \subsection{Stap 6 en 7: Model analyse en validatie (Model analysis and Model validation)}\label{subsec:model-analyse-en-validatie}
-De prestatie valideren en vergelijken met voorgaande modellen is het analyseren. 
+Na het trainen en tunen kan analyse en validatie plaats vinden. Bij het analyseren wordt de prestatie van het model vergeleken met voorgaande modellen. Om dit te doen kan, net als in \autoref{subsec:data-validatie}, statistieken gegenereerd worden van het model. De soort statistiek hangt af van wat voor soort algoritme is gebruikt. Een classificatie algoritme heeft bijvoorbeeld andere statistieken dan een regressie algoritme. Op basis van de uitkomst kan de dataset of hyperparameters aangepast worden om de accuraatheid te verhogen.
 
-Ethische verantwoording van het model is validatie. Waarom het belangrijk is om het model te analyseren. Hoe behandeld het model voorspellingen van:
-
-\begin{itemize}
-  \item mensen met verschillende variabelen zoals geslacht, locatie of leeftijd.
-  \item image recognition met verschillende licht condities.
-\end{itemize}
-
-Meetinstrumenten voor algoritme groepen.
-
-Voor voorbeeld kan classification metrics (confusion matrix) gebruikt worden.
+Met de validatie van een model moet er gekeken worden met een genuanceerd perspectief. Validatie gaat namelijk over hoe eerlijk een model is als er gekeken wordt naar een bepaalde groep. Een groep kan gedefinieerd worden als geslacht, etniciteit, locatie of leeftijd. Het kan namelijk voorkomen dat de dataset voornamelijk bestaat uit bijvoorbeeld vrouwen. Dit \textit{kan} ervoor zorgen dat het model minder accurate voorspellingen maakt voor mannen \cite[p.~109-110]{introduction-to-machine-learning}. Een voorbeeld waar het gebruik van ML grote negatieve gevolgen had was de toeslagenaffaire in 2020. De Nederlandse overheid maakte gebruik van een systeem dat aangaf of een burger mogelijk bijstandsfraude had gepleegd. Het systeem maakte gebruikt van ML om fraude aan te geven. Jaren na het gebruik bleek dat er sprake was van etnische profilering. De dataset bestond voornamelijk uit immigranten uit Islamitische landen. Het systeem heeft hierdoor een \textit{bias} \cite{ml-fairness-dutch-syri}.
 
 \subsection{Stap 8: Model uitrollen (Model deployment)}\label{subsec:model-uitrollen}
-Het opgeslagen model kan simpelweg geladen worden in een webserver zoals Flask. Dit schaalt echter niet en het is lastig om bij te houden met welke versie van het model een voorspelling wordt gedaan.
+Na het analyseren en valideren kan het model uitgerold worden. Het uitrollen kan op twee manieren: inbakken in een app of serveren met een \acrfull{api}.
 
-Tensorflow Serving maakt dit makkelijker. Korte uitleg hoe TS Serving dit makkelijker maakt. Eventueel andere oplossingen
+Met het inbakken in een app wordt bedoelt dat het model meegenomen wordt als de app gebouwd wordt. Voordelen van deze methode is dat het model offline bruikbaar is en de rekenkracht van het apparaat gebruikt kan worden om te voorspellen of classificeren. Een nadeel is dat het model niet makkelijk geüpdatet kan worden.
+
+Een model serveren door middel van een \Acrshort{api}. De app dat het model wilt gebruiken zal een request moeten doen met input. De \Acrshort{api} geeft de input door aan het model. Het model geeft een predictie terug dat de \Acrshort{api} doorstuurt naar de applicatie. Het updaten van het model gaat gemakkelijker dan het model inbakken met een app. Een nadeel is de eis dat de app een internetverbinding moet hebben om het model te gebruiken \cite[p.~130]{introduction-to-machine-learning}.
+
+In \autoref{fig:step-8-deploy-model} is te zien hoe een model geserveerd wordt via een \Acrshort{api}. Een endpoint genaamd \("classify"\) is gedefinieerd waarop een \(POST\) request gedaan kan worden. De endpoint haalt de input uit de request en geeft het door aan het model. De model maakt vervolgens een predictie dat uiteindelijk naar de app teruggestuurd wordt.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.75\textwidth]{chapter-4/step-8-deploy-model.png}
+  \caption{Model uitgerold met behulp van een \Acrshort{api}.}
+  \label{fig:step-8-deploy-model}
+\end{figure}
 
 \subsection{Stap 9: Feedback loop (Model feedback)}\label{subsec:feebdack-loop}
-Impliciet en expliciet feedback
+Om het model continue te verbeteren kan feedback verzameld worden. De feedback geeft een beeld van de effectiviteit van het model in een productie omgeving. Feedback kan verdeeld worden in twee soorten: impliciet en expliciet \cite[p.~264]{introduction-to-machine-learning}.
 
-\begin{itemize}
-  \item Impliciet
-  \item [] Een gebruiker kijkt een gesuggereerde film of koopt een gesuggereerde item in een webshop.
-  \item Expliciet
-  \item [] De applicatie vraagt aan de gebruiker of de suggestie waarde heeft.
-\end{itemize}
+Het verzamelen van impliciete feedback wordt gedaan zonder dat de gebruiker zich daar bewust van is. Dit wordt gedaan door bij te houden of een voorspelling geschikt is. Een voorbeeld van deze methode is het bijhouden of een gebruiker een video kijkt dat door het algoritme voorgesteld is.
 
-[REFERENCE]
+In tegenstelling tot impliciet wordt bij expliciete feedback gevraagd aan de gebruiker of een voorspelling gepast is. Een voorbeeld van deze vorm in de praktijk is hoe YouTube expliciete feedback vraagt (\autoref{fig:step-9-explicit-feedback}). Naast het aangeven of de voorspelling gepast was, kan de gebruiker ook aangeven waarom de video gepast was.
 
-\subsection{De machine learning pipeline toegepast op een probleem}\label{subsec:de-machine-learning-pipeline-toegepast-op-een-probleem}
-\begin{itemize}
-  \item Om een beeld te geven van de ML pipeline wordt een ML probleem opgelost
-  \item Het probleem is een bekend probleem binnen het ML domein omdat de focus op de pipeline ligt en niet of het ML probleem opgelost kan worden of niet
-  \item Het probleem is gekozen omdat het een bekend probleem is binnen het ML domein en het doel is om de stappen in de ML pipeline te beproeven en niet om te experimenteren met onopgeloste problemen.
-  \item Het doel is om een ML model te trainen dat, aan de hand van de afmetingen van de kelk- en bloemblad, kan identificeren tot welke familie een iris bloem hoort.
-  \item Uitleg dataset \autoref{table:example-iris-dataset}
-\end{itemize}
-
-\begin{table}[hbt!]
-  \footnotesize
+\begin{figure}[hbt!]
   \centering
-  \begin{tabular}{|l|l|l|l|l|}
-  \hline
-  \textbf{Kelkblad - lengte} & \textbf{Kelkblad - breedte} & \textbf{Bloemblad - lengte} & \textbf{Bloemblad - breedte} & \textbf{Soort} \\ \hline
-  5.1 & 3.5 & 1.4 & 0.2 & Iris-setosa\\ \hline
-  \end{tabular}
-  \caption{Voorbeeld van de iris dataset}
-  \label{table:example-iris-dataset}
-\end{table}
+  \includegraphics[width=.5\textwidth]{chapter-4/step-9-explicit-feedback.png}
+  \caption{Vorm van expliciete feedback gebruikt door YouTube.}
+  \label{fig:step-9-explicit-feedback}
+\end{figure}
+
+Het verzamelen van feedback is niet noodzakelijk maar helpt met het verbeteren van het model. Deze stap gaat samen met een nieuwe dataset naar de eerste stap in de lifecycle (\autoref{fig:model-lifecycle-oreilly}). Met de nieuwe dataset en de feedback kan een nieuw model getraind worden dat beter presteert dan de voorganger.
 
 \section{Conclusie}\label{conclusie}
-\begin{itemize}
-  \item Een ML pipeline is een manier om gestructureerd en reproduceerbaar een ML model te trainen
-  \item Er is geen consensus over wat de stappen in een ML pipeline zijn
-  \item Gedurende de pipeline wordt er gefocust op de kwaliteit van de dataset en prestatie van het model
-\end{itemize}
+In dit hoofdstuk is er onderzoek gedaan naar de antwoord op de deelvraag: \textbf{D1: Waar bestaat een machine learning pipeline uit?} Het onderzoek is uitgevoerd met behulp van zowel digitale bronnen als een boek.
+
+Een ML pipeline bestaat uit verschillende stappen die op hun beurt bestaan uit acties. De stappen zijn gericht op het waarborgen van de kwaliteit van de dataset en model, het voorbereiden van de dataset en het trainen van het model. Daarnaast kan het model uitgerold worden in een productie omgeving en kan er feedback verzameld worden over de prestatie van het model volgens gebruikers.
+
+De acties in de stappen moeten bij het eerste gebruik van de pipeline gedefinieerd worden. De acties kan bijvoorbeeld het filteren van onbruikbare data, een model trainen of statistieken genereren zijn, Als dit vast staat, kan de pipeline hergebruikt worden om nieuwe modellen te trainen met nieuwe datasets. Op deze manier is een ML pipeline een gestructureerde en reproduceerbare proces.
 
 \section{Advies}\label{advies}
-\begin{itemize}
-  \item Het opzetten van een pipeline neemt tijd in beslag, maar het is het waard op de lange termijn
-  \item Door de gestructureerde werkwijze is het goed bij te houden hoe het model tot stand is gekomen
-  \item 
-\end{itemize}
+Het in gebruik nemen van een ML pipeline werkwijze is initieel ingewikkeld maar lonend op lange termijn. Het opzetten van de pipeline en de acties definiëren kost tijd en kennis. Echter als dit eenmaal gedaan is, kan eenvoudig een verbeterd model worden getraind door een nieuwe dataset aan te leveren. Een verbeterd model is vrijwel gegarandeerd omdat stappen in de pipeline de dataset en het model analyseren en valideren.
 
-% \subsection{Praktisch voorbeeld: iris dataset}\label{subsec:de-stappen-met-een-praktisch-voorbeeld}
+\subsection{Machine learning pipeline verbeteringen}\label{subsec:machine-learning-pipeline-verbeteringen}
+Zoals eerder aangegeven in \autoref{sec:wat-is-machine-learning} bestaat er niet één ML pipeline dat correct is. Een ML pipeline is een werkwijze waarbij de stappen anders geïnterpreteerd kan worden. Hierdoor is er geen regelmaat tussen verschillende pipelines. Dit is ook niet haalbaar aangezien stappen gemaakt kunnen worden dat specifiek is voor het algoritme of workflow van het bedrijf. De stappen in de pipeline van Hapke en Nelson (\autoref{fig:model-lifecycle-oreilly}) is een valide basis maar kan uitgebreid worden om de ervaring van developers te verbeteren. In stap 4 en 5 (\autoref{subsec:model-trainen-en-tunen}) wordt een model getraind waarbij het beste algoritme om het ML probleem op te lossen al bekend is. De verwachting is dat de keuze/onderzoek vóór het starten van de pipeline is gedaan. Tussen stap 3 en 4 kan echter een stap tussen zitten om te experimenteren met een combinatie van verschillende algoritmes en hyperparameters. In \autoref{fig:advice-ml-pipeline-lifecycle-v1} is te zien hoe zo een stap zou passen in de lifecycle. De stap is met een stippellijn aangegeven omdat de stap de eerste keer meegenomen kan worden als de pipeline wordt doorlopen. Na de eerste keer is de beste algoritme en hyperparameters al bekend en kan deze stap overgeslagen worden.
 
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.8\textwidth]{chapter-4/advice-ml-pipeline-lifecycle-v1.png}
+  \caption{Machine learning pipeline met een algoritme exploratie tussenstap.}
+  \label{fig:advice-ml-pipeline-lifecycle-v1}
+\end{figure}
 
-% Het praktisch voorbeeld is een ML pipeline dat geschreven is in Python en lokaal gedraaid kan worden. Niet alle stappen kunnen worden vertaalt naar de lokale ML pipeline. Dit zal worden aangegeven bij de stappen in kwestie.
+In de "Algorithm exploration"\space stap kunnen verschillende algoritmes dat hetzelfde doel bereiken en een variatie van hyperparameters voor elk algoritme getest worden tegen het dataset. Uit deze tests kan een prestatiescore gegenereerd worden om vervolgens te kiezen voor het algoritme dat het geschiktst lijkt. Na de keuze kan de pipeline verder gaan met de volgende stappen.
+
+\subsection{Machine learning versimpelen}\label{subsec:machine-learning-versimpelen}
+Een van de focuspunten is om te onderzoeken in hoeverre ML te vergemakkelijken is voor developers. Met de huidige pipeline is er vrij veel kennis vereist over ML om ermee te werken. Toch kan een groot deel van de stappen geautomatiseerd worden. Tussen elke stap kan een validatie plaatsvinden met een aantal randvoorwaardes waaraan voldaan moeten worden om door te gaan naar de volgende stap. In \autoref{fig:advice-ml-pipeline-lifecycle-v3} is te zien hoe tussen elke stap een validatie plaats vindt. Om bijvoorbeeld van stap 6 (Model analysis) naar stap 7 (Model validation) te gaan, moet het model even goed of zelfs beter presteren dan de voorganger. Hoe veel beter het model moet kunnen presteren is aan een developer. Mocht het zo zijn dat het model niet voldoet, kan de pipeline stopgezet worden.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.9\textwidth]{chapter-4/advice-ml-pipeline-lifecycle-v3.png}
+  \caption{Machine learning pipeline waarbij stappen geautomatiseerd kunnen worden voor het gemak van developers.}
+  \label{fig:advice-ml-pipeline-lifecycle-v3}
+\end{figure}
+
+Niet alle aspecten van de pipeline kunnen versimpelt worden. Een van de stappen dat niet kan is stap 7 (Model validation) in \autoref{fig:advice-ml-pipeline-lifecycle-v3}. Deze stap vereist input van een mens aangezien de bias van het model wordt beoordeelt. Wel kunnen rapporten over de bias gegenereerd worden zodat de workflow van developers gestroomlijnd wordt.
