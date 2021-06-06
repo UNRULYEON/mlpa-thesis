@@ -1,10 +1,10 @@
 \styledchapter[Orkestratietools om platformen te beheren]{orkestratietools-om-platformen-te-beheren}
-Om resources in een cloud platform te beheren kan gebruik gemaakt worden van een portal. In een portal kan databases, servers en netwerken aangemaakt worden om een infrastructuur te creëren. Omdat een portal uitgebreid en complex is, moet de developer een infrastructuur kunnen opzetten zonder het gebruik van een portal. Dit is mogelijk met \acrfull{iac} orkestratietools. \Acrshort{iac} zal als eerst worden worden uitgelegd. Vervolgens worden verschillende \Acrshort{iac} orkestratietools met elkaar vergeleken. Als laatst wordt een experiment uitgevoerd om de haalbaarheid met een orkestratietool te valideren.
+Om resources in een cloud platform te beheren kan gebruik gemaakt worden van een portal. In een portal kunnen databases, servers en netwerken aangemaakt worden om een infrastructuur te creëren. Omdat een portal uitgebreid en complex is, moet de developer een infrastructuur kunnen opzetten zonder het gebruik van een portal. Dit is mogelijk met \acrfull{iac} orkestratietools. \Acrshort{iac} zal als eerst worden worden uitgelegd. Vervolgens worden verschillende \Acrshort{iac} orkestratietools met elkaar vergeleken. Als laatst wordt een experiment uitgevoerd om de haalbaarheid met een orkestratietool te valideren.
 
 \section{Wat is infrastructure as code?}\label{subsec:ch5-wat-is-infrastructure-as-code}
 \acrshort{iac} is een manier om een infrastructuur op te zetten binnen een cloud platform zonder gebruik te maken van een interface zoals een portal. De gewenste infrastructuur wordt beschreven waarna de orkestratietool de gewenste situatie een realiteit probeert te maken \cite{iac-amazon-web-services-in-action}.
 
-De manier waarmee een orkestratietool de infrastructuur aanmaakt, wijzigt of verwijderen is met een plan. In het plan staat welke resources moeten bestaan om aan de gewenste situatie te voldoen. Vaak gaat dit gepaard met configuratie zoals een naam, locatie of tags. In \autoref{fig:ch5-iac-plan-example} is een voorbeeld van een plan te zien. Het plan beschrijf op welke cloud platform dit uitgevoerd moet worden (L12) en wat er aangemaakt moet worden. In dit geval is het een resource group (lijn 16) met als configuratie een naam (\(myTFResourceGroup\)) en locatie (\(westus2\)).
+De manier waarmee een orkestratietool de infrastructuur aanmaakt, wijzigt of verwijderen is met een plan. In het plan staat welke resources moeten bestaan om aan de gewenste situatie te voldoen. Vaak gaat dit gepaard met configuratie zoals een naam, locatie of tags. In \autoref{fig:ch5-iac-plan-example} is een voorbeeld van een plan als YAML bestand te zien. YAML is een bestandstype dat vaak wordt gebruikt voor configuratie. Het plan beschrijf op welke cloud platform dit uitgevoerd moet worden (lijn 12) en wat er aangemaakt moet worden. In dit geval is het een resource group (lijn 16) met als configuratie een naam (\(myTFResourceGroup\)) en locatie (\(westus2\)).
 
 \begin{figure}[hbt!]
   \centering
@@ -23,80 +23,111 @@ Een \Acrshort{iac} volgt een proces om aan de gewenste situatie te voldoen. In \
 \end{figure}
 
 \section{Orkestratietools vergeleken met elkaar}\label{subsec:ch5-orkestratietools-vergeleken-met-elkaar}
-% Om een keuze te maken met welke \Acrshort{iac} orkestratietool verder gewerkt zal worden moet er een keuze gemaakt worden tussen de orkestratietools die beschikbaar zijn. Om de beschikbaarheid te beperken kan zogenoemde "knockout"\space criteria opgesteld worden. Dit betekent dat een \Acrshort{iac} orkestratietool niet wordt meegenomen in de keuze als de tool niet voldoet aan alle criteria In \autoref{table:knock-out-criteria-orchestration-tools-that-manage-cloud-computing-platformen} zijn de knockout criteria te vinden.
+Om een keuze te maken met welke \Acrshort{iac} orkestratietool verder gewerkt zal worden moet er een keuze gemaakt worden. Om de opties te beperken kan zogenoemde "knockout"\space criteria opgesteld worden. Dit betekent dat een \Acrshort{iac} orkestratietool niet wordt meegenomen in de keuze als de tool niet voldoet aan alle criteria. In \autoref{table:knock-out-criteria-orchestration-tools-that-manage-cloud-computing-platformen} zijn de knockout criteria te vinden. De criteria in samenwerking met NGTI opgesteld. 
 
-% \begin{table}[hbt!]
-%   \centering
-%   \begin{tabular}{|p{.2\linewidth}|p{.69\linewidth}|}
-%   \hline
-%   \textbf{Criteria} & \textbf{Toelichting} \\ \hline
-%     Programmatisch beheren
-%     &
-%     Het framework moet via code een resources kunnen aanmaken, wijzigen en verwijderen. 
-%     \\ \hline
+\begin{table}[hbt!]
+  \centering
+  \begin{tabular}{|p{.2\linewidth}|p{.69\linewidth}|}
+  \hline
+  \textbf{Criteria} & \textbf{Toelichting} \\ \hline
+    Programmatisch beheren
+    &
+    Het orkestratietool moet via code een resources kunnen aanmaken, wijzigen en verwijderen. 
+    \\ \hline
 
-%     Ondersteuning voor cloud \newline computing \newline platformen
-%     &
-%     Om platform-agnostisch te zijn moet de orkestratietool minstens twee cloud computing platformen ondersteunen waarop een ML model getraind kan worden.
-%     \\ \hline
+    Ondersteuning voor cloud \newline computing \newline platformen
+    &
+    Om platform-agnostisch te zijn moet de orkestratietool minstens twee cloud computing platformen ondersteunen waarop een ML model getraind kan worden.
+    \\ \hline
 
-%     Uitgebreide \newline documentatie
-%     &
-%     De documentatie moet toegankelijk en duidelijk zijn. De documentatie moet tutorials, concepten en een reference bevatten.
-%     \\ \hline
-%   \end{tabular}
-%   \caption{Knock-out criteria voor orkestratietools dat cloud computing platformen beheerd.}
-%   \label{table:knock-out-criteria-orchestration-tools-that-manage-cloud-computing-platformen}
-% \end{table}
+    Uitgebreide \newline documentatie
+    &
+    De documentatie moet toegankelijk en duidelijk zijn. De documentatie moet tutorials, concepten en een reference bevatten.
+    \\ \hline
+  \end{tabular}
+  \caption{Knock-out criteria voor orkestratietools dat cloud computing platformen beheerd.}
+  \label{table:knock-out-criteria-orchestration-tools-that-manage-cloud-computing-platformen}
+\end{table}
 
+\newpage
 
+Voor de keuzes uit de tools is onderzoek gedaan op het internet en een enquête geraadpleegd van Stack Overflow \cite{stack-overflow-survey-2020}. De enquête is ingevuld door developers en bevat vragen over de ervaring met frameworks, technologieën en de website zelf. Uit de vraag over welke frameworks, libraries en tools het meest gebruikt werkt, kwam Ansible, Terraform, Puppet en Chef naar boven \cite{stack-overflow-survey-2020-popular-framework-libraries-tools}. Volgens een vraag over de meest geliefd en gevreesde frameworks, libraries en tools zijn Ansible en Terraform het meest geliefd en Puppet en Chef het meest gevreesd \cite{stack-overflow-survey-2020-loved-dreaded-framework-libraries-tools}. Uit het onderzoek naar orkestratietools is, naast de bovengenoemde tools, Pulumi naar voren gekomen als kandidaat \cite{pulumi}. Ansible, Terraform en Pulumi zijn in \autoref{table:orchestration-tools-compared-against-knock-out-criteria} tegen de knockout criteria gehouden.
 
-% \begin{table}[hbt!]
-%   \centering
-%   \begin{tabular}{|p{.15\linewidth}|p{.245\linewidth}|p{.245\linewidth}|p{.245\linewidth}|}
-%   \hline
-%   \textbf{Frameworks} & \textbf{Programmatisch \newline beheren} & \textbf{Ondersteuning voor cloud computing \newline platformen} & \textbf{Uitgebreide \newline documentatie} \\ \hline
-%     \textbf{Ansible} &
-%     code? &
-%     cloud platform ondersteuning &
-%     docs
-%     \\ \hline
+\begin{table}[hbt!]
+  \centering
+  \begin{tabular}{|p{.15\linewidth}|p{.245\linewidth}|p{.245\linewidth}|p{.245\linewidth}|}
+  \hline
+  \textbf{Orkestratie-\newline tools} & \textbf{Programmatisch \newline beheren} & \textbf{Ondersteuning voor cloud computing \newline platformen} & \textbf{Uitgebreide \newline documentatie} \\ \hline
+    \textbf{Ansible} &
+    Nee, orkestratie gaat via een YAML bestand \cite{ansible-code} &
+    AWS, Google Cloud en Azure. 11 platformen in totaal \cite{ansible-cloud-platforms} &
+    Uitgebreide documentatie met tutorials, references en migration guide \cite{ansible-docs}
+    \\ \hline
 
-%     \textbf{Pulumi} &
-%     code? &
-%     cloud platform ondersteuning &
-%     docs
-%     \\ \hline
+    \textbf{Pulumi} &
+    Ja, orkestratie via CLI of TypeScript, JavaScript, Python, .NET en Go \cite{pulumi-code} &
+    AWS, Google Cloud en Azure. 13 platformen in totaal \cite{pulumi-cloud-platforms} &
+    Uitgebreide documentatie met tutorials en references \cite{pulumi-docs}
+    \\ \hline
 
-%     \textbf{Terraform} &
-%     code? &
-%     cloud platform ondersteuning &
-%     docs
-%     \\ \hline
-%   \end{tabular}
-%   \caption{Knock-out criteria voor orkestratietools dat cloud computing platformen beheerd.}
-%   \label{table:orchestration-tools-compared-against-knock-out-criteria}
-% \end{table}
+    \textbf{Terraform} &
+    Nee, orkestratie gaat via een YAML bestand \cite{terraform-code} &
+    AWS, Google Cloud en Azure. 5 platformen in totaal \cite{terraform-cloud-platforms} &
+    Uitgebreide documentatie met tutorials, references en videos \cite{terraform-docs}
+    \\ \hline
+  \end{tabular}
+  \caption{Knock-out criteria tegen orkestratietools dat cloud computing platformen beheerd.}
+  \label{table:orchestration-tools-compared-against-knock-out-criteria}
+\end{table}
 
-% Om verdere afwegingen te maken kan een tweede lijst met criteria opgesteld worden (\autoref{table:criteria-orchestration-tools-that-manage-cloud-computing-platformen}).
+In \autoref{table:orchestration-tools-compared-against-knock-out-criteria} is te zien dat de drie orkestratietools gelijk zijn als het gaat om de ondersteuning van cloud platform en documentatie. Programmatisch beheren kan met Ansible en Terraform alleen door middel van een YAML bestand in tegenstelling met Pulumi dat via code een plan kan uitvoeren. Omdat het praktischer voor de PoC om via code een plan uit te voeren, is er voor gekozen om met Pulumi verder te werken. In het volgende hoofdstuk zal een experiment met Pulumi uitgevoerd worden om te valideren of Pulumi geschikt is.
 
-% \begin{table}[hbt!]
-%   \centering
-%   \begin{tabular}{|p{.2\linewidth}|p{.69\linewidth}|}
-%   \hline
-%   \textbf{Criteria} & \textbf{Toelichting} \\ \hline
-%     Ondersteuning voor lokale \newline oplossingen
-%     &
-%     Naast het ondersteunen van cloud computing platformen moet het framework ook lokale oplossingen zoals Kubernetes of Docker ondersteunen zodat een developer lokaal het model kan trainen [https://www.npmjs.com/package/node-docker-api].
-%     \\ \hline
-%   \end{tabular}
-%   \caption{Criteria voor frameworks dat cloud computing platformen beheerd.}
-%   \label{table:criteria-orchestration-tools-that-manage-cloud-computing-platformen}
-% \end{table}
+\section{Experiment met de orkestratietool Pulumi}\label{subsec:ch5-experiment-met-de-orkestratietool-pulumi}
+Het idee achter het experiment is om te achterhalen of Pulumi een geschikte orkestratietool is. Op dit moment in het afstudeerproces wordt er verwacht dat de PoC een frontend krijgt dat praat door middel van een \acrfull{rest} \Acrshort{api} met een backend. De backend zal vervolgens gebruik maken van de orkestratietool om te praten met een cloud platform. Om het PoC na te bootsen op kleinere schaal wordt er bij het experiment gebruik gemaakt van een client waarbij een opdracht met behulp van een \Acrshort{rest} \Acrshort{api} naar een Node.js server wordt verstuurt. De Node.js server stuurt om zijn beurt opdrachten naar Pulumi die communiceert met Google Cloud. Voor het experiment is arbitrair gekozen voor het cloud platform.
 
-\section{Experiment met orkestratietool Pulumi}\label{subsec:ch5-experiment-met-orkestratietool-pulumi}
+\newpage
+
+Het experiment is als sequence diagram uitgewerkt in \autoref{fig:sd-pulumi-experiment}. Hierin is goed te zien welke acties gedaan worden en door welke speler.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.99\textwidth]{chapter-5/sd-pulumi-experiment.png}
+  \caption{Sequence diagram van het experiment met orkestratietool Pulumi}
+  \label{fig:sd-pulumi-experiment}
+\end{figure}
+
+\newpage
+
+In \autoref{fig:sd-pulumi-experiment} is ook te zien wat voor taak wordt uitgevoerd aan de hand van de naam tussen de spelers. Deze taken zullen in de volgende code snippets verduidelijkt worden. De Node.js server is vrij simpel en bevat één endpoint op lijn 12 genaamd /api/run-python-code (\autoref{fig:pulumi-experiment-nodejs-base}). 
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.75\textwidth]{chapter-5/pulumi-experiment-nodejs-base.png}
+  \caption{Node.js server voor het experiment met orkestratietool Pulumi}
+  \label{fig:pulumi-experiment-nodejs-base}
+\end{figure}
+
+In deze \(POST\) endpoint wordt een stack aangemaakt, een \(GET\) request uitgevoerd naar de aangemaakte compute instance en vervolgens wordt de stack weer verwijderd. Een stack is de manier hoe Pulumi een plan beschrijft. In de stack worden drie resources aangemaakt: een network, een firewall en een compute instance (\autoref{fig:pulumi-experiment-plan-simple}). De compute instance moet een HMTL bestand serveren met een bericht dat de client heeft gespecificeerd. 
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.8\textwidth]{chapter-5/pulumi-experiment-plan-simple.png}
+  \caption{De stack voor het experiment}
+  \label{fig:pulumi-experiment-plan-simple}
+\end{figure}
+
+Elke resource heeft zijn eigen configuratie om ervoor te zorgen dat de HTML bestand beschikbaar is voor de buitenwereld. De code met de configuratie is te vinden in [BIJLAGE LINK].
+
+In \autoref{fig:pulumi-experiment-endpoint} is te zien wat er in de POST endpoint gebeurd. Als eerst wordt een stack in geheugen aangemaakt met behulp van de code in \autoref{fig:pulumi-experiment-plan-simple}. Na het aanmaken wordt de stack uitgevoerd met de \(stack.up()\) functie op lijn 12. Nadat de stack is aangemaakt in Google Cloud wordt de een \(GET\) request uitgevoerd naar de server op lijn 15. Nadat de request voltooid is wordt de stack verwijderd uit Google Cloud (lijn 21) met \(stack.destroy()\) en wordt het bericht teruggestuurd naar de client.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.8\textwidth]{chapter-5/pulumi-experiment-endpoint.png}
+  \caption{POST endpoint van de Pulumi experiment}
+  \label{fig:pulumi-experiment-endpoint}
+\end{figure}
 
 \section{Conclusie}\label{subsec:ch5-conclusie}
+In dit hoofdstuk is er onderzoek gedaan naar het antwoord op de deelvraag: \textbf{D2: Hoe kan een orkestratietool verschillende cloud computing platformen beheren om een machine learning pipeline op te zetten?} Het onderzoek is uitgevoerd met behulp van digitale bronnen en een experiment.
 
-
-\section{Advies}\label{subsec:ch5-advies}
+Een orkestratietool is een manier om resources aan te maken, aan te passen en te verwijderen. De tool doet dit zonder het gebruik van een online portal of interventie van een developer. Het managen van resources wordt gedaan op basis van een plan en de huidige situatie binnen de cloud platform. In het plan staat welke resources moeten bestaan en met welke configuratie. Het plan kan beschreven worden in een YAML bestand of door middel van code. De orkestratietool vergelijkt vervolgens het plan met de huidige situatie en zorgt ervoor dat de situatie voldoet aan het plan.
