@@ -54,7 +54,9 @@ De component diagram van het \acrshort{mlpa} systeem bevat het complexe gedeelte
   \label{fig:ch6-c4-l3-nodejs}
 \end{figure}
 
-De architectuur van de Node.js applicatie is ontworpen met de separation of concerns principe en de \acrfull{solid} principe in gedachte \cite{dijkstra-separation-of-concerns} \cite{solid-principle}. Dit betekent dat functies zoals het ophalen van pipeline-details opgebroken is kleinere functies. De functies bekommeren zich alleen om een functionaliteit. in [SUBKOP LINK] zal dit uitgelegd worden met voorbeelden.
+% De architectuur van de Node.js server is ontworpen met de separation of concerns principe in gedachte \cite{dijkstra-separation-of-concerns} \cite{solid-principle}. Dit betekent dat functies zoals het ophalen van pipeline-details opgebroken is kleinere functies. De functies bekommeren zich alleen om een functionaliteit. in [SUBKOP LINK] zal dit uitgelegd worden met voorbeelden.
+
+De architectuur van de Node.js server is ontworpen volgens de repository-service pattern \cite{repository-service-pattern}. Dit is een pattern dat bepaalde zaken van elkaar scheid zodat het project onderhoudbaar blijft. In \autoref{sec:ch7-kwaliteit-van-de-code} zal dit uitgelegd worden met voorbeelden.
 
 Diagrammen voor de laatste niveau, code, zijn achterwege gelaten door de vereiste tijd om de diagrammen te maken en het feit dat de diagrammen vaak tijdens het programmeerproces zullen veranderen. Brown geeft ook als advies om de diagrammen niet te maken of automatisch te laten genereren \cite{c4-model-faq}.
 

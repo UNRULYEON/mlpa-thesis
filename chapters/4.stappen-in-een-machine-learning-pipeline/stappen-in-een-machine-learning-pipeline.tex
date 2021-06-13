@@ -5,7 +5,7 @@ Een ML pipeline is zoals beknopt beschreven in \autoref{subsec:ch2-opzetten-pipe
 \section{Wat is machine learning?}\label{sec:ch4-wat-is-machine-learning}
 ML houdt in dat een computer een taak kan uitvoeren zonder daarvoor expliciet geprogrammeerd te zijn. Dit wordt gedaan door een ML model te laten leren van een gegeven dataset. Vervolgens kan er een voorspelling worden gemaakt \cite[p.~1-3]{introduction-to-machine-learning}.
 
-De domeinen deep learning (DL), neural networks (NN) en artificial intelligence (AI) komen vaak voor als het over ML gaat. Zoals weergegeven in \autoref{fig:ai-ml-nn-dl} is te zien dat ML een subset is van AI, NN een subset van ML en als laatste DL dat een subset is van NN \cite{ai-ml-nn-dl}. 
+De domeinen deep learning (DL), neural networks (NN) en artificial intelligence (AI) komen vaak voor als het over ML gaat. Zoals weergegeven in \autoref{fig:ch4-:ai-ml-nn-dl} is te zien dat ML een subset is van AI, NN een subset van ML en als laatste DL dat een subset is van NN \cite{ai-ml-nn-dl}. 
 
 Bij AI wordt niet alleen ML toegepast, maar ook concepten zoals beredeneren, plannen, vooruitdenken, onthouden en terug refereren. Een voorbeeld hiervan is dat een ML model kan voorspellen wat het volgende woord in een zin kan zijn, maar een AI kan beredeneren waarom de zin gebouwd is zoals het is en hoe het binnen de context van de alinea past \cite{ml-think-about-ml-brownlee}.
 
@@ -13,7 +13,7 @@ Bij AI wordt niet alleen ML toegepast, maar ook concepten zoals beredeneren, pla
   \centering
   \includegraphics[width=0.48\textwidth]{chapter-4/AI-ML-NN-DL.png}
   \caption{Machine learning in de context van andere domeinen}
-  \label{fig:ai-ml-nn-dl}
+  \label{fig:ch4-ai-ml-nn-dl}
 \end{figure}
 
 Een NN bestaat uit een collectie van nodes dat gemodelleerd is naar de hersenen. Een NN heeft minimaal 3 lagen: een inputlaag, een verborgen laag en een outputlaag. Elke laag bevat neuronen dat data als input kan krijgen en data als output aan de volgende laag meegeeft. DL is een NN dat meerdere verborgen lagen bevat \cite{ml-neural-network-nicholson}.
@@ -22,13 +22,13 @@ Een NN bestaat uit een collectie van nodes dat gemodelleerd is naar de hersenen.
 Het trainen van een ML model is een proces waarbij vooraf data wordt opgeschoond en achteraf de prestatie van het model wordt gevalideerd. Normaliter wordt dit gedaan door specifieke code te schrijven voor deze taken. Een valkuil is dat de code niet bij elke developer werkt en schaalt niet in alle gevallen naar een productieomgeving. Een manier om dit wel te behalen is om te werken met ML pipelines. Zoals kort uitgelegd in \autoref{subsec:ch2-opzetten-pipeline} bestaat een ML pipeline uit stappen en acties. Er is echter geen consensus binnen het ML domein over wat de juiste stappen en acties in een pipeline zijn. Voor de scriptie is gekozen voor een pipeline van Hapke en Nelson uit het boek "Building Machine Learning Pipelines". Het boek is gemaakt en gepubliceerd door O'Reilly; een bekend en gecrediteerd bedrijf dat boeken maakt binnen het software engineering domein.
 
 \section{De stappen in een machine learning pipeline}\label{sec:ch4-de-stappen-in-een-machine-learning-pipeline}
-Een ML pipeline begint met het opnemen van data en eindigt met het ontvangen van feedback om de prestatie van het model te verbeteren. De pipeline bevat een aantal stappen zoals data voorbereiden, het model trainen en het uitrollen van het model (\autoref{fig:model-lifecycle-oreilly}).
+Een ML pipeline begint met het opnemen van data en eindigt met het ontvangen van feedback om de prestatie van het model te verbeteren. De pipeline bevat een aantal stappen zoals data voorbereiden, het model trainen en het uitrollen van het model (\autoref{fig:ch4-:model-lifecycle-oreilly}).
 
 \begin{figure}[hbt!]
   \centering
   \includegraphics[width=.8\textwidth]{chapter-4/ml-pipeline-lifecycle-initial.png}
   \caption{Lifecycle van een model volgens Hapke en Nelson \cite[p.~4]{building-machine-learning-pipelines-oreilly}.}
-  \label{fig:model-lifecycle-oreilly}
+  \label{fig:ch4-model-lifecycle-oreilly}
 \end{figure}
 
 In totaal zijn er, zonder de feedbackloop stap, acht stappen die elke keer doorlopen moeten worden om een model te trainen. In de volgende subkoppen zullen de stappen worden doorlopen met een korte uitleg over wat er gebeurd in een stap. 
@@ -44,7 +44,7 @@ Een use case van een pipeline is dat een nieuw model getraind kan worden door ee
 %   \centering
 %   \includegraphics[width=.8\textwidth]{chapter-4/step-1.png}
 %   \caption{Dataset importeren}
-%   \label{fig:step-1}
+%   \label{fig:ch4-step-1}
 % \end{figure}
 
 \subsection{Stap 2: Datavalidatie (Data validation)}\label{subsec:ch4-data-validatie}
@@ -68,28 +68,28 @@ De algemene statistieken is een hulpmiddel om te controleren op afwijkingen en w
 %   \centering
 %   \includegraphics[width=.8\textwidth]{chapter-4/step-2.png}
 %   \caption{Statistieken genereren}
-%   \label{fig:step-2}
+%   \label{fig:ch4-step-2}
 % \end{figure}
 
 % \begin{figure}[hbt!]
 %   \centering
 %   \includegraphics[width=.9\textwidth]{chapter-4/step-2-head-dataset.png}
 %   \caption{Statistieken - Eerste 5 regels van de iris dataset}
-%   \label{fig:step-2-head-dataset}
+%   \label{fig:ch4-step-2-head-dataset}
 % \end{figure}
 
 % \begin{figure}[hbt!]
 %   \centering
 %   \includegraphics[width=.8\textwidth]{chapter-4/step-2-dataset-described.png}
 %   \caption{Statistieken - De iris dataset beschreven}
-%   \label{fig:step-2-dataset-described}
+%   \label{fig:ch4-step-2-dataset-described}
 % \end{figure}
 
 % \begin{figure}[hbt!]
 %   \centering
 %   \includegraphics[width=.4\textwidth]{chapter-4/step-2-grouped-by-class.png}
 %   \caption{Statistieken - Iris dataset gegroepeerd}
-%   \label{fig:step-2-grouped-by-class}
+%   \label{fig:ch4-step-2-grouped-by-class}
 % \end{figure}
 
 \subsection{Stap 3: Data voorbereiden (Data preprocessing)}\label{subsec:ch4-data-voorbereiden}
@@ -135,7 +135,7 @@ Na het valideren en voorbereiden van de dataset kan het model getraind worden. H
 
 Elk algoritme heeft variabelen om er voor te zorgen dat het algoritme beter aansluit op de dataset. Deze variabelen heten \textit{hyperparameters}. Het algoritme heeft standaard hyperparameters die niet altijd de optimale prestatie behalen. Op een heuristische wijze kunnen de optimale hyperparameters gevonden worden \cite{ml-model-hyper-parameter-brownlee}. Dit proces heet \textit{tunen}.
 
-In \autoref{fig:hyperparameter-example-0.1} en \autoref{fig:hyperparameter-example-100} is te zien hoe de \(gamma\) hyperparameter van een \acrfull{svc} algoritme invloed heeft op het model. Dit algoritme classificeert op basis van gegeven waardes. De waardes worden geplot en zal binnen een van de drie kleuren vallen. Het model met als hyperparameter waarde \(100\) zal vaker de classificatie met de bruine kleur als voorspelling geven dan als de waarde \(0.1\) zou zijn.
+In \autoref{fig:ch4-:hyperparameter-example-0.1} en \autoref{fig:ch4-:hyperparameter-example-100} is te zien hoe de \(gamma\) hyperparameter van een \acrfull{svc} algoritme invloed heeft op het model. Dit algoritme classificeert op basis van gegeven waardes. De waardes worden geplot en zal binnen een van de drie kleuren vallen. Het model met als hyperparameter waarde \(100\) zal vaker de classificatie met de bruine kleur als voorspelling geven dan als de waarde \(0.1\) zou zijn.
 
 \begin{figure}[hbt!]
   \centering
@@ -143,13 +143,13 @@ In \autoref{fig:hyperparameter-example-0.1} en \autoref{fig:hyperparameter-examp
       \centering
       \includegraphics[width=1\textwidth]{./chapter-4/hyperparameter-0.1.png}
       \caption{Gamma hyperparameter van een \acrfull{svc} algoritme met waarde 0.1}
-      \label{fig:hyperparameter-example-0.1}
+      \label{fig:ch4-hyperparameter-example-0.1}
   \end{minipage}\hfill
   \begin{minipage}{0.45\textwidth}
       \centering
       \includegraphics[width=1\textwidth]{./chapter-4/hyperparameter-100.png}
       \caption{Gamma hyperparameter van een \acrfull{svc} algoritme met waarde 100}
-      \label{fig:hyperparameter-example-100}
+      \label{fig:ch4-hyperparameter-example-100}
   \end{minipage}
 \end{figure}
 
@@ -167,13 +167,13 @@ Met het inbakken in een app wordt bedoelt dat het model meegenomen wordt als de 
 
 De andere optie is om het model te serveren door middel van een \Acrshort{api}. De app die het model wilt gebruiken zal een request moeten doen met input. De \Acrshort{api} geeft de input door aan het model. Het model geeft een predictie terug dat de \Acrshort{api} doorstuurt naar de applicatie. Het updaten van het model gaat gemakkelijker dan het model inbakken met een app. Een nadeel is de eis dat de app een internetverbinding moet hebben om het model te gebruiken \cite[p.~130]{introduction-to-machine-learning}.
 
-In \autoref{fig:step-8-deploy-model} is te zien hoe een model geserveerd wordt via een \Acrshort{api}. Een endpoint genaamd "classify"\space is gedefinieerd waarop een \(POST\) request gedaan kan worden. De endpoint haalt de input uit de request en geeft het door aan het model. De model maakt vervolgens een predictie dat uiteindelijk naar de app teruggestuurd wordt.
+In \autoref{fig:ch4-:step-8-deploy-model} is te zien hoe een model geserveerd wordt via een \Acrshort{api}. Een endpoint genaamd "classify"\space is gedefinieerd waarop een \(POST\) request gedaan kan worden. De endpoint haalt de input uit de request en geeft het door aan het model. De model maakt vervolgens een predictie dat uiteindelijk naar de app teruggestuurd wordt.
 
 \begin{figure}[hbt!]
   \centering
   \includegraphics[width=.75\textwidth]{chapter-4/step-8-deploy-model.png}
   \caption{Model uitgerold met behulp van een \Acrshort{api}.}
-  \label{fig:step-8-deploy-model}
+  \label{fig:ch4-step-8-deploy-model}
 \end{figure}
 
 \subsection{Stap 9: Feedbackloop (Model feedback)}\label{subsec:ch4-feebdack-loop}
@@ -181,16 +181,16 @@ Om het model continue te verbeteren kan feedback verzameld worden. De feedback g
 
 Het verzamelen van impliciete feedback wordt gedaan zonder dat de gebruiker zich daar bewust van is. Dit wordt gedaan door bij te houden of een voorspelling correct was volgens een gebruiker. Een voorbeeld van deze methode is het bijhouden of een gebruiker een video kijkt dat door het algoritme voorgesteld is. Als een gebruiker de voorgestelde video bekijkt, wordt dit gezien als een succesvolle voorspellen. Mocht de gebruiker niet een voorgestelde video bekijken, wordt dit gezien als onsuccesvol.
 
-In tegenstelling tot impliciet wordt bij expliciete feedback gevraagd aan de gebruiker of een voorspelling gepast is. Een voorbeeld van deze vorm in de praktijk is hoe YouTube expliciete feedback vraagt (\autoref{fig:step-9-explicit-feedback}). Naast het aangeven of de voorspelling gepast was, kan de gebruiker ook aangeven waarom de video gepast was.
+In tegenstelling tot impliciet wordt bij expliciete feedback gevraagd aan de gebruiker of een voorspelling gepast is. Een voorbeeld van deze vorm in de praktijk is hoe YouTube expliciete feedback vraagt (\autoref{fig:ch4-:step-9-explicit-feedback}). Naast het aangeven of de voorspelling gepast was, kan de gebruiker ook aangeven waarom de video gepast was.
 
 \begin{figure}[hbt!]
   \centering
   \includegraphics[width=.5\textwidth]{chapter-4/step-9-explicit-feedback.png}
   \caption{Vorm van expliciete feedback gebruikt door YouTube.}
-  \label{fig:step-9-explicit-feedback}
+  \label{fig:ch4-step-9-explicit-feedback}
 \end{figure}
 
-Het verzamelen van feedback is niet noodzakelijk maar helpt met het verbeteren van het model. Deze output van deze stap gaat samen met een nieuwe dataset naar de eerste stap in de lifecycle (\autoref{fig:model-lifecycle-oreilly}). Met de nieuwe dataset en de feedback kan een nieuw model getraind worden dat beter presteert dan de voorganger.
+Het verzamelen van feedback is niet noodzakelijk maar helpt met het verbeteren van het model. Deze output van deze stap gaat samen met een nieuwe dataset naar de eerste stap in de lifecycle (\autoref{fig:ch4-:model-lifecycle-oreilly}). Met de nieuwe dataset en de feedback kan een nieuw model getraind worden dat beter presteert dan de voorganger.
 
 \section{Conclusie}\label{sec:ch4-conclusie}
 In dit hoofdstuk is er onderzoek gedaan naar het antwoord op de deelvraag: \textbf{D1: Waar bestaat een machine learning pipeline uit?} Het onderzoek is uitgevoerd met behulp van zowel digitale bronnen, een boek en een experiment.
@@ -203,7 +203,7 @@ De acties in de stappen moeten bij het eerste gebruik van de pipeline gedefiniee
 Het in gebruik nemen van een ML pipeline werkwijze is initieel ingewikkeld, maar lonend op de lange termijn. Het opzetten van de pipeline en de acties definiëren kost tijd en kennis. Echter als dit eenmaal gedaan is, kan eenvoudig een verbeterd model worden getraind door een nieuwe dataset aan te leveren. Een verbeterd model is vrijwel gegarandeerd omdat de stappen in de ML pipeline de dataset en het model analyseren en valideren.
 
 \subsection{Een betere keuze maken tussen machine learning algoritmes}\label{subsec:ch4-een-betere-keuze-maken-tussen-machine-learning-algoritmes}
-Zoals eerder aangegeven in \autoref{sec:ch4-wat-is-machine-learning} bestaat er niet één ML pipeline dat correct is. Een ML pipeline is een werkwijze waarbij de stappen anders geïnterpreteerd kunnen worden. Hierdoor is er geen regelmaat tussen verschillende pipelines. Een pipeline kan stappen of acties weglaten of extra hebben. Overeenkomst tussen pipeline is ook niet haalbaar aangezien stappen gemaakt kunnen worden die specifiek zijn voor het algoritme of workflow van het bedrijf. De stappen in de pipeline van Hapke en Nelson (\autoref{fig:model-lifecycle-oreilly}) is een valide basis, maar kan uitgebreid worden om de ervaring van developers te verbeteren. In stap 4 en 5 (\autoref{subsec:ch4-model-trainen-en-tunen}) wordt een model getraind waarbij het beste algoritme om het ML probleem op te lossen al bekend is. De verwachting is dat de keuze/onderzoek vóór het starten van de pipeline is gedaan. Tussen stap 3 en 4 kan echter een stap tussen zitten om te experimenteren met een combinatie van verschillende algoritmes en hyperparameters. In \autoref{fig:advice-ml-pipeline-lifecycle-v1} is te zien hoe zo een stap zou passen in de lifecycle. De stap is met een stippellijn aangegeven omdat de stap de eerste keer meegenomen kan worden als de pipeline wordt doorlopen. Na de eerste keer zijn de beste algoritme en hyperparameters al bekend en kan deze stap overgeslagen worden.
+Zoals eerder aangegeven in \autoref{sec:ch4-wat-is-machine-learning} bestaat er niet één ML pipeline dat correct is. Een ML pipeline is een werkwijze waarbij de stappen anders geïnterpreteerd kunnen worden. Hierdoor is er geen regelmaat tussen verschillende pipelines. Een pipeline kan stappen of acties weglaten of extra hebben. Overeenkomst tussen pipeline is ook niet haalbaar aangezien stappen gemaakt kunnen worden die specifiek zijn voor het algoritme of workflow van het bedrijf. De stappen in de pipeline van Hapke en Nelson (\autoref{fig:ch4-:model-lifecycle-oreilly}) is een valide basis, maar kan uitgebreid worden om de ervaring van developers te verbeteren. In stap 4 en 5 (\autoref{subsec:ch4-model-trainen-en-tunen}) wordt een model getraind waarbij het beste algoritme om het ML probleem op te lossen al bekend is. De verwachting is dat de keuze/onderzoek vóór het starten van de pipeline is gedaan. Tussen stap 3 en 4 kan echter een stap tussen zitten om te experimenteren met een combinatie van verschillende algoritmes en hyperparameters. In \autoref{fig:ch4-:advice-ml-pipeline-lifecycle-v1} is te zien hoe zo een stap zou passen in de lifecycle. De stap is met een stippellijn aangegeven omdat de stap de eerste keer meegenomen kan worden als de pipeline wordt doorlopen. Na de eerste keer zijn de beste algoritme en hyperparameters al bekend en kan deze stap overgeslagen worden.
 
 \newpage
 
@@ -211,13 +211,13 @@ Zoals eerder aangegeven in \autoref{sec:ch4-wat-is-machine-learning} bestaat er 
   \centering
   \includegraphics[width=.8\textwidth]{chapter-4/advice-ml-pipeline-lifecycle-v1.png}
   \caption{Machine learning pipeline met een algoritme exploratie tussenstap.}
-  \label{fig:advice-ml-pipeline-lifecycle-v1}
+  \label{fig:ch4-advice-ml-pipeline-lifecycle-v1}
 \end{figure}
 
 In de "Algorithm exploration"\space stap kunnen verschillende algoritmes die hetzelfde doel bereiken en een variatie van hyperparameters voor elk algoritme getest worden tegen de dataset. Uit deze tests kan een prestatiescore gegenereerd worden om vervolgens te kiezen voor het algoritme dat het meest geschikt lijkt. Na de keuze kan de pipeline verder gaan met de volgende stappen.
 
 \subsection{Machine learning versimpelen}\label{subsec:ch4-machine-learning-versimpelen}
-Een van de focuspunten is om te onderzoeken in hoeverre ML te vergemakkelijken is voor developers. Met de huidige pipeline is er vrij veel kennis vereist over ML om ermee te werken. Toch kan een groot deel van de stappen geautomatiseerd worden. Tussen elke stap kan een validatie plaatsvinden met een aantal randvoorwaardes waaraan voldaan moeten worden om door te gaan naar de volgende stap. In \autoref{fig:advice-ml-pipeline-lifecycle-v3} is te zien hoe tussen elke stap een validatie plaats vindt. Om bijvoorbeeld van stap 6 (Model analysis) naar stap 7 (Model validation) te gaan, moet het model even goed of zelfs beter presteren dan de voorganger. Hoe veel beter het model moet kunnen presteren is aan een developer. Mocht het zo zijn dat het model niet voldoet, kan de pipeline stopgezet worden.
+Een van de focuspunten is om te onderzoeken in hoeverre ML te vergemakkelijken is voor developers. Met de huidige pipeline is er vrij veel kennis vereist over ML om ermee te werken. Toch kan een groot deel van de stappen geautomatiseerd worden. Tussen elke stap kan een validatie plaatsvinden met een aantal randvoorwaardes waaraan voldaan moeten worden om door te gaan naar de volgende stap. In \autoref{fig:ch4-:advice-ml-pipeline-lifecycle-v3} is te zien hoe tussen elke stap een validatie plaats vindt. Om bijvoorbeeld van stap 6 (Model analysis) naar stap 7 (Model validation) te gaan, moet het model even goed of zelfs beter presteren dan de voorganger. Hoe veel beter het model moet kunnen presteren is aan een developer. Mocht het zo zijn dat het model niet voldoet, kan de pipeline stopgezet worden.
 
 \newpage
 
@@ -225,7 +225,7 @@ Een van de focuspunten is om te onderzoeken in hoeverre ML te vergemakkelijken i
   \centering
   \includegraphics[width=.8\textwidth]{chapter-4/advice-ml-pipeline-lifecycle-v3.png}
   \caption{Machine learning pipeline waarbij stappen geautomatiseerd kunnen worden voor het gemak van developers.}
-  \label{fig:advice-ml-pipeline-lifecycle-v3}
+  \label{fig:ch4-advice-ml-pipeline-lifecycle-v3}
 \end{figure}
 
-Niet alle aspecten van de pipeline kunnen versimpeld worden. Een van de stappen die niet kan is stap 7 (Model validation) in \autoref{fig:advice-ml-pipeline-lifecycle-v3}. Deze stap vereist input van een mens aangezien de bias van het model wordt beoordeeld. Wel kunnen rapporten over de bias gegenereerd worden zodat de workflow van developers gestroomlijnd wordt.
+Niet alle aspecten van de pipeline kunnen versimpeld worden. Een van de stappen die niet kan is stap 7 (Model validation) in \autoref{fig:ch4-:advice-ml-pipeline-lifecycle-v3}. Deze stap vereist input van een mens aangezien de bias van het model wordt beoordeeld. Wel kunnen rapporten over de bias gegenereerd worden zodat de workflow van developers gestroomlijnd wordt.
