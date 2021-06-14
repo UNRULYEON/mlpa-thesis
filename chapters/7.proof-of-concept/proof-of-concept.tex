@@ -18,12 +18,12 @@ De user stories zijn opgesteld in samenwerking met de begeleiders van NGTI over 
 \subsection{Requirements vertalen naar een scrum bord}\label{subsec:ch7-requirements-vertalen-naar-een-scrum-bord}
 Een Kanban bord is een werkwijze om visueel aan te geven in welke stadia een taak is in het proces \cite{atlassian-kanban-board}. Taken in een Kanban bord vallen altijd onder een kolom om de status aan te geven. Een kolom kan bijvoorbeeld "todo", "doing", of "done"\space zijn. Een scrum bord is een vorm van een Kanban bord waarbij taken in een sprint zijn ingepland \cite{forecast-scrum-board}. Een sprint is een vaste periode van bijvoorbeeld een of twee weken waarin gewerkt wordt aan de ingeplande taken. Dit verschilt met een Kanban bord waarbij taken op elk moment toegevoegd kunnen worden. In software development kan dit niet; sprints zorgen ervoor dat er geen \gls{scope-creep} plaats vindt.
 
-De user stories uit \autoref{fig:ch7-requirements} zijn vertaalt naar tickets in het scrum bord. Een user story is opgesplitst in meerdere tickets. Dit is het geval met bijvoorbeeld user story "upload datasets" (ID 8). Om deze functionaliteit te bouwen moet een storage bucket beschikbaar zijn en in de frontend de mogelijkheid zijn om dit te doen. In \autoref{fig:ch7-trello-w1-start} zijn de tickets aangemaakt met relevante labels om aan te geven bij welke epic een ticket hoort, of het \acrshort{mvp} is, de prioriteit en t-shirt size.
+De user stories uit \autoref{fig:ch7-requirements} zijn vertaalt naar tickets in het scrum bord. Een user story is opgesplitst in meerdere tickets. Dit is het geval met bijvoorbeeld user story \string"upload datasets\string" (ID 8). Om deze functionaliteit te bouwen moet een storage bucket beschikbaar zijn en in de frontend de mogelijkheid zijn om dit te doen. In \autoref{fig:ch7-trello-w1-start} zijn de tickets aangemaakt met relevante labels om aan te geven bij welke epic een ticket hoort, of het \acrshort{mvp} is, de prioriteit en t-shirt size.
 
 \begin{figure}[hbt!]
   \centering
   \includegraphics[width=0.99\textwidth]{chapter-7/trello-w1-start.png}
-  \caption{Sprint 1.}
+  \caption{Trello bord in het begin van sprint 1}
   \label{fig:ch7-trello-w1-start}
 \end{figure}
 
@@ -41,12 +41,12 @@ Een pipeline wordt aangemaakt door het invullen van de naam en project (bijlage 
   \label{fig:ch7-mockup-mvp-pipeline-details}
 \end{figure}
 
-De configuration is een Python script dat door de developer is gedefinieerd. De script wordt uitgevoerd als de pipeline wordt gestart en bevat de stappen uit \autoref{fig:ch4-model-lifecycle-oreilly}. Stappen zoals "Model deployment" en "Model feedback" vallen uit de scope. In de datasets/\glspl{artifact} sectie kan de developer datasets en artefacts up- en downloaden. Als laatste kan de developer de status van de pipeline en run zien. Een run is een individuele run als een pipeline wordt gestart. Mock ups van andere gedeeltes van de PoC is te vinden in bijlage \ref{appendix:mockup-configuration-dialog}. Nu het voorwerk is gedaan, kan code voor de PoC geschreven worden.
+De configuration is een Python script dat door de developer is gedefinieerd. De script wordt uitgevoerd als de pipeline wordt gestart en bevat de stappen uit \autoref{fig:ch4-model-lifecycle-oreilly}. Stappen zoals \string"Model deployment\string" en \string"Model feedback\string" vallen uit de scope. In de datasets/\glspl{artifact} sectie kan de developer datasets en artefacts up- en downloaden. Als laatste kan de developer de status van de pipeline en run zien. Een run is een individuele run als een pipeline wordt gestart. Mock ups van andere gedeeltes van de PoC is te vinden in bijlage \ref{appendix:mockup-configuration-dialog}. Nu het voorwerk is gedaan, kan code voor de PoC geschreven worden.
 
 \section{Wijzigingen in het architecturaal ontwerp}\label{sec:ch7-wijzigingen-in-het-architecturaal-ontwerp}
 Tijdens het ontwikkelproces is naar voren gekomen dat het orkestreren van infrastructuur in een cloud platform met een tool niet de juiste werkwijze is. Een orkestratietool werkt zoals uitgelegd in \autoref{subsec:ch5-wat-is-infrastructure-as-code} met een plan. De tool controleert de infrastructuur in een cloud platform aan de hand van het plan en past zo nodig de infrastructuur aan.
 
-Gedurende het experiment kwamen geen problemen naar boven; echter bij het implementeren van een feature vertoonde Pulumi gedrag dat niet verwacht was. In \autoref{fig:ch7-reason-orchestration-tool-doesnt-fit} is een illustratie te zien ter ondersteuning van de uitleg. In de éérste stap (1) wordt middels code een plan beschreven waarbij een storage bucket aangemaakt moet worden. Pulumi valideert het plan en maakt vervolgens de storage bucket aan. Pulumi houdt intern bij met een manifest (M1) wat is aangemaakt, in dit geval een storage bucket. Bij de tweede stap (2) wordt Dataset A geüpload in de storage bucket. Pulumi houdt weer bij wat er aangemaakt is in de storage bucket met het manifest (M2). Bij de derde stap staat in het plan dat alleen Dataset B geüpload moet worden. Pulumi vergelijkt het plan met de manifest (M2) en ziet dat Dataset A niet in het plan staat. Pulumi verwijderd vervolgens Dataset A en upload Dataset B.
+Gedurende het experiment kwamen geen problemen naar boven; echter bij het implementeren van een feature vertoonde Pulumi gedrag dat onverwacht was. In \autoref{fig:ch7-reason-orchestration-tool-doesnt-fit} is een illustratie te zien ter ondersteuning van de uitleg. In de éérste stap (1) wordt middels code een plan beschreven waarbij een storage bucket aangemaakt moet worden. Pulumi valideert het plan en maakt vervolgens de storage bucket aan. Pulumi houdt intern bij met een manifest (M1) wat is aangemaakt, in dit geval een storage bucket. Bij de tweede stap (2) wordt Dataset A geüpload in de storage bucket. Pulumi houdt weer bij wat er aangemaakt is in de storage bucket met het manifest (M2). Bij de derde stap staat in het plan dat alleen Dataset B geüpload moet worden. Pulumi vergelijkt het plan met de manifest (M2) en ziet dat Dataset A niet in het plan staat. Pulumi verwijderd vervolgens Dataset A en upload Dataset B.
 
 \begin{figure}[hbt!]
   \centering
@@ -55,7 +55,7 @@ Gedurende het experiment kwamen geen problemen naar boven; echter bij het implem
   \label{fig:ch7-reason-orchestration-tool-doesnt-fit}
 \end{figure}
 
-Pulumi verwacht dat de volledige infrastructuur in het plan beschrijft. Het is niet mogelijk om incrementeel de infrastructuur aan te passen. Voor de PoC is gekozen om verder te werken met libraries van de cloud platformen AWS, Google Cloud en Azure zelf. Na het onderzoeken of het mogelijk is om infrastructuur in te richten en naar de kwaliteit van de documentatie is gekozen om te werken met de libraries van Google Cloud en Azure. De documentatie van AWS is onoverzichtelijker en Amazon gebruikt unieke termen voor hun resources en services wat \cite{aws-sdk-javascript-docs}.
+Pulumi verwacht dat de volledige infrastructuur in het plan beschrijft. Het is niet mogelijk om incrementeel de infrastructuur aan te passen. Voor de PoC is gekozen om verder te werken met libraries van de cloud platformen AWS, Google Cloud en Azure zelf. Na het onderzoeken of het mogelijk is om infrastructuur in te richten en naar de kwaliteit van de documentatie is gekozen om te werken met de libraries van Google Cloud en Azure. De documentatie van AWS is onoverzichtelijker en Amazon gebruikt unieke termen voor hun resources en services wat de leercurve hoger legt dan de andere twee libraries \cite{aws-sdk-javascript-docs}.
 
 \section{De proof of concept}\label{sec:ch7-de-proof-of-concept}
 In \autoref{sec:ch6-architecturaal-ontwerp} is kort uitgelegd dat de backend gebouwd wordt met Node.js en Express en de frontend met React.js en TypeScript. Voor de PoC is een GitHub repository aangemaakt waarin de front- en backend geïnitialiseerd is met behulp van de documentatie van de frameworks. In de volgende koppen wordt in een logische volgorde door de applicatie gelopen waarbij uitleg over de werking wordt gegeven met screenshots van de \acrshort{ui} en code als ondersteuning.
@@ -81,7 +81,7 @@ Zodra de developer klikt op de \textbf{Create} knop, wordt een request verstuurt
   \label{fig:ch7-create-pipeline-service}
 \end{figure}
 
-Om een pipeline in Google Cloud aan te maken hoeft alleen een storage bucket aangemaakt te worden. De functie die deze actie uitvoert is te zien in \autoref{fig:ch7-create-pipeline-google-cloud}. De bucket heeft een naam nodig en de locatie. Op lijn 5 van \autoref{fig:ch7-create-pipeline-google-cloud} is \textbf{EUROPE-WEST4} gespecificeerd. Dit is een locatie in Nederland.
+Om een pipeline in Google Cloud aan te maken hoeft alleen een storage bucket aangemaakt te worden. De functie die deze actie uitvoert is te zien in \autoref{fig:ch7-create-pipeline-google-cloud}. De bucket heeft een naam nodig en de locatie. Op lijn 5 van \autoref{fig:ch7-create-pipeline-google-cloud} is \string"\textbf{EUROPE-WEST4}\string" gespecificeerd. Dit is een locatie in Nederland.
 
 \begin{figure}[hbt!]
   \centering
@@ -93,7 +93,7 @@ Om een pipeline in Google Cloud aan te maken hoeft alleen een storage bucket aan
 Naast het aanmaken van de storage bucket in Google Cloud wordt de details van de pipeline opgeslagen in de PostgreSQL database (\autoref{fig:ch7-create-pipeline-service}, lijn 4). Na het aanmaken van een pipeline kan een dataset geüpload worden.
 
 \subsection{Datasets uploaden}\label{subsec:ch7-datasets-uploaden}
-Tijdens het aanmaken van de pipeline is een opslaglocatie in de cloud platform aangemaakt. In details weergave van een pipeline is een sectie weergegeven zoals in \autoref{fig:ch7-poc-upload-dataset} waar de developer datasets kan uploaden. Na het uploading krijgt de developer een confirmatie te zien en wordt de lijst met bestaande datasets en artefacts ververst.
+Tijdens het aanmaken van de pipeline is een opslaglocatie in het cloud platform aangemaakt. In de details weergave van een pipeline is een sectie weergegeven zoals in \autoref{fig:ch7-poc-upload-dataset} waar de developer datasets kan uploaden. Na het uploading krijgt de developer een confirmatie te zien en wordt de lijst met bestaande datasets en artefacts ververst.
 
 \newpage
 
@@ -134,7 +134,7 @@ Het laatste wat de developer moet doen om de pipeline te starten is het opgeven 
   \label{fig:ch7-poc-configuration-dialog}
 \end{figure}
 
-Zodra de developer op de knop \textbf{SAVE} klikt, wordt een request gedaan naar de backend om de configuratie op te slaan. De code om de configuratie op te slaan is te zien in \autoref{fig:ch7-poc-configuration-commit-db}. Hier wordt een nieuwe configuratie aangemaakt en gelinkt aan de pipeline.
+Zodra de developer op de knop \textbf{Save} klikt, wordt een request gedaan naar de backend om de configuratie op te slaan. De code om de configuratie op te slaan is te zien in \autoref{fig:ch7-poc-configuration-commit-db}. Hier wordt een nieuwe configuratie aangemaakt en gelinkt aan de pipeline.
 
 \begin{figure}[hbt!]
   \centering
@@ -226,15 +226,15 @@ In dit hoofdstuk is onderzoek gedaan naar het antwoord op de hoofdvraag: \textbf
 
 Middels het implementeren is duidelijk geworden dat een orkestratietool niet de correcte werkwijze is om infrastructuur aan te passen. De tool verwacht dat alle resources, ook resources die voorheen aangemaakt zijn, in het plan zijn gedefinieerd. Resources worden verwijderd als dit het geval is. Om dit op te lossen is gekozen om te werken met libraries van de cloud platformen zelf. Documentatie van de libraries is aanwezig, echter laat documentatie van een aantal libraries te wensen over. De functionaliteit om resources aan te maken is wel aanwezig en is dus een valide vervanging.
 
-De scope van de PoC bevat de stappen uit \autoref{fig:ch4-model-lifecycle-oreilly} om een model te trainen. Het trainen gaat met een Python bestand dat als configuratie wordt opgeslagen. Eerst moet een pipeline aangemaakt worden zodat de PoC de benodigdheden klaar kan zetten voor de developer. Dat is de opslaglocatie in de gekozen cloud platform en informatie over de pipeline in de database. Vervolgens kan de developer een dataset uploaden, de configuratie opslaan en de pipeline starten. Na het starten maakt de PoC een \acrshort{vm} aan in de cloud platform en voert een script uit zodat het model getraind en opgeslagen kan worden samen met overige \glspl{artifact} in de opslaglocatie. Tot slot wordt de \acrshort{vm} verwijderd en is het model beschikbaar om te gebruiken in een webserver of app om voorspellingen of classificaties te maken.
+De scope van de PoC bevat de stappen uit \autoref{fig:ch4-model-lifecycle-oreilly} om een model te trainen. Het trainen gaat met een Python bestand dat als configuratie wordt opgeslagen. Eerst moet een pipeline aangemaakt worden zodat de PoC de benodigdheden klaar kan zetten voor de developer. Dat is de opslaglocatie in de gekozen cloud platform en informatie over de pipeline in de database. Vervolgens kan de developer een dataset uploaden, de configuratie opslaan en de pipeline starten. Na het starten maakt de PoC een \acrshort{vm} aan in het cloud platform en voert een script uit zodat het model getraind en opgeslagen kan worden samen met overige \glspl{artifact} in de opslaglocatie. Tot slot wordt de \acrshort{vm} verwijderd en is het model beschikbaar om te gebruiken in een webserver of app om voorspellingen of classificaties te maken.
 
 \section{Advies}\label{sec:ch7-advies}
-De PoC laat zien dat het automatiseren van een pipeline mogelijk is. Een developer van NGTI heeft alleen kennis nodig van ML om gebruik te maken van de PoC. Een grote verbetering is hoe een developer de configuratie opgeeft om een model te trainen.
+De PoC laat zien dat het automatiseren van een pipeline mogelijk is. Een developer van NGTI heeft alleen kennis nodig van ML om gebruik te maken van de PoC. Een grote verbetering is de manier hoe een developer configuratie opgeeft om het model te trainen.
 
 % Twee focuspunten worden in de volgende koppen verduidelijkt om de gebruikerservaring en vertrouwbaarheid te verbeteren
 
 \subsection{Configuratie definiëren met stappen}\label{subsec:ch7-configuratie-definieren-met-stappen}
-De PoC vraagt aan de developer om Python code op te geven. Daarnaast wordt de mogelijkheid aangeboden om een link te kopiëren van een dataset om te gebruiken in een van de stappen. Dit kan aanzienlijk verbeterd worden door stappen te maken zoals in \autoref{fig:ch4-model-lifecycle-oreilly}. In \autoref{fig:ch7-advice-steps-config} is een mock up gemaakt van de configuratie dialoog. Link zijn de stappen weergegeven. Bij elke stap kan de developer een optie kiezen of selecteren wat er gedaan moet worden. De PoC converteert vervolgens de gekozen opties in code waarmee een model getraind kan worden.
+De PoC vraagt aan de developer om Python code op te geven. Daarnaast wordt de mogelijkheid aangeboden om een link te kopiëren van een dataset om te gebruiken in een van de stappen. Dit kan aanzienlijk verbeterd worden door stappen te maken zoals in \autoref{fig:ch4-model-lifecycle-oreilly}. In \autoref{fig:ch7-advice-steps-config} is een mock up gemaakt van de configuratie dialoog. Links zijn de stappen weergegeven. Bij elke stap kan de developer een optie kiezen of selecteren wat er gedaan moet worden. De PoC converteert vervolgens de gekozen opties in code waarmee een model getraind kan worden.
 
 \newpage
 

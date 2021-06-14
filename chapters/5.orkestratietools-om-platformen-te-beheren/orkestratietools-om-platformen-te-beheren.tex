@@ -23,7 +23,7 @@ Een \Acrshort{iac} volgt een proces om aan de gewenste situatie te voldoen. In \
 \end{figure}
 
 \section{Orkestratietools vergeleken met elkaar}\label{subsec:ch5-orkestratietools-vergeleken-met-elkaar}
-Om een keuze te maken met welke \Acrshort{iac} orkestratietool verder gewerkt zal worden moet er een keuze gemaakt worden. Om de opties te beperken kan zogenoemde "knockout"\space criteria opgesteld worden. Dit betekent dat een \Acrshort{iac} orkestratietool niet wordt meegenomen in de keuze als de tool niet voldoet aan alle criteria. In \autoref{table:knock-out-criteria-orchestration-tools-that-manage-cloud-computing-platformen} zijn de knockout criteria te vinden. De criteria in samenwerking met NGTI opgesteld. 
+Om een keuze te maken tussen \acrshort{iac} orkestratietools kan zogenoemde "knockout"\space criteria opgesteld worden. Een \acrshort{iac} orkestratietool wordt niet valt af zodra de tool niet voldoet aan één van de criteria. In \autoref{table:knock-out-criteria-orchestration-tools-that-manage-cloud-computing-platformen} zijn de knockout criteria te vinden. De criteria in samenwerking met NGTI opgesteld. 
 
 \begin{table}[hbt!]
   \centering
@@ -51,7 +51,7 @@ Om een keuze te maken met welke \Acrshort{iac} orkestratietool verder gewerkt za
 
 \newpage
 
-Voor de keuzes uit de tools is onderzoek gedaan op het internet en een enquête geraadpleegd van Stack Overflow \cite{stack-overflow-survey-2020}. De enquête is ingevuld door developers en bevat vragen over de ervaring met frameworks, technologieën en de website zelf. Uit de vraag over welke frameworks, libraries en tools het meest gebruikt werkt, kwam Ansible, Terraform, Puppet en Chef naar boven \cite{stack-overflow-survey-2020-popular-framework-libraries-tools}. Volgens een vraag over de meest geliefd en gevreesde frameworks, libraries en tools zijn Ansible en Terraform het meest geliefd en Puppet en Chef het meest gevreesd \cite{stack-overflow-survey-2020-loved-dreaded-framework-libraries-tools}. Uit het onderzoek naar orkestratietools is, naast de bovengenoemde tools, Pulumi naar voren gekomen als kandidaat \cite{pulumi}. Ansible, Terraform en Pulumi zijn in \autoref{table:orchestration-tools-compared-against-knock-out-criteria} tegen de knockout criteria gehouden.
+Voor de keuzes uit de tools is onderzoek gedaan op het internet en een enquête geraadpleegd van Stack Overflow \cite{stack-overflow-survey-2020}. De enquête is ingevuld door developers en bevat vragen over de ervaring met frameworks, technologieën en de website zelf. Uit de vraag over welke frameworks, libraries en tools het meest gebruikt werkt, kwam Ansible, Terraform, Puppet en Chef naar boven \cite{stack-overflow-survey-2020-popular-framework-libraries-tools}. Volgens een vraag over de meest geliefd en gevreesde frameworks, libraries en tools zijn Ansible en Terraform het meest geliefd en Puppet en Chef het meest gevreesd \cite{stack-overflow-survey-2020-loved-dreaded-framework-libraries-tools}. Uit algemeen onderzoek naar orkestratietools is, naast de bovengenoemde tools, Pulumi naar voren gekomen als kandidaat \cite{pulumi}. Ansible, Terraform en Pulumi zijn in \autoref{table:orchestration-tools-compared-against-knock-out-criteria} tegen de knockout criteria gehouden.
 
 \begin{table}[hbt!]
   \centering
@@ -80,14 +80,12 @@ Voor de keuzes uit de tools is onderzoek gedaan op het internet en een enquête 
   \label{table:orchestration-tools-compared-against-knock-out-criteria}
 \end{table}
 
-In \autoref{table:orchestration-tools-compared-against-knock-out-criteria} is te zien dat de drie orkestratietools gelijk zijn als het gaat om de ondersteuning van cloud platform en documentatie. Programmatisch beheren kan met Ansible en Terraform alleen door middel van een YAML bestand in tegenstelling met Pulumi dat via code een plan kan uitvoeren. Omdat het praktischer voor de PoC om via code een plan uit te voeren, is er voor gekozen om met Pulumi verder te werken. In het volgende hoofdstuk zal een experiment met Pulumi uitgevoerd worden om te valideren of Pulumi geschikt is.
+In \autoref{table:orchestration-tools-compared-against-knock-out-criteria} is te zien dat de drie orkestratietools gelijk zijn als het gaat om de ondersteuning van cloud platform en documentatie. Programmatisch beheren kan met Ansible en Terraform alleen door middel van een YAML bestand in tegenstelling tot Pulumi dat via code een plan kan uitvoeren. Omdat het praktischer voor de PoC is om via code een plan uit te voeren, is er voor gekozen om met Pulumi verder te werken. In het volgende hoofdstuk zal een experiment met Pulumi uitgevoerd worden om te valideren of Pulumi geschikt is.
 
 \section{Experiment met de orkestratietool Pulumi}\label{subsec:ch5-experiment-met-de-orkestratietool-pulumi}
-Het idee achter het experiment is om te achterhalen of Pulumi een geschikte orkestratietool is. Op dit moment in het afstudeerproces wordt er verwacht dat de PoC een frontend krijgt dat praat door middel van een \acrfull{rest} \Acrshort{api} met een backend. De backend zal vervolgens gebruik maken van de orkestratietool om te praten met een cloud platform. Om het PoC na te bootsen op kleinere schaal wordt er bij het experiment gebruik gemaakt van een client waarbij een opdracht met behulp van een \Acrshort{rest} \Acrshort{api} naar een Node.js server wordt verstuurt. De Node.js server stuurt om zijn beurt opdrachten naar Pulumi die communiceert met Google Cloud. Voor het experiment is arbitrair gekozen voor het cloud platform.
+Het idee achter het experiment is om te achterhalen of Pulumi een geschikte orkestratietool is. Op dit moment in het afstudeerproces wordt er verwacht dat de PoC een frontend krijgt dat praat door middel van een \acrfull{rest} \Acrshort{api} met een backend. De backend zal vervolgens gebruik maken van de orkestratietool om te praten met een cloud platform. Om het PoC na te bootsen op kleinere schaal wordt er bij het experiment gebruik gemaakt van een client waarbij een opdracht met behulp van een \Acrshort{rest} \Acrshort{api} naar een Node.js server wordt verstuurt. De Node.js server stuurt om zijn beurt opdrachten naar Pulumi die communiceert met Google Cloud. Voor het experiment is arbitrair gekozen voor het cloud platform; de PoC moet ten slotte platform-agnostisch zijn.
 
-\newpage
-
-Het experiment is als sequence diagram uitgewerkt in \autoref{fig:sd-pulumi-experiment}. Hierin is goed te zien welke acties gedaan worden en door welke speler.
+Het experiment is als sequence diagram uitgewerkt in \autoref{fig:sd-pulumi-experiment}. Hierin is goed te zien welke acties gedaan worden en door welke speler. In de sequence diagram is ook te zien wat voor taak wordt uitgevoerd aan de hand van de naam tussen de spelers.
 
 \begin{figure}[hbt!]
   \centering
@@ -98,7 +96,7 @@ Het experiment is als sequence diagram uitgewerkt in \autoref{fig:sd-pulumi-expe
 
 \newpage
 
-In \autoref{fig:sd-pulumi-experiment} is ook te zien wat voor taak wordt uitgevoerd aan de hand van de naam tussen de spelers. Deze taken zullen in de volgende code snippets verduidelijkt worden. De Node.js server is vrij simpel en bevat één endpoint op lijn 12 genaamd /api/run-python-code (\autoref{fig:pulumi-experiment-nodejs-base}). 
+De Node.js server is vrij simpel en bevat één endpoint op lijn 12 genaamd /api/run-python-code (\autoref{fig:pulumi-experiment-nodejs-base}). In deze \(POST\) endpoint wordt een stack aangemaakt, een \(GET\) request uitgevoerd naar de aangemaakte compute instance en vervolgens wordt de stack weer verwijderd. Een stack is de manier hoe Pulumi een plan beschrijft.
 
 \begin{figure}[hbt!]
   \centering
@@ -107,7 +105,7 @@ In \autoref{fig:sd-pulumi-experiment} is ook te zien wat voor taak wordt uitgevo
   \label{fig:pulumi-experiment-nodejs-base}
 \end{figure}
 
-In deze \(POST\) endpoint wordt een stack aangemaakt, een \(GET\) request uitgevoerd naar de aangemaakte compute instance en vervolgens wordt de stack weer verwijderd. Een stack is de manier hoe Pulumi een plan beschrijft. In de stack worden drie resources aangemaakt: een network, een firewall en een compute instance (\autoref{fig:pulumi-experiment-plan-simple}). De compute instance moet een HMTL bestand serveren met een bericht dat de client heeft gespecificeerd. 
+In de stack worden drie resources aangemaakt: een network, een firewall en een compute instance (\autoref{fig:pulumi-experiment-plan-simple}). De compute instance moet een HMTL bestand serveren met een bericht dat de client heeft gespecificeerd. 
 
 \begin{figure}[hbt!]
   \centering
@@ -116,9 +114,9 @@ In deze \(POST\) endpoint wordt een stack aangemaakt, een \(GET\) request uitgev
   \label{fig:pulumi-experiment-plan-simple}
 \end{figure}
 
-Elke resource heeft zijn eigen configuratie om ervoor te zorgen dat de HTML bestand beschikbaar is voor de buitenwereld. De code met de configuratie is te vinden in bijlage \ref{appendix:stack-configuration-from-experiment-with-pulumi}.
+Elke resource heeft zijn eigen configuratie om ervoor te zorgen dat het HTML bestand beschikbaar is voor de buitenwereld. De code met de volledige configuratie is te vinden in bijlage \ref{appendix:stack-configuration-from-experiment-with-pulumi}.
 
-In \autoref{fig:pulumi-experiment-endpoint} is te zien wat er in de POST endpoint gebeurd. Als eerst wordt een stack in geheugen aangemaakt met behulp van de code in \autoref{fig:pulumi-experiment-plan-simple}. Na het aanmaken wordt de stack uitgevoerd met de \(stack.up()\) functie op lijn 12. Nadat de stack is aangemaakt in Google Cloud wordt de een \(GET\) request uitgevoerd naar de server op lijn 15. Nadat de request voltooid is wordt de stack verwijderd uit Google Cloud (lijn 21) met \(stack.destroy()\) en wordt het bericht teruggestuurd naar de client.
+In \autoref{fig:pulumi-experiment-endpoint} is te zien wat er in de POST endpoint gebeurd. Als eerst wordt een stack in geheugen aangemaakt met behulp van de code in \autoref{fig:pulumi-experiment-plan-simple}. Na het aanmaken wordt de stack uitgevoerd met de \(stack.up()\) functie op lijn 12. Nadat de stack is aangemaakt in Google Cloud wordt een \(GET\) request uitgevoerd naar de server op lijn 15. Nadat de request voltooid is wordt de stack verwijderd uit Google Cloud (lijn 21) met \(stack.destroy()\) en wordt het bericht teruggestuurd naar de client.
 
 \begin{figure}[hbt!]
   \centering
