@@ -1,24 +1,24 @@
 \styledchapter[Probleemanalyse]{probleemanalyse}
-Zoals beschreven in \autoref{sec:ch1-aanleiding-opdracht} wilt NGTI ML toepassen om haar apps slimmer te maken. Hier zijn een aantal redenen voor, onder andere om de gebruikerservaring te verbeteren en om een voorsprong te hebben op concurrenten.
+NGTI wil ML toepassen om haar apps slimmer te maken. Hier zijn een aantal redenen voor, onder andere om de gebruikerservaring te verbeteren en om een voorsprong te hebben op concurrenten. Het 'slimmer' maken van applicaties kan op verschillende manieren, maar met machine-learning kan een platform gebouwd worden waarmee elke richting op gegaan kan worden. Een voorbeeld van toegepaste ML is het aanbevelingssysteem van YouTube \cite{youtube-recommendation-system}, gepersonaliseerde kunst van Netflix \cite{netflix-personalized-art} of de Smart Reply feature van Google in Gmail \cite{smart-reply-gmail}.
 
-Het 'slimmer' maken van applicaties kan op verschillende manieren, maar met machine-learning kan een platform gebouwd worden waarmee elke richting op gegaan kan worden. Om machine-learning te implementeren in haar applicaties loopt NGTI tegen een aantal obstakels aan, namelijk: expertise vereist in het ML domein, benodigde tijd om een pipeline op te zetten en vendor lock-in.
+Om machine-learning te implementeren in haar applicaties loopt NGTI tegen een aantal obstakels aan, namelijk: expertise vereist in het ML domein, benodigde tijd om een pipeline op te zetten en vendor lock-in.
 
 \section{Obstakels voor NGTI}\label{sec:ch2-obstakels-voor-ngti}
 NGTI loopt tegen de voorgenoemde obstakels aan omdat NGTI weinig ervaring heeft met ML. In samenwerking met een extern bedrijf worden modellen getraind die vervolgens gebruikt worden in apps van NGTI. Om zelf modellen te trainen heeft NGTI kennis over ML, ML pipelines en tijd nodig. Bovendien wilt NGTI niet bij één cloud computing platform haar infrastructuur opzetten maar gemakkelijk kunnen schakelen tussen platformen. De obstakels worden in de volgende koppen verduidelijkt.
 
-\subsection{Expertise Machine Learning}\label{subsec:ch2-expertise-machine-learning}
-ML is ingewikkeld en diepgaand onderwerp. Om een model te trainen is kennis nodig van verschillende domeinen: data mining, software engineering en statistieken. Doordat er voorkennis nodig is om een model te trainen en een pipeline goed op te zetten, is het vaak te hoogdrempelig voor developers om een start te maken met ML. De expertise is daarnaast niet in een korte tijd te vergaren.
+\subsection{Expertise machine learning}\label{subsec:ch2-expertise-machine-learning}
+ML is een ingewikkeld en diepgaand onderwerp. Om een model te trainen is kennis nodig van verschillende domeinen: data mining, software engineering en statistieken. Doordat er voorkennis nodig is om een model te trainen en een pipeline goed op te zetten, is het vaak te hoogdrempelig voor developers om een start te maken met ML. De expertise is daarnaast niet in een korte tijd te vergaren.
 
 \subsection{Opzetten pipeline}\label{subsec:ch2-opzetten-pipeline}
-Bovenop de complexiteit van ML zelf bestaan er verschillende manieren om een model te trainen. Het opzetten van ML pipelines is daar een van. Een pipeline is een workflow dat bestaat uit een aantal stappen die doorgelopen worden om een model te trainen. In elke stap worden acties uitgevoerd, zoals het verwijderen van onbruikbare data of de prestatie van modellen vergelijken en een rapport met uitslagen genereren. Het opzetten van zo een pipeline én de actie(s) in de stappen definiëren kost tijd en vereist specifieke kennis. Daarnaast zijn de stappen en acties vaak hetzelfde voor verschillende pipelines. Het automatiseren en hergebruiken van stappen en acties tussen pipelines zou tot onder andere tijdwinst en het verminderen van herhaling van code kunnen leiden.
+Boven op de complexiteit van ML zelf bestaan er verschillende manieren om een model te trainen. Het opzetten van ML pipelines is daar een van. Een pipeline is een workflow dat bestaat uit een aantal stappen die doorgelopen worden om een model te trainen. In elke stap worden acties uitgevoerd, zoals het verwijderen van onbruikbare data of de prestatie van modellen vergelijken en een rapport met uitslagen genereren. Het opzetten van zo een pipeline én de actie(s) in de stappen definiëren kost tijd en vereist specifieke kennis. Daarnaast zijn de stappen en acties vaak hetzelfde voor verschillende pipelines. Het automatiseren en hergebruiken van stappen en acties tussen pipelines zou tot onder andere tijdwinst, gebruikersgemak en het verminderen van herhaling van code kunnen leiden.
 
 \subsection{Vendor lock-in}\label{subsec:ch2-vendor-lock-in}
-Er bestaan een aantal diensten, zogenoemde \acrfull{paas}, waarbij je een pipeline kan opzetten en acties kan definiëren. Een van de problemen met een PaaS is vendor lock-in. Dit betekent dat, als er eenmaal een pipeline is opgezet, de overdraagbaarheid van de pipeline naar een andere PaaS vrijwel onmogelijk is. Ook zijn de opties en mogelijkheden om uit te breiden in de toekomst gelimiteerd. 
+Er bestaan een aantal diensten, zogenoemde \acrfull{paas}, waarbij je een pipeline kan opzetten en acties kan definiëren. Een van de problemen met een PaaS is vendor lock-in. Dit betekent dat, als er eenmaal een pipeline is opgezet, de overdraagbaarheid van de pipeline naar een andere PaaS lastig is. Pipelines van diensten komen niet altijd overeen met elkaar waardoor een vertaalstap genomen moet worden om de pipeline te verhuizen naar een andere dienst. Het kan voorkomen dat overstappen naar een andere dienst niet mogelijk is omdat de andere dienst niet alle features van de originele dienst ondersteund. Ook zijn de opties en mogelijkheden om uit te breiden in de toekomst afhankelijk van wat de dienst implementeert. Om onafhankelijk te zijn is een oplossing dat platform-agnostisch is een eis.
 
 \section{Vooronderzoek naar bestaande oplossingen}\label{sec:ch2-vooronderzoek-naar-bestaande-oplossingen}
-Het gebruik van ML pipelines is geen nieuwe techniek en is mogelijk bij \glsplural{paas} en bedrijven die zich specialiseren in ML pipelines. Het gemakt met zulke services is dat de gebruiker gelijk kan beginnen met het trainen van ML modellen en zich niet zorgen hoeft te maken over infrastructurele details. Echter is er sprake van vendor lock-in en kunnen services van deze bedrijven niet gebruikt worden.
+Het gebruik van ML pipelines is geen nieuwe techniek en is mogelijk bij PaaS's en bedrijven die zich specialiseren in ML pipelines. Het gemak met zulke services is dat de gebruiker gelijk kan beginnen met het trainen van ML modellen en zich niet zorgen hoeft te maken over infrastructurele details. Echter is er sprake van vendor lock-in en kunnen services van deze bedrijven niet gebruikt worden. Vendor lock-in is een van de obstakels dat NGTI probeert te vermijden; platform-agnostisch zijn is dus een van de eisen.
 
-Gedurende de vooronderzoek zijn "Infrastructure as Code" frameworks naar voren gekomen. Dit zijn frameworks waarmee, middels code, een infrastructure binnen een \gls{paas} opgezet kan worden. Dit kan gebruikt worden als onderdeel van de PoC en wordt in een van de deelvragen verder onderzocht.
+Gedurende het vooronderzoek zijn \string"Infrastructure as Code\string" frameworks naar voren gekomen. Dit zijn frameworks waarmee, middels code, een infrastructure binnen een \acrshort{paas} opgezet kan worden. Dit kan gebruikt worden als onderdeel van de PoC en wordt in een van de deelvragen verder onderzocht.
 
 % \section{Bestaande oplossingen om pipelines op te zetten}\label{sec:ch2-bestaande-oplossingen-om-pipelines-op-te-zetten}
 % ML pipelines gebruiken binnen een cloud platform is geen nieuwe techniek. Dit is al enige tijd mogelijk bij platform-as-a-service (PaaS) bedrijven. Azure en Google cloud zijn PaaS bedrijven waarbij bijvoorbeeld een server of database gehuurd kan worden. Daarnaast bestaan er bedrijven dat zich specialiseren in ML pipelines en dat als enige service bieden. Het enige nadeel is dat vendor lock-in inherent is. In \autoref{subsec:machine-learning-pipeline-specifieke-service} en \autoref{subsec:cloud-computing-platformen} wordt uitgelegd wat vendor lock-in is en waarom de service van deze bedrijven niet geschikt it.
@@ -39,10 +39,10 @@ Gedurende de vooronderzoek zijn "Infrastructure as Code" frameworks naar voren g
 % Kubeflow \cite{kubeflow} is een ander framework waarmee een pipeline kan worden opgezet. Het verschil met Terraform is dat Terraform flexibeler is met wat er aangemaakt kan worden op een cloud computing platform. Kubeflow kan alleen een pipeline uitrollen. Een andere framework zoals Kubeflow is Apache Beam \cite{apache-beam}.
 
 \section{Doelstelling}\label{sec:ch2-doelstelling}
-Om haar doel, de gebruikerservaring van apps verbeteren en een voorsprong hebben op concurrent, te bereiken is NGTI van plan ML pipelines te gebruiken om ML toe te passen. De gewenste oplossing is een systeem waarbij developers met weinig tot geen kennis een model kunnen trainen. Het systeem moet de infrastructurele taken voor zich nemen, zoals het opzetten van een pipeline en de stappen en acties automatiseren. Daarnaast moet een ML pipeline pijnloos doorlopen kunnen worden op verschillende platformen zodat het systeem platform-agnostisch is.
+Om haar doel te bereiken, de gebruikerservaring van apps verbeteren en een voorsprong te hebben op concurrenten, is NGTI van plan ML pipelines te gebruiken om ML toe te passen. De gewenste oplossing is een systeem waarbij developers met weinig tot geen kennis een model kunnen trainen. Het systeem moet de infrastructurele taken voor zich nemen, zoals het opzetten van een pipeline en de stappen en acties automatiseren. Daarnaast moet een ML pipeline pijnloos doorlopen kunnen worden op verschillende platformen zodat het systeem platform-agnostisch is.
 
 \section{Hoofd- en deelvragen}\label{sec:ch2-hoofd-en-deelvragen}
-Uitgaand van de drie obstakels kan de hoofdvraag als volgt worden geformuleerd:
+Uitgaande van de drie obstakels kan de hoofdvraag als volgt worden geformuleerd:
 
 \begin{quoting}
   \begin{center}
@@ -74,12 +74,12 @@ Daarnaast is een framework nodig dat, door middel van code, verschillende cloud 
   \end{center}
 \end{quoting}\smallskip
 
-Ten slotte wordt een PoC gemaakt om te laten zien of het probleem oplosbaar is. Hiervoor is een doordachte voorbereiden onmisbaar:
+Ten slotte wordt een PoC gemaakt om te laten zien of het probleem oplosbaar is. Hiervoor is een doordachte voorbereiding onmisbaar:
 
 \begin{quoting}
   \begin{center}
     \textit{
-      Hoe ziet de architecturale blauwdruk van een applicatie, waarmee een platform-onafhankelijk machine learning pipeline opgezet kan worden, eruit?
+      Hoe ziet de architectuurblauwdruk van een applicatie, waarmee een platform-onafhankelijk machine learning pipeline opgezet kan worden, eruit?
     }
   \end{center}
 \end{quoting}
