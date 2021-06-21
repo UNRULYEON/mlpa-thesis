@@ -58,6 +58,8 @@ Voor de keuze van frameworks is rekening gehouden met de populariteit en de  kwa
 
 Voor de opties is nogmaals de enquête van Stack Overflow geraadpleegd \cite{stack-overflow-survey-2020}. React, Angular en Vue zijn de meest gebruikte frameworks \cite{stack-overflow-survey-2020-technology-web-frameworks}. Angular is het minst gewild uit de drie opties \cite{stack-overflow-survey-2020-technology-most-loved-dreaded-and-wanted-languages} en is daardoor niet meegenomen in de keuze. Voor de backend zijn er twee opties: Node.js en .NET Core \cite{stack-overflow-survey-2020-popular-framework-libraries-tools}. In \autoref{table:ch6-criteria-compared-against-frontend-frameworks} zijn de front-end frameworks tegen de criteria gehouden en in \autoref{table:ch6-criteria-compared-against-backend-frameworks} de back-end frameworks.
 
+\newpage
+
 \begin{table}[hbt!]
   \centering
   \caption{Criteria tegen front-end frameworks}
@@ -100,7 +102,9 @@ Voor de opties is nogmaals de enquête van Stack Overflow geraadpleegd \cite{sta
 
 React en Vue hebben beide sterke documentatie. Echter wordt React vaker gebruikt dan Vue; voor de front-end is gekozen voor React. De keuze voor het framework van de back-end is makkelijker te maken. De documentatie van .NET Core is uitgebreid maar kan snel overweldigend omdat er zo veel is. Voor de back-end is gekozen voor Node.js.
 
-De component overview van de \acrshort{spa} is te zien in \autoref{fig:ch6-c4-l3-spa} en van de webserver met \acrshort{api} in \autoref{fig:ch6-c4-l3-nodejs}. De \acrshort{spa} bevat een \(AuthManager\) component dat controleert of de developer is ingelogd. Als dat het geval is, stuurt de \(Router\) component de developer door naar de \(Dashboard\), \(Pipeline overview\) of \(Pipeline details\) pagina.
+De component overview van de \acrshort{spa} is te zien in \autoref{fig:ch6-c4-l3-spa} en van de webserver met \acrshort{api} in \autoref{fig:ch6-c4-l3-nodejs}. De \acrshort{spa} bevat een \(AuthManager\) component dat controleert of de developer is ingelogd. Als dat het geval is, stuurt de \(Router\) component de developer door naar de \textit{Dashboard}, \textit{Pipeline overview} of \textit{Pipeline details} pagina.
+
+\newpage
 
 \begin{figure}[hbt!]
   \centering
@@ -110,6 +114,8 @@ De component overview van de \acrshort{spa} is te zien in \autoref{fig:ch6-c4-l3
 \end{figure}
 
 Het component diagram van de Node.js server bevat het complexe gedeelte (\autoref{fig:ch6-c4-l3-nodejs}). Hier komt een \acrshort{api} request binnen in een \(Express Route\). De route maakt vervolgens gebruik van Pulumi en de database om taken uit te voeren zoals het starten van een pipeline, het uploaden van een dataset of de status van een run bekijken.
+
+\newpage
 
 \begin{figure}[hbt!]
   \centering
@@ -122,10 +128,8 @@ De architectuur van de Node.js server is ontworpen volgens het repository-servic
 
 Diagrammen voor het laatste niveau, code, zijn achterwege gelaten omdat klassen niet worden gemaakt. In plaats daarvan worden functies gebruikt om een taak uit te voeren. Brown geeft ook als advies om de klassendiagrammen niet te maken of automatisch te laten genereren \cite{c4-model-faq} omdat de diagrammen vaak tijdens het programmeerproces zullen veranderen. Als alternatief voor de klassendiagrammen is gekozen om sequence diagrammen te maken om een beeld te geven wat er gebeurd op codeniveau.
 
-\newpage
-
 \section{Sequence diagrammen}\label{sec:ch6-sequence-diagrammen}
-Sequence diagrammen zijn gemaakt om het laatste niveau uit te leggen. Voor belangrijke acties zoals het aanmaken of uitvoeren van een pipeline is een sequence diagram gemaakt. Daarnaast is een \acrshort{erd} gemaakt om de structuur van de database weer te geven. In deze paragraaf wordt er door een aantal diagrammen gelopen.
+Sequence diagrammen zijn gemaakt om het laatste niveau uit te leggen. Voor belangrijke acties zoals het aanmaken of uitvoeren van een pipeline is een sequence diagram gemaakt. Daarnaast is een \acrshort{erd} (bijlage \ref{appendix:erd}) gemaakt om de structuur van de database weer te geven. In deze paragraaf wordt er door een aantal diagrammen gelopen.
 
 In \autoref{fig:ch6-c4-sd-create-pipeline} is te zien wat er gebeurt als een pipeline wordt aangemaakt. De developer stuurt een request naar de back-end waar het wordt gevalideerd. De validatie sequence diagram is te vinden in bijlage \ref{appendix:validation-sequence-diagram}. De back-end slaat vervolgens de gegevens op waarna, in parallel, een ingest server, model server en storage bucket worden aangemaakt. De ingest server zorgt voor de intake van datasets, de model server traint het model en in de storage bucket worden alle datasets en modellen opgeslagen. Als deze drie resources zijn aangemaakt, wordt de request voltooid.
 
@@ -136,9 +140,9 @@ In \autoref{fig:ch6-c4-sd-create-pipeline} is te zien wat er gebeurt als een pip
   \label{fig:ch6-c4-sd-create-pipeline}
 \end{figure}
 
-\newpage
+Een sequence diagram is gemaakt om te laten zien wat er gebeurt als een pipeline wordt gestart (\autoref{fig:ch6-c4-sd-start-pipeline}). De developer zal een request maken om de pipeline te starten. Om dit te doen stuurt de back-end een request naar de cloud platform om een \acrfull{vm} te starten. Na het opstarten wordt het trainen van het model automatisch gestart. De back-end past de status van de pipeline aan en voltooit de request. De developer weet nu dat een \acrshort{vm} is gestart en kan vragen naar de output van de \acrshort{vm}. In de output is te zien waar de \acrshort{vm} mee bezig is. Dit gebeurt continu totdat het model getraind is en de artefacten veilig zijn opgeslagen. Dit zijn afbeeldingen, modellen en datasets die bewaard moeten worden. Hierna zal de developer een laatste request sturen om de \acrshort{vm} te verwijderen en de status in de database aan te passen.
 
-Een sequence diagram is gemaakt om te laten zien wat er gebeurt als een pipeline wordt gestart (\autoref{fig:ch6-c4-sd-start-pipeline}). De developer zal een request maken om de pipeline te starten. Om dit te doen stuurt de back-end een request naar de cloud platform om een \acrfull{vm} te starten. Na het opstarten wordt het trainen van het model automatisch gestart. De back-end past de status van de pipeline aan en voltooit de request. De developer weet nu dat een \acrshort{vm} is gestart en kan vragen naar de output van de \acrshort{vm}. In de output is te zien waar de \acrshort{vm} mee bezig is. Dit gebeurt continu totdat het model getraind is en de artefacten veilig zijn opgeslagen. Dit zijn afbeeldingen, modellen en datasets die bewaard moeten worden. Hierna zal de developer een laatste request sturen om de \acrshort{vm} te verwijderen en de status in de database aan te passen. 
+\clearpage
 
 \begin{figure}[hbt!]
   \centering

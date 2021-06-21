@@ -23,18 +23,17 @@
 % Fancy headers and footers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhead[L,R]{}
-\fancyhead[R,L]{}
-\fancyfoot[R,L]{}
-\fancyfoot[C,C]{\thepage}
+\lhead{}
+\rhead{}
+\cfoot{\thepage}
 \fancypagestyle{plain}{%
   \pagestyle{fancy}%
 }
 \fancypagestyle{styledchapter}{%
-  \fancyhead[L,R]{}
-  \fancyhead[R,L]{}
-  \fancyfoot[E,L]{}
-  \fancyfoot[C,C]{\thepage}
+  \lhead{}
+  \rhead{}
+  \cfoot{}
+  % \fancyfoot[C,C]{\thepage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }

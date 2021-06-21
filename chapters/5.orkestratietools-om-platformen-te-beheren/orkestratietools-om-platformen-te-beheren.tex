@@ -116,7 +116,7 @@ In de stack worden drie resources aangemaakt: een network, een firewall en een c
   \label{fig:pulumi-experiment-plan-simple}
 \end{figure}
 
-Elke resource heeft zijn eigen configuratie om ervoor te zorgen dat het HTML bestand beschikbaar is voor de buitenwereld. De code met de volledige configuratie is te vinden in bijlage \ref{appendix:stack-configuration-from-experiment-with-pulumi}.
+Elke resource heeft zijn eigen configuratie om te te zorgen dat het HTML bestand beschikbaar is voor de buitenwereld. De code met de volledige configuratie is te vinden in bijlage \ref{appendix:stack-configuration-from-experiment-with-pulumi}.
 
 In \autoref{fig:pulumi-experiment-endpoint} is te zien wat er in de POST endpoint gebeurt. Als eerst wordt een stack in geheugen aangemaakt met behulp van de code in \autoref{fig:pulumi-experiment-plan-simple}. Na het aanmaken wordt de stack uitgevoerd met de \(stack.up()\) functie op regel 12. Nadat de stack is aangemaakt in Google Cloud wordt een \(GET\) request uitgevoerd naar de server op regel 15. Nadat de request voltooid is wordt de stack verwijderd uit Google Cloud (regel 21) met \(stack.destroy()\) en wordt het bericht teruggestuurd naar de client.
 
@@ -130,6 +130,6 @@ In \autoref{fig:pulumi-experiment-endpoint} is te zien wat er in de POST endpoin
 \section{Conclusie}\label{subsec:ch5-conclusie}
 In dit hoofdstuk is er onderzoek gedaan naar het antwoord op de deelvraag: \textbf{D2: Hoe kan een orkestratietool verschillende cloud computing platformen beheren om een machine learning pipeline op te zetten?} Het onderzoek is uitgevoerd met behulp van digitale bronnen en een experiment.
 
-Een orkestratietool is een manier om resources aan te maken, aan te passen en te verwijderen. De tool doet dit zonder het gebruik van een online portaal of interventie van een developer. Het managen van resources wordt gedaan op basis van een plan en de huidige situatie binnen de cloud platform. In het plan staat welke resources moeten bestaan en met welke configuratie. Het plan kan beschreven worden in een YAML-bestand of door middel van code. De orkestratietool vergelijkt vervolgens het plan met de huidige situatie en zorgt ervoor dat de situatie voldoet aan het plan.
+Een orkestratietool is een manier om resources aan te maken, aan te passen en te verwijderen. De tool doet dit zonder het gebruik van een online portaal of interventie van een developer. Het managen van resources wordt gedaan op basis van een plan en de huidige situatie binnen de cloud platform. In het plan staat welke resources moeten bestaan en met welke configuratie. Het plan kan beschreven worden in een YAML-bestand of door middel van code. De orkestratietool vergelijkt vervolgens het plan met de huidige situatie en zorgt er voor dat de situatie voldoet aan het plan.
 
 De orkestratietool Pulumi is een valide optie uitgaand van het experiment. Pulumi heeft uitstekende documentatie en laat middels output zien wat er gebeurd als Pulumi wordt uitgevoerd. Ook is de manier waarop Pulumi werkt (\autoref{fig:pulumi-experiment-plan-simple}) simpel en makkelijk te volgen.

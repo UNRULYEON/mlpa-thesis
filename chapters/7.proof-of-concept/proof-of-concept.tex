@@ -2,7 +2,7 @@
 Om de PoC daadwerkelijk te maken moet er eerst gedefinieerd worden wat de scope is en hoe de PoC eruit gaat zien. De scope brengt in beeld wat er gedaan moet worden en wat het \acrfull{mvp} is. Op het \acrshort{mvp} kan de mock up gebaseerd worden. In dit hoofdstuk wordt de scope bepaalt, delen van de mock up doorgelopen, uitleg gegeven over de PoC en kwaliteit van de code. Het hoofdstuk wordt afgesloten met een conclusie en advies
 
 \section{User requirements verzamelen}\label{sec:ch7-user-requirements-verzamelen}
-Om te begrijpen wat er gebouwd moet worden kunnen de behoeftes opgeschreven worden in de vorm van user stories. Een user story is de behoefte opgeschreven in een specifiek formaat om belangrijke informatie te achterhalen \cite{agile-user-story-template}. Een bekend formaat is de \textit{Connextra template} van Mike Cohn \cite{agile-user-story-template}: "\textbf{As a [role], I can [capability], so that [receive benefit]}". De template zorgt ervoor dat de rol (role), functie (capability) en reden (benefit) bekend is. In \autoref{fig:ch7-requirements} zijn alle user stories opgesteld, gegroepeerd in Epics. Bij elke user story is ook aangegeven of het \acrshort{mvp} is, welk prioriteit het heeft en de T-shirt size. De T-shirt size is een manier om op een hoog niveau aan te geven hoeveel werk een user story vereist. Een \textbf{S} vereist weinig werk terwijl \textbf{XL} veel werk vereist.
+Om te begrijpen wat er gebouwd moet worden kunnen de behoeftes opgeschreven worden in de vorm van user stories. Een user story is de behoefte opgeschreven in een specifiek formaat om belangrijke informatie te achterhalen \cite{agile-user-story-template}. Een bekend formaat is de \textit{Connextra template} van Mike Cohn \cite{agile-user-story-template}: "\textbf{As a [role], I can [capability], so that [receive benefit]}". De template zorgt er voor dat de rol (role), functie (capability) en reden (benefit) bekend is. In \autoref{fig:ch7-requirements} zijn alle user stories opgesteld, gegroepeerd in Epics. Bij elke user story is ook aangegeven of het \acrshort{mvp} is, welk prioriteit het heeft en de T-shirt size. De T-shirt size is een manier om op een hoog niveau aan te geven hoeveel werk een user story vereist. Een \textbf{S} vereist weinig werk terwijl \textbf{XL} veel werk vereist.
 
 \begin{figure}[hbt!]
   \centering
@@ -16,7 +16,7 @@ De user stories zijn opgesteld in samenwerking met de begeleiders van NGTI over 
 \newpage
 
 \subsection{Requirements vertalen naar een scrum bord}\label{subsec:ch7-requirements-vertalen-naar-een-scrum-bord}
-Een Kanban bord is een werkwijze om visueel aan te geven in welke stadia een taak is in het proces \cite{atlassian-kanban-board}. Taken in een Kanban bord vallen altijd onder een kolom om de status aan te geven. Een kolom kan bijvoorbeeld "todo", "doing", of "done"\space zijn. Een scrum bord is een vorm van een Kanban bord waarbij taken in een sprint zijn ingepland \cite{forecast-scrum-board}. Een sprint is een vaste periode van bijvoorbeeld een of twee weken waarin gewerkt wordt aan de ingeplande taken. Dit verschilt met een Kanban bord waarbij taken op elk moment toegevoegd kunnen worden. In software development kan dit niet; sprints zorgen ervoor dat er geen \gls{scope-creep} plaats vindt.
+Een Kanban bord is een werkwijze om visueel aan te geven in welke stadia een taak is in het proces \cite{atlassian-kanban-board}. Taken in een Kanban bord vallen altijd onder een kolom om de status aan te geven. Een kolom kan bijvoorbeeld "todo", "doing", of "done"\space zijn. Een scrum bord is een vorm van een Kanban bord waarbij taken in een sprint zijn ingepland \cite{forecast-scrum-board}. Een sprint is een vaste periode van bijvoorbeeld een of twee weken waarin gewerkt wordt aan de ingeplande taken. Dit verschilt met een Kanban bord waarbij taken op elk moment toegevoegd kunnen worden. In software development kan dit niet; sprints zorgen dat er geen \gls{scope-creep} plaats vindt.
 
 De user stories uit \autoref{fig:ch7-requirements} zijn vertaald naar tickets in het scrum bord. Een user story is opgesplitst in meerdere tickets. Dit is het geval met bijvoorbeeld user story \string"upload datasets\string" (ID 8). Om deze functionaliteit te bouwen moet een storage bucket beschikbaar zijn en in de front-end de mogelijkheid zijn om dit te doen. In \autoref{fig:ch7-trello-w1-start} zijn de tickets aangemaakt met relevante labels om aan te geven bij welke epic een ticket hoort, of het \acrshort{mvp} is, de prioriteit en T-shirt size.
 
@@ -58,10 +58,10 @@ Gedurende het experiment kwamen geen problemen naar boven; echter bij het implem
 Pulumi verwacht dat de volledige infrastructuur in het plan is beschreven. Het is niet mogelijk om incrementeel de infrastructuur aan te passen. Hier was ook niet omheen te werken. Voor de PoC is daarom gekozen om verder te werken met libraries van de cloud platformen AWS, Google Cloud en Azure zelf. Na het onderzoeken of het mogelijk is om infrastructuur in te richten en gekeken is naar de kwaliteit van de documentatie is gekozen om te werken met de libraries van Google Cloud en Azure. De documentatie van AWS is onoverzichtelijker en Amazon gebruikt unieke termen voor hun resources en services wat de leercurve hoger legt dan de andere twee libraries \cite{aws-sdk-javascript-docs}.
 
 \section{De proof of concept}\label{sec:ch7-de-proof-of-concept}
-In \autoref{sec:ch6-architectuurontwerp} is kort uitgelegd dat de backend gebouwd wordt met Node.js en Express en de front-end met React.js en TypeScript. Voor de PoC is een GitHub repository aangemaakt waarin de front- en backend geïnitialiseerd is met behulp van de documentatie van de frameworks. In de volgende koppen wordt in een logische volgorde door de applicatie gelopen waarbij uitleg over de werking wordt gegeven met screenshots van de \acrshort{ui} en code als ondersteuning.
+In \autoref{sec:ch6-architectuurontwerp} is kort uitgelegd dat de backend gebouwd wordt met Node.js en Express en de front-end met React.js en TypeScript. Voor de PoC is een GitHub repository (\hyperlink{https://github.com/UNRULYEON/mlpa-poc}{https://github.com /UNRULYEON/mlpa-poc}) aangemaakt waarin de front- en backend geïnitialiseerd is met behulp van de documentatie van de frameworks. In de volgende koppen wordt in een logische volgorde door de applicatie gelopen waarbij uitleg over de werking wordt gegeven met screenshots van de \acrshort{ui} en code als ondersteuning.
 
 \subsection{Aanmaken van pipelines}\label{subsec:ch7-aanmaken-van-pipelines}
-Om te beginnen moet een pipeline aangemaakt kunnen worden. In de front-end gaat dit met een dialoog (\autoref{fig:ch7-create-pipeline-dialog}). Hierin kan de naam, project en cloud platform aangegeven worden.
+Om te beginnen moet een pipeline aangemaakt kunnen worden. In de front-end gaat dit met een dialoog (\autoref{fig:ch7-create-pipeline-dialog}). Hierin kan de naam, project en cloud platform aangegeven worden. De PoC zal zowel Google Cloud als Microsoft Azure ondersteunen. Voor het gemak wordt vanaf hier Google Cloud gebruikt. 
 
 \begin{figure}[hbt!]
   \centering
@@ -70,7 +70,7 @@ Om te beginnen moet een pipeline aangemaakt kunnen worden. In de front-end gaat 
   \label{fig:ch7-create-pipeline-dialog}
 \end{figure}
 
-Zodra de developer klikt op de \textbf{Create} knop, wordt een request verstuurt van de front-end naar de backend. De backend stuurt de request naar een service dat ervoor zorgt dat de juiste acties uitgevoerd wordt. De service in \autoref{fig:ch7-create-pipeline-service} controleert welk platform er gespecificeerd is en spreekt de relevante functie aan. Als het platform bijvoorbeeld Google Cloud is, wordt de functie \(gc\_createBucket()\) op regel 6 aangeroepen.
+Zodra de developer klikt op de \textbf{Create} knop, wordt een request verstuurt van de front-end naar de backend. De backend stuurt de request naar een service dat er voor zorgt dat de juiste acties uitgevoerd wordt. De service in \autoref{fig:ch7-create-pipeline-service} controleert welk platform er gespecificeerd is en spreekt de relevante functie aan. Als het platform bijvoorbeeld Google Cloud is, wordt de functie \(gc\_createBucket()\) op regel 6 aangeroepen.
 
 \newpage
 
@@ -128,7 +128,7 @@ Het laatste wat de developer moet doen om de pipeline te starten is het opgeven 
 \begin{figure}[hbt!]
   \centering
   \includegraphics[width=0.9\textwidth]{chapter-7/poc-configuration-dialog.png}
-  \caption{Configuratie dialoog van een pipeline}
+  \caption{Configuratiedialoog van een pipeline}
   \label{fig:ch7-poc-configuration-dialog}
 \end{figure}
 
@@ -164,7 +164,7 @@ De request van de front-end komt in de backend binnen om een pipeline te starten
 
 \newpage
 
-In de configuratie is een startup script gedefinieerd (\autoref{fig:ch7-poc-start-pipeline-google-cloud}, regel 15). Het script wordt uitgevoerd zodra de \acrshort{vm} beschikbaar is en zorgt ervoor dat het model getraind kan worden en \glspl{artifact} opgeslagen worden in de opslaglocatie indien dit nodig is. Op regel 18 in \autoref{fig:ch7-poc-start-pipeline-config-google-cloud} wordt de configuratie die de developer heeft opgeslagen in \autoref{subsec:ch7-configuratie-definieren} in het script gezet. Na het trainen van het model worden alle \glspl{artifact} in de \(output\) map geüpload naar de opslaglocatie. Dit gebeurt met bash commando's op regel 34 en 35.
+In de configuratie is een startup script gedefinieerd (\autoref{fig:ch7-poc-start-pipeline-google-cloud}, regel 15). Het script wordt uitgevoerd zodra de \acrshort{vm} beschikbaar is en zorgt er voor dat het model getraind kan worden en \glspl{artifact} opgeslagen worden in de opslaglocatie indien dit nodig is. Op regel 18 in \autoref{fig:ch7-poc-start-pipeline-config-google-cloud} wordt de configuratie die de developer heeft opgeslagen in \autoref{subsec:ch7-configuratie-definieren} in het script gezet. Na het trainen van het model worden alle \glspl{artifact} in de \(output\) map geüpload naar de opslaglocatie. Dit gebeurt met bash commando's op regel 34 en 35.
 
 \begin{figure}[hbt!]
   \centering
@@ -213,6 +213,10 @@ De toepassing van de \acrshort{dry} principe komt ook voor in de code van de fro
   \label{fig:ch7-front-end-dry-principle-example}
 \end{figure}
 
+\newpage
+
+todo: talk about tests
+
 % ---
 
 \section{Conclusie}\label{sec:ch7-conclusie}
@@ -222,7 +226,7 @@ Middels het implementeren is duidelijk geworden dat een orkestratietool niet de 
 
 De scope van de PoC bevat de stappen uit \autoref{fig:ch4-model-lifecycle-oreilly} om een model te trainen. Het trainen gaat met een Python bestand dat als configuratie wordt opgeslagen. Eerst moet een pipeline aangemaakt worden zodat de PoC de benodigdheden klaar kan zetten voor de developer. Dat is de opslaglocatie in de gekozen cloud platform en informatie over de pipeline in de database. Vervolgens kan de developer een dataset uploaden, de configuratie opslaan en de pipeline starten. Na het starten maakt de PoC een \acrshort{vm} aan in het cloud platform en voert een script uit zodat het model getraind en opgeslagen kan worden samen met overige \glspl{artifact} in de opslaglocatie. Tot slot wordt de \acrshort{vm} verwijderd en is het model beschikbaar om te gebruiken in een webserver of app om voorspellingen of classificaties te maken.
 
-TODO: Maak dit af met een conclusie
+Met de PoC kan een model getraind worden op een cloud platform naar keuze. Door een dataset en configuratie op te geven kan de pipeline gestart worden. De developer hoeft verder geen acties te ondernemen; de pipeline slaat alle artifacten op en verwijderd de aangemaakte resources zodra deze niet meer nodig zijn.
 
 \section{Advies}\label{sec:ch7-advies}
 De PoC laat zien dat het automatiseren van een pipeline mogelijk is. Een developer van NGTI heeft alleen kennis nodig van ML om gebruik te maken van de PoC. Een grote verbetering is de manier hoe een developer configuratie opgeeft om het model te trainen.
@@ -230,15 +234,57 @@ De PoC laat zien dat het automatiseren van een pipeline mogelijk is. Een develop
 % Twee focuspunten worden in de volgende koppen verduidelijkt om de gebruikerservaring en vertrouwbaarheid te verbeteren
 
 \subsection{Configuratie definiëren met stappen}\label{subsec:ch7-configuratie-definieren-met-stappen}
-De PoC vraagt aan de developer om Python code op te geven. Daarnaast wordt de mogelijkheid aangeboden om een link te kopiëren van een dataset om te gebruiken in een van de stappen. Dit kan aanzienlijk verbeterd worden door stappen te maken zoals in \autoref{fig:ch4-model-lifecycle-oreilly}. In \autoref{fig:ch7-advice-steps-config} is een mock up gemaakt van de configuratie dialoog. Links zijn de stappen weergegeven. Bij elke stap kan de developer een optie kiezen of selecteren wat er gedaan moet worden. De PoC converteert vervolgens de gekozen opties in code waarmee een model getraind kan worden.
+De PoC vraagt aan de developer om Python code op te geven. Daarnaast wordt de mogelijkheid aangeboden om een link te kopiëren van een dataset om te gebruiken in een van de stappen. Dit kan aanzienlijk verbeterd worden door stappen te maken zoals in \autoref{fig:ch4-model-lifecycle-oreilly}. In \autoref{fig:ch7-advice-steps-config-1} is een mock up van een verbeterd configuratiedialoog te zien. In plaats van de Python code op te geven, loopt de developer door vijf stappen. De stappen zijn links in de mock up te zien. De éérste stap vraagt naar het type ML probleem. De PoC converteert vervolgens de gekozen opties in code waarmee een model getraind kan worden.
 
 \newpage
 
 \begin{figure}[hbt!]
   \centering
-  \includegraphics[width=1\textwidth]{chapter-7/advice-steps-config.png}
-  \caption{Mock up van een verbeterd configuratie dialoog}
-  \label{fig:ch7-advice-steps-config}
+  \includegraphics[width=.9\textwidth]{chapter-7/advice-steps-config-1.png}
+  \caption{Mock up van een verbeterd configuratiedialoog - Stap 1}
+  \label{fig:ch7-advice-steps-config-1}
 \end{figure}
 
-In de éérste stap in \autoref{fig:ch7-advice-steps-config} is te zien dat het type van het ML probleem wordt gevraagd. Op deze wijze hoeft de developer niet zelf opzoek naar een geschikt algoritme maar kiest welk type ML probleem het is. Op basis hiervan kan de PoC een aantal algoritmes dat het probleem oplost selecteren. Bij stap 5 in \autoref{fig:ch7-advice-steps-config} kan gespecificeerd worden wanneer een model goed genoeg is om uit te rollen. Over het algemeen probeert de PoC relevante opties te geven zodat de developer niet zelf hoeft te programmeren maar simpelweg kan kiezen wat er moet gebeuren.
+Vervolgens kan de structuur van de dataset aangegeven worden in de volgende stap (\autoref{fig:ch7-advice-steps-config-2}). De developer ziet de eerste drie regels en kan kolomnamen opgeven. Onder de definitie is de validatie van de dataset te zien. Bij deze stap kan de developer ook controleren of de dataset geen onverwachte waardes bevat.
+
+\newpage
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.9\textwidth]{chapter-7/advice-steps-config-2.png}
+  \caption{Mock up van een verbeterd configuratiedialoog - Stap 2}
+  \label{fig:ch7-advice-steps-config-2}
+\end{figure}
+
+Nu het systeem meer weet over de structuur van de dataset kan bij de volgende stap taken gemaakt worden om de dataset voor te bereiden (\autoref{fig:ch7-advice-steps-config-3}). Elke taak wordt in volgorde uitgevoerd waarbij de developer definieert wat er gedaan moet worden bij elk kolom. In de mock up worden de getallen afgerond op twee decimalen.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.9\textwidth]{chapter-7/advice-steps-config-3.png}
+  \caption{Mock up van een verbeterd configuratiedialoog - Stap 3}
+  \label{fig:ch7-advice-steps-config-3}
+\end{figure}
+
+De vierde stap is een stap dat alleen uitgevoerd wordt als een pipeline voor de éérste keer draait (\autoref{fig:ch7-advice-steps-config-4}). Bij deze stap wordt onderzocht welke algoritme het beste resultaat oplevert. De developer krijgt een lijst met algoritmes als suggestie op basis van het opgegeven probleem in stap 1. Daarnaast kiest de developer welke hyperparameters gebruikt moeten worden om te testen welke algoritme en hyperparameter combinatie het beste presteert.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.9\textwidth]{chapter-7/advice-steps-config-4.png}
+  \caption{Mock up van een verbeterd configuratiedialoog - Stap 4}
+  \label{fig:ch7-advice-steps-config-4}
+\end{figure}
+
+Als laatste stap wordt door de developer opgegeven hoe goed het nieuwe model moet presteren zodat de pipeline naar de volgende stap kan gaan. (\autoref{fig:ch7-advice-steps-config-5}). Dit kan simpelweg door een meetpunt te definiëren waarbij wordt aangegeven wat de minimale waarde moet zijn. Het meetpunt kan ook gaan over de prestatie van voorgaande modellen; het nieuwe model moet net zo goed of zelfs beter presteren dan zijn voorganger.
+
+\newpage
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=.9\textwidth]{chapter-7/advice-steps-config-5.png}
+  \caption{Mock up van een verbeterd configuratiedialoog - Stap 5}
+  \label{fig:ch7-advice-steps-config-5}
+\end{figure}
+
+Met de verbeterde configuratiedialoog heeft de developer hetzelfde resultaat bereikt als een Python bestand waarin acties staan om een model te trainen. De manier met het verbeterd configuratiedialoog is gebruiksvriendelijker doordat er gevraagd wordt wat de developer wilt doen. Het systeem zorgt er voor dat code gegenereerd wordt om de gedefinieerde actie uit te voeren.
+
+% In de éérste stap in \autoref{fig:ch7-advice-steps-config} is te zien dat het type van het ML probleem wordt gevraagd. Op deze wijze hoeft de developer niet zelf opzoek naar een geschikt algoritme maar kiest welk type ML probleem het is. Op basis hiervan kan de PoC een aantal algoritmes dat het probleem oplost selecteren. Bij stap 5 in \autoref{fig:ch7-advice-steps-config} kan gespecificeerd worden wanneer een model goed genoeg is om uit te rollen. Over het algemeen probeert de PoC relevante opties te geven zodat de developer niet zelf hoeft te programmeren maar simpelweg kan kiezen wat er moet gebeuren.
