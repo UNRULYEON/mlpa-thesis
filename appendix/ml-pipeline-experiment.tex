@@ -1,22 +1,37 @@
 \section{Machine learning pipeline experiment}\label{appendix:ml-pipeline-experiment}
+Het experiment is uitgevoerd om te valideren of de stappen van de ML pipeline valide zijn en om de stappen beter te begrijpen. Het machine learning probleem dat wordt gebruikt om de ML pipeline te testen is het iris probleem. Bij dit probleem hoort een dataset dat bestaat uit 150 samples van drie iris soorten: Setosa, Virginica en Versicolor. Elk voorbeeld heeft de lengte en breedte van de kelk- en bloemblad met de bijbehorende soort iris. In \autoref{table:example-iris-dataset} is een voorbeeld van de dataset te zien. Het model zal een van de drie soorten kunnen herkennen op basis van de lengte en breedte van een gegeven kelk- en bloemblad. 
+
+\begin{table}[hbt!]
+  \footnotesize
+  \centering
+  \begin{tabular}{|l|l|l|l|l|}
+  \hline
+  \textbf{Kelkblad - lengte} & \textbf{Kelkblad - breedte} & \textbf{Bloemblad - lengte} & \textbf{Bloemblad - breedte} & \textbf{Soort} \\ \hline
+  5.1 & 3.5 & 1.4 & 0.2 & Iris-setosa\\ \hline
+  \end{tabular}
+  \caption{Voorbeeld van de iris dataset}
+  \label{table:example-iris-dataset}
+\end{table}
 
 \begin{figure}[hbt!]
   \centering
-  \includegraphics[width=0.75\textwidth]{ml-iris/ml-iris-imports.png}
+  \includegraphics[width=0.6\textwidth]{ml-iris/ml-iris-imports.png}
   \caption{Importeren van modules}
   \label{fig:appendix:ml-iris-imports}
 \end{figure}
 
 \begin{figure}[hbt!]
   \centering
-  \includegraphics[width=0.75\textwidth]{ml-iris/ml-iris-1-import-dataset.png}
+  \includegraphics[width=0.8\textwidth]{ml-iris/ml-iris-1-import-dataset.png}
   \caption{Importeren van de dataset}
   \label{fig:appendix:ml-iris-1-import-dataset}
 \end{figure}
 
+\clearpage
+
 \begin{figure}[hbt!]
   \centering
-  \includegraphics[width=0.75\textwidth]{ml-iris/ml-iris-2-data-validation.png}
+  \includegraphics[width=0.8\textwidth]{ml-iris/ml-iris-2-data-validation.png}
   \caption{Validatie van de dataset}
   \label{fig:appendix:ml-iris-2-data-validation}
 \end{figure}

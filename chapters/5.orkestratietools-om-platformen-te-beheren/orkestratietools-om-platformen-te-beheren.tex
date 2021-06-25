@@ -85,14 +85,14 @@ Voor de keuzes uit de tools is onderzoek gedaan op het internet en een enquête 
 In \autoref{table:orchestration-tools-compared-against-knock-out-criteria} is te zien dat de drie orkestratietools gelijk zijn als het gaat om de ondersteuning van cloud platform en documentatie. Programmatisch beheren kan met Ansible en Terraform alleen door middel van een YAML-bestand in tegenstelling tot Pulumi dat via code een plan kan uitvoeren. Omdat het praktischer voor de PoC is om via code een plan uit te voeren, is er voor gekozen om met Pulumi verder te werken. In het volgende hoofdstuk zal een experiment met Pulumi uitgevoerd worden om te valideren of Pulumi geschikt is.
 
 \section{Experiment met de orkestratietool Pulumi}\label{subsec:ch5-experiment-met-de-orkestratietool-pulumi}
-Het idee achter het experiment is om te achterhalen of Pulumi een geschikte orkestratietool is. Op dit moment in het afstudeerproces wordt er verwacht dat de PoC een front-end krijgt dat praat door middel van een \acrfull{rest} \Acrshort{api} met een back-end. De back-end zal vervolgens gebruik maken van de orkestratietool om te praten met een cloud platform. Om de PoC na te bootsen op kleinere schaal wordt er bij het experiment gebruik gemaakt van een client waarbij een opdracht met behulp van een \Acrshort{rest} \Acrshort{api} naar een Node.js server wordt verstuurd. De Node.js server stuurt om zijn beurt opdrachten naar Pulumi die communiceert met Google Cloud. Voor het experiment is arbitrair gekozen voor het cloud platform; de PoC moet ten slotte platform-agnostisch zijn.
+Het idee achter het experiment is om te achterhalen of Pulumi een geschikte orkestratietool is. Op dit moment in het afstudeerproces wordt er verwacht dat de PoC een frontend krijgt dat praat door middel van een \acrfull{rest} \Acrshort{api} met een backend. De backend zal vervolgens gebruik maken van de orkestratietool om te praten met een cloud platform. Om de PoC na te bootsen op kleinere schaal wordt er bij het experiment gebruik gemaakt van een client waarbij een opdracht met behulp van een \Acrshort{rest} \Acrshort{api} naar een Node.js server wordt verstuurd. De Node.js server stuurt om zijn beurt opdrachten naar Pulumi die communiceert met Google Cloud. Voor het experiment is arbitrair gekozen voor het cloud platform; de PoC moet ten slotte platform-agnostisch zijn.
 
-Het experiment is als sequence diagram uitgewerkt in \autoref{fig:sd-pulumi-experiment}. Hierin is goed te zien welke acties gedaan worden en door welke actor. In de sequence diagram is ook te zien wat voor taak wordt uitgevoerd aan de hand van de naam tussen de actoren.
+Het experiment is als sequence-diagram uitgewerkt in \autoref{fig:sd-pulumi-experiment}. Hierin is goed te zien welke acties gedaan worden en door welke actor. In de sequence-diagram is ook te zien wat voor taak wordt uitgevoerd aan de hand van de naam tussen de actoren.
 
 \begin{figure}[hbt!]
   \centering
   \includegraphics[width=.99\textwidth]{chapter-5/sd-pulumi-experiment.png}
-  \caption{Sequence diagram van het experiment met orkestratietool Pulumi}
+  \caption{Sequence-diagram van het experiment met orkestratietool Pulumi}
   \label{fig:sd-pulumi-experiment}
 \end{figure}
 

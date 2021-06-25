@@ -31,7 +31,7 @@ Een ML pipeline begint met het opnemen van data en eindigt met het ontvangen van
   \label{fig:ch4-model-lifecycle-oreilly}
 \end{figure}
 
-In totaal zijn er negen stappen die elke keer doorlopen kunnen worden om een model te trainen. In de volgende subkoppen zullen de stappen worden doorlopen met een korte uitleg over wat er gebeurt in een stap. 
+In totaal zijn er negen stappen die elke keer doorlopen kunnen worden om een model te trainen. In de volgende deelpragrafen zullen de stappen worden doorlopen met een korte uitleg over wat er gebeurt in een stap. 
 
 \subsection{Stap 1: Dataopname en versiebeheer (Data ingestion/versioning)}\label{subsec:ch4-data-opname-en-versiebeheer}
 De eerste stap in de pipeline is het opnemen van data. Met deze data zal het model getraind, gevalideerd en getest worden. De dataset kan van een of meerdere bronnen komen, zoals lokaal, een online opslag locatie of van een database. De dataset kan gekopieerd worden en op een plek worden opgeslagen waar alle datasets te vinden zijn. Zodra de data op een bereikbare plek is opgeslagen en is ingeladen in de code, moet het verdeeld worden tussen een train-, validatie- en testdataset. Normaal gebeurt dit met een splitratio van 6:2:2. De train dataset is 60\% en de validatie en testdatasets zijn allebei 20\% van de originele dataset \cite[p.~27-37]{building-machine-learning-pipelines-oreilly}.
