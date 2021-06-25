@@ -3,15 +3,18 @@
 \renewcommand{\thesection}{\Roman{section}}
 
 \newpage
-\pagecolor{pink}
+\AddToShipoutPicture*{\ChapterBackground}
 
-\titleformat{\chapter}{\normalfont\Huge}{\thechapter}{20pt}{\Huge}
-\chapter*{\textbf{Bijlagen}}\thispagestyle{styledchapter}
+\titleformat{\chapter}{\fontsize{35}{35}\selectfont}{}{0pt}{}\thispagestyle{styledchapter}
+\chapter*{\fontfamily{qag}\selectfont\textcolor{white}{\textbf{Bijlagen}}}\thispagestyle{styledchapter}
 \label{bijlagen}
+
+\vspace*{\fill}
+
+{\fontfamily{qag}\fontsize{500}{500}\selectfont\color{garbagepurple}\textbf{\thechapter}}
 
 \hfill\break
 
-\afterpage{\nopagecolor}
 \newpage
 
 \input{appendix/subquestions-scope.tex}

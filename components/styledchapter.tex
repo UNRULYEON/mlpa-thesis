@@ -6,14 +6,21 @@
 [Title]
 {
   \newpage
-  \pagecolor{pink}
+  \AddToShipoutPicture*{\ChapterBackground}
+  % \pagecolor{pink}
 
-  \titleformat{\chapter}{\normalfont\Huge}{\textbf{\thechapter}}{20pt}{\Huge}
+  \titleformat{\chapter}{\fontfamily{qag}\color{white}\fontsize{37}{37}\selectfont}{}{0pt}{}\thispagestyle{styledchapter}
   \chapter{\textbf{#1}}\thispagestyle{styledchapter}
   \label{chap:#2}
 
+  % \fontfamily{qag}\selectfont\textcolor{white}{\textbf{#1}}
+
+  \vspace*{\fill}
+
+  {\fontfamily{qag}\fontsize{500}{500}\selectfont\color{garbagepurple}\textbf{\thechapter}}
+
   \hfill\break
 
-  \afterpage{\nopagecolor}
+  % \afterpage{\nopagecolor}
   \newpage
 }

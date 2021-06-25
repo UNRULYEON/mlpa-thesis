@@ -85,6 +85,27 @@
 % Rotate page to landscape
 \usepackage{rotating}
 
+% Change font size
+\usepackage{anyfontsize}
+
+% Background image
+\usepackage{eso-pic}
+\newcommand\ChapterBackground{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{./images/chapter-page.png}%
+\vfill
+}}}
+
+% Text colour
+\usepackage{xcolor}
+\definecolor{garbagepurple}{RGB}{158,76,230}
+
+\usepackage{titlesec}
+
 % Adjust spacing
 \usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 
@@ -103,7 +124,35 @@
 \begin{document}
 
   % Title page
-  \maketitle\thispagestyle{empty}\cleardoublepage
+  % \maketitle\thispagestyle{empty}\clearpage
+  \begin{titlepage}
+    \centering
+    \vspace*{8cm}
+    {\huge\bfseries Machine Learning Pipeline Automation\par}
+    \vfill
+    
+    \begin{figure}[hbt!]
+      \centering
+      \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=0.3\textwidth]{ngti-logo.png}
+          \vspace{.25cm}
+          \\ {\Large NGTI}
+      \end{minipage}\hfill
+      \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=0.3\textwidth]{hr-logo.png}
+          \vspace{.25cm}
+          \\ {\Large Hogeschool Rotterdam}
+      \end{minipage}
+    \end{figure}
+
+    \vspace{2cm}
+  
+    {\Large Amar Kisoensingh - 0953223\par}
+    {\large Zoetermeer\par}
+    {\large \today\par}
+  \end{titlepage}
 
   \input{chapters/0.voorwoord/voorwoord.tex}
 
@@ -150,7 +199,7 @@
   \input{chapters/9.reflectie/reflectie.tex}
 
   % Bibliography
-  \styledunmarkedchapter[\bibname]{bibliografie}
+  \styledchapter[\bibname]{bibliografie}
   \printbibliography[heading=none]
 
   % Appendix input
